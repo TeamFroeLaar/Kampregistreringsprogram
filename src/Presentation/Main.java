@@ -23,7 +23,7 @@ public class Main extends Application {
 		grid.setPadding(new Insets(25, 25, 25, 25)); 
 
 		//Buttons
-		Button createMatch = new Button("New Match");
+		Button createMatch = new Button("New match");
 		grid.add(createMatch, 1, 1);
 		createMatch.setStyle("-fx-background-color:\n"
                 + "        rgba(0,0,0,0.08),\n"
@@ -37,12 +37,22 @@ public class Main extends Application {
 		createMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				// TODO Auto-generated method stub 
+				CreateMatch view = new CreateMatch(stage);
+				view.init();
 			}
 		});
 		
 		Button createTeam = new Button("New team");
 		grid.add(createTeam, 1, 2);
+		createTeam.setStyle("-fx-background-color:\n"
+                + "        rgba(0,0,0,0.08),\n"
+                + "        linear-gradient(#9a9a9a, #909090),\n"
+                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
+                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
+                + "    -fx-background-radius: 5,5,4;\n"
+                + "    -fx-padding: 10 26 10 26;\n"
+                + "    -fx-text-fill: #242d35;\n"
+                + "    -fx-font-size: 14px;");
 		createTeam.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
@@ -53,19 +63,39 @@ public class Main extends Application {
 
 		Button editMatch = new Button("Edit match");
 		grid.add(editMatch, 1, 3);
+		editMatch.setStyle("-fx-background-color:\n"
+                + "        rgba(0,0,0,0.08),\n"
+                + "        linear-gradient(#9a9a9a, #909090),\n"
+                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
+                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
+                + "    -fx-background-radius: 5,5,4;\n"
+                + "    -fx-padding: 10 26 10 26;\n"
+                + "    -fx-text-fill: #242d35;\n"
+                + "    -fx-font-size: 14px;");
 		editMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				// TODO Auto-generated method stub
+				ViewMatchInfo view = new ViewMatchInfo(stage);
+				view.init();
 			}
 		});
 		
 		Button showLiga = new Button("Show liga");
 		grid.add(showLiga, 1, 4);
+		showLiga.setStyle("-fx-background-color:\n"
+                + "        rgba(0,0,0,0.08),\n"
+                + "        linear-gradient(#9a9a9a, #909090),\n"
+                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
+                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
+                + "    -fx-background-radius: 5,5,4;\n"
+                + "    -fx-padding: 10 26 10 26;\n"
+                + "    -fx-text-fill: #242d35;\n"
+                + "    -fx-font-size: 14px;");
 		showLiga.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				// TODO Auto-generated method stub
+				ViewLeague view = new ViewLeague(stage);
+				view.init();
 			}
 		});
 		
