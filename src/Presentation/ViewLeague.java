@@ -34,19 +34,19 @@ public class ViewLeague {
 		
 		//TableView Rækker
 		TableColumn<Hold, String> stillingCol = new TableColumn<Hold, String>("Stilling");
-		stillingCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("stilling");
+		stillingCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("stilling"));
 		
 		TableColumn<Hold, String> holdnavnCol = new TableColumn<Hold, String>("Hold navn");
-		holdnavnCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("holdnavn");
+		holdnavnCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("holdnavn"));
 		
 		TableColumn<Hold, String> maalCol = new TableColumn<Hold, String>("Mål");
-		maalCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("mål");
+		maalCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("mål"));
 		
 		TableColumn<Hold, String> udvisningsCol = new TableColumn<Hold, String>("Udvisninger");
-		udvisningsCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("udvisninger");
+		udvisningsCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("udvisninger"));
 		
 		TableColumn<Hold, String> pointCol = new TableColumn<Hold, String>("Points");
-		pointCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("points");
+		pointCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("points"));
 		
 		Scene viewleague = new Scene(grid, 400, 375);
 		stage.setScene(viewleague);
