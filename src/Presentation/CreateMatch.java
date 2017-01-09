@@ -61,7 +61,7 @@ public class CreateMatch {
 			grid.add(uholdfelt, 1, 3);
 		
 		//Buttons
-		Button tilbage = new Button("tilbage");
+		Button tilbage = new Button("return");
 		grid.add(tilbage, 0, 5);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
@@ -85,4 +85,3 @@ public class CreateMatch {
 		stage.show();
 	}
 }
-
