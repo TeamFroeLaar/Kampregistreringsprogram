@@ -93,7 +93,7 @@ public class Main extends Application {
                 + "    -fx-background-radius: 5,5,4;\n"
                 + "    -fx-padding: 10 26 10 26;\n"
                 + "    -fx-text-fill: #242d35;\n"
-                + "    -fx-pref-width: 150;\n"
+                + "    -fx-pref-width: 150;\n" 
                 + "    -fx-font-size: 14px;");
 		showLiga.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
