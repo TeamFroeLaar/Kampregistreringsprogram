@@ -20,7 +20,7 @@ public class Main extends Application {
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
 		grid.setVgap(10);
-		grid.setPadding(new Insets(25, 25, 25, 25));
+		grid.setPadding(new Insets(25, 25, 25, 25)); 
 
 		//Buttons
 		Button createMatch = new Button("New match");
