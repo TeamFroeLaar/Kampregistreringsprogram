@@ -20,7 +20,7 @@ public class ViewMatch {
 
 	public void init() 
 	{
-		stage.setTitle("View league");
+		stage.setTitle("View match");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
