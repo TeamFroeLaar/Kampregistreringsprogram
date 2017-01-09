@@ -91,7 +91,7 @@ public class Main extends Application {
                 + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
                 + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
                 + "    -fx-background-radius: 5,5,4;\n"
-                + "    -fx-padding: 10 26 10 26;\n"
+                + "    -fx-padding: 10 26 10 26;\n" 
                 + "    -fx-text-fill: #242d35;\n"
                 + "    -fx-pref-width: 150;\n" 
                 + "    -fx-font-size: 14px;");
