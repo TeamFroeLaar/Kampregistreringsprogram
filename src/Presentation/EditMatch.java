@@ -23,7 +23,7 @@ public class EditMatch {
 	public void init() 
 	{
 		//main grid
-		stage.setTitle("View match info");
+		stage.setTitle("edit match");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
@@ -134,8 +134,8 @@ public class EditMatch {
 			}
 		});
 		
-		Scene viewmatchinfo = new Scene(grid, 400, 375);
-		stage.setScene(viewmatchinfo);
+		Scene editmatchinfo = new Scene(grid, 400, 375);
+		stage.setScene(editmatchinfo);
 		stage.show();
 	}
 }
