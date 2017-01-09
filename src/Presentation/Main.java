@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -22,6 +23,9 @@ public class Main extends Application {
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25)); 
+		
+		stage.setTitle("Håndbold - Kampregistreringsprogram");
+		stage.getIcons().add(new Image("Presentation/handball.png"));
 
 		//Buttons
 		Button createMatch = new Button("New match");
