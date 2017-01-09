@@ -54,7 +54,7 @@ public class Main extends Application {
 		editMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				ViewMatchInfo view = new ViewMatchInfo(stage);
+				EditMatch view = new EditMatch(stage);
 				view.init();
 			}
 		});

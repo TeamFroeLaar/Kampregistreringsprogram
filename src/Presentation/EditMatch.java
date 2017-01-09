@@ -9,11 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class ViewMatchInfo {
+public class EditMatch {
 	private Stage stage;
 	private GridPane grid;
 	
-	public ViewMatchInfo(Stage stage) {
+	public EditMatch(Stage stage) {
 		this.stage = stage;
 	
 	}
