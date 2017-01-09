@@ -25,6 +25,15 @@ public class Main extends Application {
 		//Buttons
 		Button createMatch = new Button("New Match");
 		grid.add(createMatch, 1, 1);
+		createMatch.setStyle("-fx-background-color:\n"
+                + "        rgba(0,0,0,0.08),\n"
+                + "        linear-gradient(#9a9a9a, #909090),\n"
+                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
+                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
+                + "    -fx-background-radius: 5,5,4;\n"
+                + "    -fx-padding: 10 26 10 26;\n"
+                + "    -fx-text-fill: #242d35;\n"
+                + "    -fx-font-size: 14px;");
 		createMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
