@@ -17,6 +17,7 @@ public class Main extends Application {
 
 		//Grids
 		GridPane grid = new GridPane();
+		grid.setGridLinesVisible(false);
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
 		grid.setVgap(10);
@@ -24,7 +25,7 @@ public class Main extends Application {
 
 		//Buttons
 		Button createMatch = new Button("New match");
-		grid.add(createMatch, 1, 1);
+		grid.add(createMatch, 0, 0);
 		createMatch.setStyle("-fx-background-color:\n"
                 + "        rgba(0,0,0,0.08),\n"
                 + "        linear-gradient(#9a9a9a, #909090),\n"
@@ -44,7 +45,7 @@ public class Main extends Application {
 		});
 		
 		Button createTeam = new Button("New team");
-		grid.add(createTeam, 1, 2);
+		grid.add(createTeam, 0, 1);
 		createTeam.setStyle("-fx-background-color:\n"
                 + "        rgba(0,0,0,0.08),\n"
                 + "        linear-gradient(#9a9a9a, #909090),\n"
@@ -64,7 +65,7 @@ public class Main extends Application {
 		});
 
 		Button editMatch = new Button("Edit match");
-		grid.add(editMatch, 1, 3);
+		grid.add(editMatch, 0, 2);
 		editMatch.setStyle("-fx-background-color:\n"
                 + "        rgba(0,0,0,0.08),\n"
                 + "        linear-gradient(#9a9a9a, #909090),\n"
@@ -84,7 +85,7 @@ public class Main extends Application {
 		});
 		
 		Button showLiga = new Button("Show liga");
-		grid.add(showLiga, 1, 4);
+		grid.add(showLiga, 0, 3);
 		showLiga.setStyle("-fx-background-color:\n"
                 + "        rgba(0,0,0,0.08),\n"
                 + "        linear-gradient(#9a9a9a, #909090),\n"
