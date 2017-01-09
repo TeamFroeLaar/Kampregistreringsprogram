@@ -28,7 +28,7 @@ public class Main extends Application {
 		createMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				// TODO Auto-generated method stub
+				// TODO Auto-generated method stub 
 			}
 		});
 		
