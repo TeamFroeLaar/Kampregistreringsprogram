@@ -37,7 +37,8 @@ public class Main extends Application {
 		createTeam.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				// TODO Auto-generated method stub
+				CreateTeam view = new CreateTeam(stage);
+				view.init();
 			}
 		});
 
