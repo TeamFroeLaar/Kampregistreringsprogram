@@ -27,6 +27,28 @@ public class ViewMatch {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
+		// TableView
+//		TableView<MatchID> table = new TableView<>();
+//		table.setEditable(true);
+//		table.setItems(data);
+
+		// TableView Rækker
+//		TableColumn<MatchID, String> stillingCol = new TableColumn<MatchID, String>("tablenavn");
+//		stillingCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
+//
+//		TableColumn<MatchID, String> holdnavnCol = new TableColumn<MatchID, String>("tablenavn");
+//		holdnavnCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
+//
+//		TableColumn<MatchID, String> maalCol = new TableColumn<MatchID, String>("tablenavn");
+//		maalCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
+//
+//		TableColumn<MatchID, String> udvisningsCol = new TableColumn<MatchID, String>("tablenavn");
+//		udvisningsCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
+//
+//		TableColumn<MatchID, String> pointCol = new TableColumn<MatchID, String>("tablenavn");
+//		pointCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
+//		
+//		table.getColums().addAll()
 		//Buttons
 		Button tilbage = new Button("return");
 		grid.add(tilbage, 0, 5);

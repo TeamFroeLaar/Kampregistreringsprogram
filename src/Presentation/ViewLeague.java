@@ -1,8 +1,11 @@
 package Presentation;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -46,7 +49,21 @@ public class ViewLeague {
 //
 //		TableColumn<Hold, String> pointCol = new TableColumn<Hold, String>("Points");
 //		pointCol.setCellValueFactory(new PropertyValueFactory<Hold, String>("points"));
-
+//
+//		table.getColumns().addAll(stillingCol, holdnavnCol, maalCol, udvisningCol, pointCol);
+//		grid.add(table, 0, 0);
+		
+		//Buttons
+		Button tilbage = new Button("return");
+		grid.add(tilbage, 0, 5);
+		tilbage.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Main view = new Main();
+				view.start(stage);
+			}
+		});
+		
 		Scene viewleague = new Scene(grid, 400, 375);
 		stage.setScene(viewleague);
 		stage.show();
