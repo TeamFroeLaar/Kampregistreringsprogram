@@ -64,7 +64,7 @@ public class Main extends Application {
 		showLiga.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				ViewMatch view = new ViewMatch(stage);
+				ViewLeague view = new ViewLeague(stage);
 				view.init();
 			}
 		});
