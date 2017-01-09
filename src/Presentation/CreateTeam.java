@@ -7,17 +7,17 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class CreateTeam {
-	private Stage primaryStage;
+	private Stage stage;
 	private GridPane grid;
 	
-	public CreateTeam(Stage primaryStage) {
-		this.primaryStage = primaryStage;
+	public CreateTeam(Stage stage) {
+		this.stage = stage;
 	
 	}
 
 	public void init() 
 	{
-		primaryStage.setTitle("Create a team");
+		stage.setTitle("Create a team");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
@@ -25,8 +25,8 @@ public class CreateTeam {
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
 		Scene createteam = new Scene(grid, 400, 375);
-		primaryStage.setScene(createteam);
-		primaryStage.show();
+		stage.setScene(createteam);
+		stage.show();
 	}
 }
 
