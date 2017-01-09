@@ -27,33 +27,7 @@ public class ViewLeague {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
-		//Buttons
-		Button tilbage = new Button("return");
-		grid.add(tilbage, 0, 5);
-		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
-			@Override
-			public void handle(ActionEvent event) {
-				Main view = new Main();
-				view.start(stage);
-			}
-		});
-		Button sekamp = new Button("Se Kamp");
-		grid.add(sekamp, 1 , 5);
-		sekamp.setOnAction(new EventHandler<ActionEvent>() {	
-			@Override
-			public void handle(ActionEvent event) {
-				//Åben nyt vindue med kamp
-			}
-		});
-		Button redkamp = new Button("Rediger Kamp");
-		grid.add(redkamp, 1, 6);
-		redkamp.setOnAction(new EventHandler<ActionEvent>() {	
-			@Override
-			public void handle(ActionEvent event) {
-				EditMatch view = new EditMatch(stage);
-				view.init();
-			}
-		});
+		
 		Scene viewleague = new Scene(grid, 400, 375);
 		stage.setScene(viewleague);
 		stage.show();
