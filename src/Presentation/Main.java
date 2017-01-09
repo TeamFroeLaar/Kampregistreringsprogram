@@ -26,16 +26,7 @@ public class Main extends Application {
 		//Buttons
 		Button createMatch = new Button("New match");
 		grid.add(createMatch, 0, 0);
-		createMatch.setStyle("-fx-background-color:\n"
-                + "        rgba(0,0,0,0.08),\n"
-                + "        linear-gradient(#9a9a9a, #909090),\n"
-                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
-                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
-                + "    -fx-background-radius: 5,5,4;\n" 
-                + "    -fx-padding: 10 26 10 26;\n"
-                + "    -fx-text-fill: #242d35;\n"
-                + "    -fx-pref-width: 150;\n"
-                + "    -fx-font-size: 14px;");
+		
 		createMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
@@ -46,16 +37,6 @@ public class Main extends Application {
 		
 		Button createTeam = new Button("New team");
 		grid.add(createTeam, 0, 1);
-		createTeam.setStyle("-fx-background-color:\n"
-                + "        rgba(0,0,0,0.08),\n"
-                + "        linear-gradient(#9a9a9a, #909090),\n"
-                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
-                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
-                + "    -fx-background-radius: 5,5,4;\n"
-                + "    -fx-padding: 10 26 10 26;\n"
-                + "    -fx-text-fill: #242d35;\n"
-                + "    -fx-pref-width: 150;\n"
-                + "    -fx-font-size: 14px;");
 		createTeam.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
@@ -66,16 +47,6 @@ public class Main extends Application {
 
 		Button editMatch = new Button("Edit match");
 		grid.add(editMatch, 0, 2);
-		editMatch.setStyle("-fx-background-color:\n"
-                + "        rgba(0,0,0,0.08),\n"
-                + "        linear-gradient(#9a9a9a, #909090),\n"
-                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
-                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
-                + "    -fx-background-radius: 5,5,4;\n"
-                + "    -fx-padding: 10 26 10 26;\n"
-                + "    -fx-text-fill: #242d35;\n"
-                + "    -fx-pref-width: 150;\n"
-                + "    -fx-font-size: 14px;");
 		editMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
@@ -86,16 +57,6 @@ public class Main extends Application {
 		
 		Button showLiga = new Button("Show liga");
 		grid.add(showLiga, 0, 3);
-		showLiga.setStyle("-fx-background-color:\n"
-                + "        rgba(0,0,0,0.08),\n"
-                + "        linear-gradient(#9a9a9a, #909090),\n"
-                + "        linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);\n"
-                + "    -fx-background-insets: 0 0 -1 0,0,1;\n"
-                + "    -fx-background-radius: 5,5,4;\n"
-                + "    -fx-padding: 10 26 10 26;\n" 
-                + "    -fx-text-fill: #242d35;\n"
-                + "    -fx-pref-width: 150;\n" 
-                + "    -fx-font-size: 14px;");
 		showLiga.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
