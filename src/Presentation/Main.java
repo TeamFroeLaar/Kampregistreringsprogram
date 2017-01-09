@@ -23,7 +23,7 @@ public class Main extends Application {
 		grid.setPadding(new Insets(25, 25, 25, 25)); 
 
 		//Buttons
-		Button createMatch = new Button("New match");
+		Button createMatch = new Button("New Match");
 		grid.add(createMatch, 1, 1);
 		createMatch.setStyle("-fx-background-color:\n"
                 + "        rgba(0,0,0,0.08),\n"
