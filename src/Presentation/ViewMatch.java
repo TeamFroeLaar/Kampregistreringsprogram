@@ -54,8 +54,8 @@ public class ViewMatch {
 				view.init();
 			}
 		});
-		Scene viewleague = new Scene(grid, 400, 375);
-		stage.setScene(viewleague);
+		Scene viewMatch = new Scene(grid, 400, 375);
+		stage.setScene(viewMatch);
 		stage.show();
 	}
 }
