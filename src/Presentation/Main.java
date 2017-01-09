@@ -49,12 +49,12 @@ public class Main extends Application {
 			}
 		});
 
-		Button editMatch = new Button("Edit match");
-		grid.add(editMatch, 0, 2);
-		editMatch.setOnAction(new EventHandler<ActionEvent>() {			
+		Button ViewMatch = new Button("View match");
+		grid.add(ViewMatch, 0, 2);
+		ViewMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				EditMatch view = new EditMatch(stage);
+				ViewMatch view = new ViewMatch(stage);
 				view.init();
 			}
 		});
@@ -64,7 +64,7 @@ public class Main extends Application {
 		showLiga.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				ViewLeague view = new ViewLeague(stage);
+				ViewMatch view = new ViewMatch(stage);
 				view.init();
 			}
 		});

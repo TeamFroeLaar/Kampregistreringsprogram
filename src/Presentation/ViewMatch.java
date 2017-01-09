@@ -9,11 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class ViewLeague {
+public class ViewMatch {
 	private Stage stage;
 	private GridPane grid;
 	
-	public ViewLeague(Stage stage) {
+	public ViewMatch(Stage stage) {
 		this.stage = stage;
 	
 	}

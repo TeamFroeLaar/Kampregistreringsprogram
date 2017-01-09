@@ -129,8 +129,8 @@ public class EditMatch {
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				Main view = new Main();
-				view.start(stage);
+				ViewMatch view = new ViewMatch(stage);
+				view.init();
 			}
 		});
 		
