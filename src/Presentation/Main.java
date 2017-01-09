@@ -59,7 +59,7 @@ public class Main extends Application {
 			}
 		});
 		
-		Button showLiga = new Button("Show liga");
+		Button showLiga = new Button("View league");
 		grid.add(showLiga, 0, 3);
 		showLiga.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
