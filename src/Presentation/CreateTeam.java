@@ -46,7 +46,7 @@ public class CreateTeam {
 				Team newTeam = new Team();
 				
 				newTeam.setHoldnavn(navn.getText());
-				logic.createTeam(newTeam);
+				logic.createTeamInfo(newTeam);
 			}
 		});
 
