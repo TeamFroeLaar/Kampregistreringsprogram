@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import Domain.Team;
 
-public class CreateTeam {
+public class CreateTeamDB {
 	public void createTeam(Team team) {
 		try (Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/kampReg", "SA", "");
 				PreparedStatement statement = connection.prepareStatement("INSERT INTO HOLD (HOLDNAVN) VALUES (?)");) {

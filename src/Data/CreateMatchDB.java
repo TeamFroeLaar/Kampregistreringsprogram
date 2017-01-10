@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import Domain.Match;
 
-public class CreateMatch {
+public class CreateMatchDB {
 	public void createMatch(Match match) {
 		try (Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/kampReg", "SA", "");
 				PreparedStatement statement = connection
