@@ -4,10 +4,22 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextBoundsType;
 import javafx.stage.Stage;
 
 public class EditMatch {
@@ -15,44 +27,53 @@ public class EditMatch {
 	private GridPane grid;
 	private GridPane hjemmeholdGrid;
 	private GridPane udeholdGrid;
-	
-	public EditMatch(Stage stage) {
-		this.stage = stage;
-	}
 
-	public void init() 
-	{
-		//main grid
+	 public EditMatch(Stage stage) {
+	 this.stage = stage;
+	 }
+	 
+	public void init() {
+		// main grid
 		stage.setTitle("edit match");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
-		
-		//hjemme- og udeholdgrid
+
+		// hjemme- og udeholdgrid
 		hjemmeholdGrid = new GridPane();
 		hjemmeholdGrid.setAlignment(Pos.TOP_CENTER);
 		hjemmeholdGrid.setHgap(10);
 		hjemmeholdGrid.setVgap(10);
 		hjemmeholdGrid.setPadding(new Insets(25, 25, 25, 25));
-		
+
 		udeholdGrid = new GridPane();
 		udeholdGrid.setAlignment(Pos.TOP_CENTER);
 		udeholdGrid.setHgap(10);
 		udeholdGrid.setVgap(10);
 		udeholdGrid.setPadding(new Insets(25, 25, 25, 25));
-		
+
 		grid.add(hjemmeholdGrid, 0, 0);
 		grid.add(udeholdGrid, 2, 0);
-		
-		
-		//gridlines
+
+		// gridlines
 		grid.setGridLinesVisible(false);
 		udeholdGrid.setGridLinesVisible(false);
 		hjemmeholdGrid.setGridLinesVisible(false);
+
+		// Box with numbers
+		Rectangle r1 = new Rectangle(75	,75,75,75);
+		r1.setStroke(Color.BLACK);
+		r1.setFill(null);
+		r1.setStrokeWidth(3);
 		
-		//Buttons til hjemmeholdGrid
+		Rectangle r2 = new Rectangle(75, 75, 75, 75);
+		r2.setStroke(Color.BLACK);
+		r2.setFill(null);
+		r2.setStrokeWidth(3);
+		
+		//Buttons til hjemmeholdGrid		
 		Label hjemmeHold = new Label("Hjemmehold");
 		hjemmeholdGrid.add(hjemmeHold, 0, 0);
 		Button PenaltyHome = new Button("Penalty");
@@ -134,9 +155,14 @@ public class EditMatch {
 			}
 		});
 		
-		Scene editmatchinfo = new Scene(grid, 400, 375);
+		//Hbox
+				HBox hRedMatch = new HBox();
+				hRedMatch.getChildren().addAll(r1, r2);
+				hRedMatch.setSpacing(10);
+				grid.add(hRedMatch, 1, 0);
+				
+		Scene editmatchinfo = new Scene(grid, 500, 800);
 		stage.setScene(editmatchinfo);
 		stage.show();
 	}
 }
-
