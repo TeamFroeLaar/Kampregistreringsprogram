@@ -20,6 +20,6 @@ public class MatchLogic {
 	private SelectTeamDB listeTeams = new SelectTeamDB();
 	
 	public List<Team> listTeam(Team team) {
-		return listeTeams.selectTeam(team);
+		return listeTeams.selectTeam(team); 
 	}
 }
