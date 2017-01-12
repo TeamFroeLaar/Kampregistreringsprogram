@@ -44,7 +44,7 @@ public class CreateMatch {
 		grid.add(udebane, 1, 1);
 
 		// DropDown (hjemmebane)
-		ObservableList<Team> hjemmeoptions = FXCollections.observableArrayList(teamList);
+		ObservableList<Team> hjemmeoptions = FXCollections.observableArrayList(teamList); 
 
 		final ComboBox holdoptions = new ComboBox(hjemmeoptions);
 		HBox holdfelt = new HBox();
