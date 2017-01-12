@@ -72,7 +72,7 @@ public class CreateMatch {
 		opret.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-
+//opret metode
 			}
 		});
 
