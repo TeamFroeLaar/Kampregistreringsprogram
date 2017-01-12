@@ -20,7 +20,7 @@ public class ViewMatches {
 
 	public void init() 
 	{
-		stage.setTitle("View match");
+		stage.setTitle("View matches");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
@@ -51,7 +51,7 @@ public class ViewMatches {
 //		table.getColums().addAll()
 	
 		//Buttons
-		Button tilbage = new Button("return");
+		Button tilbage = new Button("Return");
 		grid.add(tilbage, 0, 5);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
@@ -60,16 +60,17 @@ public class ViewMatches {
 				view.start(stage);
 			}
 		});
-		Button sekamp = new Button("Se Kamp");
-		grid.add(sekamp, 1 , 5);
+		Button sekamp = new Button("View match");
+		grid.add(sekamp, 0 , 4);
 		sekamp.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				//Åben nyt vindue med kamp
+				ViewMatch view = new ViewMatch(stage);
+				view.init();
 			}
 		});
-		Button redkamp = new Button("Rediger Kamp");
-		grid.add(redkamp, 1, 6);
+		Button redkamp = new Button("Edit match");
+		grid.add(redkamp, 1, 4);
 		redkamp.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {

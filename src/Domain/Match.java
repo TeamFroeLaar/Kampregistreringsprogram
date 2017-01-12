@@ -6,9 +6,13 @@ public class Match
 	private String hjemmeholdId;
 	private String udeholdId;
 	private String datoTid;
+<<<<<<< HEAD
 	
 	
 	
+=======
+	 
+>>>>>>> branch 'master' of https://github.com/TeamFroeLaar/Kampregistreringsprogram.git
 	public String getId() {
 		return id;
 	}

@@ -61,9 +61,9 @@ public class EditMatch {
 		grid.add(udeholdGrid, 2, 0);
 
 		// gridlines
-		grid.setGridLinesVisible(false);
-		udeholdGrid.setGridLinesVisible(false);
-		hjemmeholdGrid.setGridLinesVisible(false);
+		grid.setGridLinesVisible(true);
+		udeholdGrid.setGridLinesVisible(true);
+		hjemmeholdGrid.setGridLinesVisible(true);
 
 		// Box with numbers
 		Rectangle r1 = new Rectangle(75	,75,75,75);
@@ -101,7 +101,7 @@ public class EditMatch {
 		grid.add(table, 1, 1);
 	
 		
-		//Buttons til hjemmeholdGrid		
+		//Buttons til  hjemmeholdGrid		
 		Label hjemmeHold = new Label("Hjemmehold");
 		hjemmeholdGrid.add(hjemmeHold, 0, 0);
 		Button PenaltyHome = new Button("Penalty");
