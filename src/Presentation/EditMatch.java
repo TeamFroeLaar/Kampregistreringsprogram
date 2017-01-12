@@ -187,6 +187,7 @@ public class EditMatch {
 				HBox hRedMatch = new HBox();
 				hRedMatch.getChildren().addAll(stackH, stackU);
 				hRedMatch.setSpacing(10);
+				hRedMatch.setAlignment(Pos.CENTER);
 				grid.add(hRedMatch, 1, 0);
 				
 		Scene editmatchinfo = new Scene(grid, 500, 800);
