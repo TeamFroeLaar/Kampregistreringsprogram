@@ -1,8 +1,8 @@
 package Presentation;
 
 import java.util.List;
+
 import Domain.Team;
-import Logic.MatchLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class CreateMatch {
-	private List<Team> data;
+	private ObservableList<Team> data;
 	List<Team> listeTeams;
 	private Stage stage;
 	private GridPane grid;
@@ -43,19 +43,19 @@ public class CreateMatch {
 		grid.add(udebane, 1, 1);
 
 		// DropDown (hjemmebane)
-		data = MatchLogic.getTeams();
-		ObservableList<Team> hjemmeoptions = FXCollections.observableArrayList(data); 
+//		data = FXCollections.observableArrayList();
+		ObservableList<String> hjemmeoptions = FXCollections.observableArrayList("team"); 
 
-		final ComboBox<Team> holdoptions = new ComboBox<Team>(hjemmeoptions);
+		final ComboBox holdoptions = new ComboBox(hjemmeoptions);
 		HBox holdfelt = new HBox();
 
 		holdfelt.getChildren().add(holdoptions);
 		grid.add(holdfelt, 0, 3);
 
 		// DropDown (udebane)
-		ObservableList<Team> udeoptions = FXCollections.observableArrayList(data);
+		ObservableList<String> udeoptions = FXCollections.observableArrayList("hold");
 
-		final ComboBox<Team> uholdoptions = new ComboBox<Team>(udeoptions);
+		final ComboBox uholdoptions = new ComboBox(udeoptions);
 		HBox uholdfelt = new HBox();
 
 		uholdfelt.getChildren().add(uholdoptions);
