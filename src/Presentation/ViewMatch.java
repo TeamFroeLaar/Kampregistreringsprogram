@@ -104,13 +104,16 @@ public class ViewMatch {
 				TableView<Match> matchTable = new TableView<>();
 				matchTable.setEditable(true);
 
-				TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Team");
-				eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("team"));
+				TableColumn<Match, String> teamName = new TableColumn<Match, String>("Team");
+				teamName.setCellValueFactory(new PropertyValueFactory<Match, String>("team"));
+				
+				TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Event");
+				eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("event"));
 				
 				TableColumn<Match, String> timestampCol = new TableColumn<Match, String>("Timestamp");
 				timestampCol.setCellValueFactory(new PropertyValueFactory<Match, String>("timestamp"));
 				
-				matchTable.getColumns().addAll(eventCol, timestampCol);
+				matchTable.getColumns().addAll(teamName, eventCol, timestampCol);
 				grid.add(matchTable, 1, 1);
 						
 				
