@@ -59,9 +59,9 @@ public class EditMatch {
 		grid.add(udeholdGrid, 2, 0);
 
 		// gridlines
-		grid.setGridLinesVisible(false);
-		udeholdGrid.setGridLinesVisible(false);
-		hjemmeholdGrid.setGridLinesVisible(false);
+		grid.setGridLinesVisible(true);
+		udeholdGrid.setGridLinesVisible(true);
+		hjemmeholdGrid.setGridLinesVisible(true);
 
 		// Box with numbers
 		Rectangle r1 = new Rectangle(75	,75,75,75);
