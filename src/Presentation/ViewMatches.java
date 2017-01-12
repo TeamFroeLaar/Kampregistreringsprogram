@@ -1,11 +1,15 @@
 package Presentation;
 
+import Domain.Match;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -18,6 +22,7 @@ public class ViewMatches {
 	
 	}
 
+	@SuppressWarnings("unchecked")
 	public void init() 
 	{
 		stage.setTitle("View matches");
@@ -26,6 +31,21 @@ public class ViewMatches {
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
+		
+		TableView<Match> matchesTable = new TableView<>();
+		matchesTable.setEditable(true);
+		
+		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
+		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
+		
+		TableColumn<Match, String> homeTeamName = new TableColumn<Match, String>("Home");
+		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
+		
+		TableColumn<Match, Integer> awayTeamName = new TableColumn<Match, Integer>("Away");
+		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
+		
+		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName);
+		grid.add(matchesTable, 1, 1);
 		
 		// TableView
 //		TableView<MatchID> table = new TableView<>();
