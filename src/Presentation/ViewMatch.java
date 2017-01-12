@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -48,9 +49,9 @@ public class ViewMatch {
 				grid.add(awayTeamGrid, 2, 0);
 				
 				// gridlines
-				grid.setGridLinesVisible(true);
-				homeTeamGrid.setGridLinesVisible(true);
-				awayTeamGrid.setGridLinesVisible(true);
+				grid.setGridLinesVisible(false);
+				homeTeamGrid.setGridLinesVisible(false);
+				awayTeamGrid.setGridLinesVisible(false);
 				
 				// boxes with scores
 				Rectangle rectangleLeft = new Rectangle(75,75,75,75);
@@ -77,8 +78,23 @@ public class ViewMatch {
 				// home team match info
 				Text homeTeam = new Text("Home");
 				homeTeamGrid.add(homeTeam, 0, 0);
-				Text twoMinutePenalty = new Text("2-min penalty");
-				homeTeamGrid.add(twoMinutePenalty, 0, 1);
+				Text homeTwoMinutePenalty = new Text("2-min penalties:");
+				homeTeamGrid.add(homeTwoMinutePenalty, 0, 1);
+				Text homeYellowCard = new Text("Yellow cards:");
+				homeTeamGrid.add(homeYellowCard, 0, 2);
+				Text homeRedCard = new Text("Red cards:");
+				homeTeamGrid.add(homeRedCard, 0, 3);
+				
+				// away team match info
+				Text awayTeam = new Text("Away");
+				awayTeamGrid.add(awayTeam, 2, 0);
+				Text awayTwoMinutePenalty = new Text("2-min penalties:");
+				awayTeamGrid.add(awayTwoMinutePenalty, 2, 1);
+				Text awayYellowCard = new Text("Yellow cards:");
+				awayTeamGrid.add(awayYellowCard, 2, 2);
+				Text awayRedCard = new Text("Red cards:");
+				awayTeamGrid.add(awayRedCard, 2, 3);
+						
 				
 				
 				
@@ -91,6 +107,11 @@ public class ViewMatch {
 				view.init();
 			}
 		});
+		
+		HBox hViewMatch = new HBox();
+		hViewMatch.getChildren().addAll(stackHomeTeam, stackAwayTeam);
+		hViewMatch.setSpacing(10);
+		grid.add(hViewMatch, 1, 0);
 		
 		Scene viewMatchInfo = new Scene(grid, 500, 800);
 		stage.setScene(viewMatchInfo);
