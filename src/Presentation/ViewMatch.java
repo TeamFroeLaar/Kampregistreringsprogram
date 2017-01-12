@@ -1,11 +1,15 @@
 package Presentation;
 
+import Domain.Match;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -24,6 +28,7 @@ public class ViewMatch {
 		this.stage = stage;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void init() 
 	{
 		stage.setTitle("View match");
@@ -94,6 +99,19 @@ public class ViewMatch {
 				awayTeamGrid.add(awayYellowCard, 2, 2);
 				Text awayRedCard = new Text("Red cards:");
 				awayTeamGrid.add(awayRedCard, 2, 3);
+				
+				// TableView
+				TableView<Match> matchTable = new TableView<>();
+				matchTable.setEditable(true);
+
+				TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Team");
+				eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("team"));
+				
+				TableColumn<Match, String> timestampCol = new TableColumn<Match, String>("Timestamp");
+				timestampCol.setCellValueFactory(new PropertyValueFactory<Match, String>("timestamp"));
+				
+				matchTable.getColumns().addAll(eventCol, timestampCol);
+				grid.add(matchTable, 1, 1);
 						
 				
 				
