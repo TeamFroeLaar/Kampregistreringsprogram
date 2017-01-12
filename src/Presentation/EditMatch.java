@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package Presentation;
 
 import javafx.event.ActionEvent;
@@ -73,6 +73,15 @@ public class EditMatch {
 		r2.setStroke(Color.BLACK);
 		r2.setFill(null);
 		r2.setStrokeWidth(3);
+		
+		Text textH = new Text("0");
+		Text textU = new Text("0");
+		
+		StackPane stackH = new StackPane();
+		stackH.getChildren().addAll(r1, textH);
+		
+		StackPane stackU = new StackPane();
+		stackU.getChildren().addAll(r2, textU);
 		
 		//Buttons til hjemmeholdGrid		
 		Label hjemmeHold = new Label("Hjemmehold");
@@ -151,14 +160,14 @@ public class EditMatch {
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				ViewMatch view = new ViewMatch(stage);
+				ViewMatches view = new ViewMatches(stage);
 				view.init();
 			}
 		});
 		
 		//Hbox
 				HBox hRedMatch = new HBox();
-				hRedMatch.getChildren().addAll(r1, r2);
+				hRedMatch.getChildren().addAll(stackH, stackU);
 				hRedMatch.setSpacing(10);
 				grid.add(hRedMatch, 1, 0);
 				
