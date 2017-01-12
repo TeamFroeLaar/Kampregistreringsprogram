@@ -5,11 +5,10 @@ import Domain.Match;
 
 public class MatchLogic {
 	
-	// Create Team
+	// Create Match
 	private CreateMatchDB matchInfo = new CreateMatchDB();
 
 	public void createMatch(Match match) {
 		matchInfo.createMatch(match);
-
 	}
 }
