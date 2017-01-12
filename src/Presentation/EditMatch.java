@@ -1,26 +1,24 @@
 
 package Presentation;
 
+import Domain.Match;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.StrokeType;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextBoundsType;
 import javafx.stage.Stage;
 
 public class EditMatch {
@@ -28,11 +26,15 @@ public class EditMatch {
 	private GridPane grid;
 	private GridPane hjemmeholdGrid;
 	private GridPane udeholdGrid;
+	private TableView<Match> table;
+	private ObservableList<Match> plist;
 
+	
 	 public EditMatch(Stage stage) {
 	 this.stage = stage;
 	 }
 	 
+	@SuppressWarnings("unchecked")
 	public void init() {
 		// main grid
 		stage.setTitle("edit match");
@@ -83,7 +85,23 @@ public class EditMatch {
 		StackPane stackU = new StackPane();
 		stackU.getChildren().addAll(r2, textU);
 		
-		//Buttons til hjemmeholdGrid		
+		//TableView
+		TableView<Match> table = new TableView<>();
+		table.setEditable(true);
+		//table.setItems(data);
+
+		// TableView Rækker
+		TableColumn<Match, String> timestampCol = new TableColumn<Match, String>("Timestamp");
+		timestampCol.setCellValueFactory(new PropertyValueFactory<Match, String>("timestamp"));
+
+		TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Hold navn");
+		eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("holdnavn"));
+		
+		table.getColumns().addAll(timestampCol, eventCol);
+		grid.add(table, 1, 1);
+	
+		
+		//Buttons til  hjemmeholdGrid		
 		Label hjemmeHold = new Label("Hjemmehold");
 		hjemmeholdGrid.add(hjemmeHold, 0, 0);
 		Button PenaltyHome = new Button("Penalty");
@@ -154,7 +172,7 @@ public class EditMatch {
 			}
 		});
 		
-		//Buttons til main
+		//Return to ViewMatches
 		Button tilbage = new Button("return");
 		grid.add(tilbage, 0, 1);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
@@ -164,7 +182,7 @@ public class EditMatch {
 				view.init();
 			}
 		});
-		
+
 		//Hbox
 				HBox hRedMatch = new HBox();
 				hRedMatch.getChildren().addAll(stackH, stackU);

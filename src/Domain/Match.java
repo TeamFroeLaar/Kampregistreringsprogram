@@ -6,7 +6,7 @@ public class Match
 	private String hjemmeholdId;
 	private String udeholdId;
 	private String datoTid;
-	 
+
 	public String getId() {
 		return id;
 	}
