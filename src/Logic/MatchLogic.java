@@ -28,4 +28,4 @@ public class MatchLogic {
 	//
 	// public List<Team> listTeam(Team team) {
 	// return listeTeams.selectTeam(team);
-}
+} 

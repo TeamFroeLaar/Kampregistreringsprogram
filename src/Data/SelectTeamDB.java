@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Domain.Team;
-
+ 
 public class SelectTeamDB {
 	public List<Team> selectTeam() {
 		List<Team> list = new ArrayList<>();

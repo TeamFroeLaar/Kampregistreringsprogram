@@ -1,4 +1,4 @@
-package Domain;
+package Domain; 
 
 public class Match 
 {
