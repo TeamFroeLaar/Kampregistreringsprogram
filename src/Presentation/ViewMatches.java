@@ -52,7 +52,7 @@ public class ViewMatches {
 	
 		//Buttons
 		Button tilbage = new Button("Return");
-		grid.add(tilbage, 0, 0);
+		grid.add(tilbage, 0, 5);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
@@ -61,7 +61,7 @@ public class ViewMatches {
 			}
 		});
 		Button sekamp = new Button("View match");
-		grid.add(sekamp, 1 , 5);
+		grid.add(sekamp, 0 , 4);
 		sekamp.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
@@ -70,7 +70,7 @@ public class ViewMatches {
 			}
 		});
 		Button redkamp = new Button("Edit match");
-		grid.add(redkamp, 1, 6);
+		grid.add(redkamp, 1, 4);
 		redkamp.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
