@@ -44,7 +44,7 @@ public class CreateMatch {
 
 		// DropDown (hjemmebane)
 		data = MatchLogic.getTeams();
-		ObservableList<Team> hjemmeoptions = FXCollections.observableArrayList(data); 
+		ObservableList<Team> hjemmeoptions = FXCollections.observableArrayList(data);
 
 		final ComboBox<Team> holdoptions = new ComboBox<Team>(hjemmeoptions);
 		HBox holdfelt = new HBox();
@@ -77,7 +77,7 @@ public class CreateMatch {
 		opret.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-//opret metode
+				// opret metode
 			}
 		});
 
@@ -85,4 +85,4 @@ public class CreateMatch {
 		stage.setScene(creatematch);
 		stage.show();
 	}
-} 
+}
