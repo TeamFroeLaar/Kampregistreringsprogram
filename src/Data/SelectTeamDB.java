@@ -11,26 +11,25 @@ import java.util.List;
 import Domain.Team;
 
 public class SelectTeamDB {
-	public List<Team> selectTeam(Team team) {
+	public List<Team> selectTeam() {
 		List<Team> list = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/kampReg", "SA", "");
-				PreparedStatement statement = connection.prepareStatement("SELECT holdnavn,id from hold");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT ID, HOLDNAVN FROM HOLD");) {
 
 			ResultSet rs = statement.executeQuery();
 			try {
 				connection.setAutoCommit(false);
 
-				//while løkke
-				Team t = new Team();
-				t.setHoldnavn(rs.getString("HOLDNAVN"));
-				t.setId(rs.getString("ID"));
-				list.add(t);
-
-				int antal = statement.executeUpdate();
-				System.out.println("Antal rækker berørt : " + antal);
+				while (rs.next()) {
+					Team t = new Team();
+					t.setHoldnavn(rs.getString("HOLDNAVN"));
+					t.setId(rs.getString("ID"));
+					list.add(t);
+				}
 				connection.commit();
 			} catch (SQLException e) {
 				System.out.println("Fejl ved søgning");
+				e.printStackTrace();
 				connection.rollback();
 			}
 		} catch (SQLException e) {
