@@ -8,7 +8,7 @@ import Domain.Match;
 import Domain.Team;
 
 public class MatchLogic {
-	
+	 
 	// Create Match
 	private CreateMatchDB matchInfo = new CreateMatchDB();
 

@@ -11,7 +11,7 @@ import java.util.List;
 import Domain.Team;
 
 public class SelectTeamDB {
-	public List<Team> selectTeam(Team team) { 
+	public List<Team> selectTeam(Team team) {
 		List<Team> list = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/kampReg", "SA", "");
 				PreparedStatement statement = connection.prepareStatement("SELECT holdnavn,id from hold");) {
