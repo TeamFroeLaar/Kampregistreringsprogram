@@ -49,6 +49,7 @@ public class ViewMatch {
 //		pointCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
 //		
 //		table.getColums().addAll()
+	
 		//Buttons
 		Button tilbage = new Button("return");
 		grid.add(tilbage, 0, 5);
