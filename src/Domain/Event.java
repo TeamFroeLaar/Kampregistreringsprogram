@@ -7,6 +7,7 @@ public class Event
 	private String holdid;
 	private String kampid;
 	private String datotid;
+
 	public String getId() {
 		return id;
 	}

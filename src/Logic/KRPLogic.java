@@ -1,10 +1,11 @@
 package Logic;
 
-import java.util.List; 
+import java.util.List;
+
 import Data.DBfacade;
-import Data.SelectTeamDB;
 import Domain.Match;
 import Domain.Team;
+import Domain.Event;
 
 public class KRPLogic {
 
@@ -18,6 +19,12 @@ public class KRPLogic {
 	private DBfacade createMatchInfo = new DBfacade();
 	public void createMatch(Match match) {
 		createMatchInfo.createMatchInfo(match);
+	}
+	
+	//Create Event
+	private DBfacade createEventInfo = new DBfacade();
+	public void createEvent(Event event) {
+		createEventInfo.createEventInfo(event);
 	}
 
 	// Select Team

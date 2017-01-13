@@ -2,6 +2,7 @@ package Data;
 
 import java.util.List;
 
+import Domain.Event;
 import Domain.Match;
 import Domain.Team;
 
@@ -32,6 +33,13 @@ public class DBfacade {
 
 	public List<Team> selectTeamInfo() {
 		return selectTeamInfo.selectTeam();
+	}
+	
+	// Create Event
+	private CreateEventDB createEventInfo = new CreateEventDB();
+	
+	public void createEventInfo(Event event) {
+		createEventInfo.createEvent(event);
 	}
 
 }

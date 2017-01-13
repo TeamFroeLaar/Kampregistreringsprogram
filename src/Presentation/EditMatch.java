@@ -1,6 +1,8 @@
 
 package Presentation;
 
+import java.time.LocalDateTime;
+
 import Domain.Event;
 import Domain.Match;
 import Logic.KRPLogic;
@@ -89,14 +91,17 @@ public class EditMatch {
 		// TableView
 		TableView<Match> table = new TableView<>();
 		table.setEditable(true);
-		// table.setItems(data);
+//		table.setItems(data);
 
 		// TableView Rækker
 		TableColumn<Match, String> timestampCol = new TableColumn<Match, String>("Timestamp");
 		timestampCol.setCellValueFactory(new PropertyValueFactory<Match, String>("timestamp"));
 
-		TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Hold navn");
-		eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("holdnavn"));
+		TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Events");
+		eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("event"));
+		
+		TableColumn<Match, String> holdCol = new TableColumn<Match, String>("Hold");
+		holdCol.setCellValueFactory(new PropertyValueFactory<Match, String>("hold"));
 
 		table.getColumns().addAll(timestampCol, eventCol);
 		grid.add(table, 1, 1);
@@ -119,7 +124,7 @@ public class EditMatch {
 				e.setKampid(kampid);			
 			}
 		});
-
+ 
 		Button redCardHome = new Button("Red card");
 		hjemmeholdGrid.add(redCardHome, 0, 2);
 		redCardHome.setOnAction(new EventHandler<ActionEvent>() {
