@@ -9,23 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Domain.Match;
-import Domain.Team;
 
 public class SelectMatchDB {
 	public List<Match> selectMatch() {
-		List<M> list = new ArrayList<>();
+		List<Match> matchList = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/kampReg", "SA", "");
-				PreparedStatement statement = connection.prepareStatement("SELECT ID, HOLDNAVN FROM HOLD");) {
+				PreparedStatement statement = connection.prepareStatement("SELECT ID, HJEMMEHOLDID, UDEHOLDID, DATOTID FROM KAMPE");) {
 
 			ResultSet rs = statement.executeQuery();
 			try {
 				connection.setAutoCommit(false);
 
 				while (rs.next()) {
-					Team t = new Team();
-					t.setHoldnavn(rs.getString("HOLDNAVN"));
-					t.setId(rs.getString("ID"));
-					list.add(t);
+					Match m = new Match();
+					m.setId("ID");
+					m.setHjemmeholdId("HJEMMEHOLDID");
+					m.setUdeholdId("UDEHOLDID");
+					m.setDatoTid("DATOTID");
+					matchList.add(m);
 				}
 				connection.commit();
 			} catch (SQLException e) {
@@ -36,7 +37,7 @@ public class SelectMatchDB {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return list;
+		return matchList;
 	}
 
 }
