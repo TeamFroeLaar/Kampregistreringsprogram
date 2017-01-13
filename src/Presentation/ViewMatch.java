@@ -1,6 +1,12 @@
 package Presentation;
 
+import java.util.List;
+
 import Domain.Match;
+import Domain.Team;
+import Logic.KRPLogic;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -23,6 +29,8 @@ public class ViewMatch {
 	private GridPane grid;
 	private GridPane homeTeamGrid;
 	private GridPane awayTeamGrid;
+	private List<Match> data;
+	List<Match> listeMatchs;
 	
 	public ViewMatch (Stage stage) {
 		this.stage = stage;
@@ -103,7 +111,7 @@ public class ViewMatch {
 				// TableView
 				TableView<Match> matchTable = new TableView<>();
 				matchTable.setEditable(true);
-
+								
 				TableColumn<Match, String> teamName = new TableColumn<Match, String>("Team");
 				teamName.setCellValueFactory(new PropertyValueFactory<Match, String>("team"));
 				
@@ -116,7 +124,10 @@ public class ViewMatch {
 				matchTable.getColumns().addAll(teamName, eventCol, timestampCol);
 				grid.add(matchTable, 1, 1);
 				
-				matchTable.setItems(arg0);
+				data = KRPLogic.getMatch();
+				ObservableList<Match> MatchList = FXCollections.observableArrayList(data);
+				
+				matchTable.setItems(MatchList); 
 						
 				
 				
