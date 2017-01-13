@@ -25,4 +25,11 @@ public class KRPLogic {
 	public static List<Team> getTeams() {
 		return teamAccessor.selectTeamInfo();
 	}
+	
+	// Select Match
+	private static DBfacade matchAccessor = new DBfacade();
+	public static List<Match> getMatch()
+	{
+		return matchAccessor.selectMatchInfo();
+	}
 }

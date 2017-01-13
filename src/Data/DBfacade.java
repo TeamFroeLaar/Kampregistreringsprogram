@@ -13,11 +13,11 @@ public class DBfacade {
 		createMatchInfo.createMatch(match);
 	}
 
-	// Select Macth
+	// Select Match
 	private SelectMatchDB selectMatchInfo = new SelectMatchDB();
 
-	public void selectMatchInfo() {
-		selectMatchInfo.selectMatch();
+	public List<Match> selectMatchInfo() {
+		return selectMatchInfo.selectMatch();
 	}
 
 	// Create Team
