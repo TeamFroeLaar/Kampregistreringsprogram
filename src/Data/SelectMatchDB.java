@@ -32,7 +32,7 @@ public class SelectMatchDB {
 			while (rs.next()) {
 				Match m = new Match();
 				m.setId("ID");
-				m.setHjemmeholdId("HJEMMEHOLDID");
+				m.setHjemmeholdId("HJEMMEHOLDID"); 
 				m.setUdeholdId("UDEHOLDID");
 				m.setDatoTid("DATOTID");
 				matchList.add(m);
