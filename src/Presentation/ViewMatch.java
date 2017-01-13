@@ -115,6 +115,8 @@ public class ViewMatch {
 				
 				matchTable.getColumns().addAll(teamName, eventCol, timestampCol);
 				grid.add(matchTable, 1, 1);
+				
+				matchTable.setItems(arg0);
 						
 				
 				

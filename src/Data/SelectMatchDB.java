@@ -29,7 +29,7 @@ public class SelectMatchDB {
 					matchList.add(m);
 				}
 				connection.commit();
-			} catch (SQLException e) {
+			} catch (SQLException e) { 
 				System.out.println("Fejl ved søgning");
 				e.printStackTrace();
 				connection.rollback();

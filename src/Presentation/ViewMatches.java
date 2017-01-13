@@ -1,6 +1,7 @@
 package Presentation;
 
 import Domain.Match;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -16,15 +17,13 @@ import javafx.stage.Stage;
 public class ViewMatches {
 	private Stage stage;
 	private GridPane grid;
-	
 	public ViewMatches(Stage stage) {
 		this.stage = stage;
-	
+
 	}
 
 	@SuppressWarnings("unchecked")
-	public void init() 
-	{
+	public void init() {
 		stage.setTitle("View matches");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
@@ -32,48 +31,67 @@ public class ViewMatches {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
-		TableView<Match> matchesTable = new TableView<>();
-		matchesTable.setEditable(true);
 		
-		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
-		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
-		
-		TableColumn<Match, String> homeTeamName = new TableColumn<Match, String>("Home");
-		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
-		
-		TableColumn<Match, Integer> awayTeamName = new TableColumn<Match, Integer>("Away");
-		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
-		
-		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName);
-		grid.add(matchesTable, 1, 1);
-		
+
+//		TableView<Match> matchesTable = new TableView<>();
+//		matchesTable.setEditable(true);
+//		
+//		matchesTable = FXCollections.observableArrayList(data.listLogins());
+//		
+//		matchesTable.setItems(data);
+//
+//		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
+//		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
+//
+//		TableColumn<Match, String> homeTeamName = new TableColumn<Match, String>("Home");
+//		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
+//
+//		TableColumn<Match, String> awayTeamName = new TableColumn<Match, String>("Away");
+//		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
+//
+//		TableColumn<Match, String> dateTime = new TableColumn<Match, String>("Date/Time");
+//		dateTime.setCellValueFactory(new PropertyValueFactory<Match, String>("TIMESTAMP"));
+//
+//		matchesTable.getColumns().addAll(matchID, homeTeamName, dateTime);
+//		grid.add(matchesTable, 1, 1);
+
 		// TableView
-//		TableView<MatchID> table = new TableView<>();
-//		table.setEditable(true);
-//		table.setItems(data);
+		// TableView<MatchID> table = new TableView<>();
+		// table.setEditable(true);
+		// table.setItems(data);
 
 		// TableView Rækker
-//		TableColumn<MatchID, String> stillingCol = new TableColumn<MatchID, String>("tablenavn");
-//		stillingCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
-//
-//		TableColumn<MatchID, String> holdnavnCol = new TableColumn<MatchID, String>("tablenavn");
-//		holdnavnCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
-//
-//		TableColumn<MatchID, String> maalCol = new TableColumn<MatchID, String>("tablenavn");
-//		maalCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
-//
-//		TableColumn<MatchID, String> udvisningsCol = new TableColumn<MatchID, String>("tablenavn");
-//		udvisningsCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
-//
-//		TableColumn<MatchID, String> pointCol = new TableColumn<MatchID, String>("tablenavn");
-//		pointCol.setCellValueFactory(new PropertyValueFactory<MatchID, String>("dbnavn"));
-//		
-//		table.getColums().addAll()
-	
-		//Buttons
+		// TableColumn<MatchID, String> stillingCol = new TableColumn<MatchID,
+		// String>("tablenavn");
+		// stillingCol.setCellValueFactory(new PropertyValueFactory<MatchID,
+		// String>("dbnavn"));
+		//
+		// TableColumn<MatchID, String> holdnavnCol = new TableColumn<MatchID,
+		// String>("tablenavn");
+		// holdnavnCol.setCellValueFactory(new PropertyValueFactory<MatchID,
+		// String>("dbnavn"));
+		//
+		// TableColumn<MatchID, String> maalCol = new TableColumn<MatchID,
+		// String>("tablenavn");
+		// maalCol.setCellValueFactory(new PropertyValueFactory<MatchID,
+		// String>("dbnavn"));
+		//
+		// TableColumn<MatchID, String> udvisningsCol = new TableColumn<MatchID,
+		// String>("tablenavn");
+		// udvisningsCol.setCellValueFactory(new PropertyValueFactory<MatchID,
+		// String>("dbnavn"));
+		//
+		// TableColumn<MatchID, String> pointCol = new TableColumn<MatchID,
+		// String>("tablenavn");
+		// pointCol.setCellValueFactory(new PropertyValueFactory<MatchID,
+		// String>("dbnavn"));
+		//
+		// table.getColums().addAll()
+
+		// Buttons
 		Button tilbage = new Button("Return");
 		grid.add(tilbage, 0, 5);
-		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
+		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				Main view = new Main();
@@ -81,8 +99,8 @@ public class ViewMatches {
 			}
 		});
 		Button sekamp = new Button("View match");
-		grid.add(sekamp, 0 , 4);
-		sekamp.setOnAction(new EventHandler<ActionEvent>() {	
+		grid.add(sekamp, 0, 4);
+		sekamp.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				ViewMatch view = new ViewMatch(stage);
@@ -91,7 +109,7 @@ public class ViewMatches {
 		});
 		Button redkamp = new Button("Edit match");
 		grid.add(redkamp, 1, 4);
-		redkamp.setOnAction(new EventHandler<ActionEvent>() {	
+		redkamp.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				EditMatch view = new EditMatch(stage);
@@ -103,4 +121,3 @@ public class ViewMatches {
 		stage.show();
 	}
 }
-
