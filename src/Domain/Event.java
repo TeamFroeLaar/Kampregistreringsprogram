@@ -1,5 +1,5 @@
 package Domain;
-
+ 
 public class Event
 {
 	private String id;
