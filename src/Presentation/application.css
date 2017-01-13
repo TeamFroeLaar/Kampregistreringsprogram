@@ -5,4 +5,10 @@
 	-fx-padding: 10.0 26.0 10.0 26.0;
 	-fx-text-fill: #242d35;
 	-fx-pref-width: 150.0;
-	-fx-font-size: 14.0px}
+	-fx-font-size: 14.0px
+	}
+.bg {
+	-fx-background-color:#1DE9B6;
+	-fx-padding: 2;
+	
+	}
