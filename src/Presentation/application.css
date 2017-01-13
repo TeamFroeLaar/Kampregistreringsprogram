@@ -1,4 +1,4 @@
-.button {
+/* .button {
 	-fx-background-color: rgba(0.0,0.0,0.0,0.08), linear-gradient(#9a9a9a, #909090), linear-gradient(white 0.0%, #f3f3f3 50.0%, #ececec 51.0%, #f2f2f2 100.0%);
 	-fx-background-insets: 0.0 0.0 -1.0 0.0,0.0,1.0;
 	-fx-background-radius: 5.0,5.0,4.0;
@@ -7,8 +7,17 @@
 	-fx-pref-width: 150.0;
 	-fx-font-size: 14.0px
 	}
+	*/
 .bg {
 	-fx-background-color:#1DE9B6;
 	-fx-padding: 2;
 	
 	}
+	.button{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 14px;
+    -fx-button-type: RAISED;
+    -fx-background-color: rgb(77,102,204);
+    -fx-pref-width: 200;
+    -fx-text-fill: WHITE;
+}

@@ -1,5 +1,6 @@
 package Presentation;
 
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,7 +39,6 @@ public class Main extends Application {
 				view.init();
 			}
 		});
-		
 		Button createTeam = new Button("New team");
 		grid.add(createTeam, 0, 1);
 		createTeam.setOnAction(new EventHandler<ActionEvent>() {			
