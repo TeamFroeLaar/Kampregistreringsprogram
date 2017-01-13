@@ -1,7 +1,5 @@
 package Data;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -9,21 +7,26 @@ import Domain.Team;
 
 public class CreateTeamDB {
 	public void createTeam(Team team) {
-		try (Connection connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/kampReg", "SA", "");
-				PreparedStatement statement = connection.prepareStatement("INSERT INTO HOLD (HOLDNAVN) VALUES (?)");) {
+		try (DataAccess access = new DataAccess()) {
 			try {
-				connection.setAutoCommit(false);
-				statement.setString(1, team.getHoldnavn());
-
-				int antal = statement.executeUpdate();
-				System.out.println("Antal rækker berørt : " + antal);
-				connection.commit();
-			} catch (SQLException e) {
-				System.out.println("Fejl ved oprettelse");
-				connection.rollback();
+				createTeam(access, team);
+				access.commit();
+			} catch (Exception e) {
+				access.rollback();
+				throw e;
 			}
+		}
+	}
+
+	private void createTeam(DataAccess access, Team team) {
+		try (PreparedStatement statement = access.getConnection()
+				.prepareStatement("INSERT INTO HOLD (HOLDNAVN) VALUES (?)");) {
+			statement.setString(1, team.getHoldnavn());
+
+			int antal = statement.executeUpdate();
+			System.out.println("Antal rækker berørt : " + antal);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Fejl ved oprettelse", e);
 		}
 	}
 }
