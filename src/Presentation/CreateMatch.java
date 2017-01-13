@@ -1,8 +1,9 @@
 package Presentation;
 
 import java.util.List;
+
 import Domain.Team;
-import Logic.MatchLogic;
+import Logic.KRPLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,7 +44,7 @@ public class CreateMatch {
 		grid.add(udebane, 1, 1);
 
 		// DropDown (hjemmebane)
-		data = MatchLogic.getTeams();
+		data = KRPLogic.getTeams();
 		ObservableList<Team> hjemmeoptions = FXCollections.observableArrayList(data);
 
 		final ComboBox<Team> holdoptions = new ComboBox<Team>(hjemmeoptions);

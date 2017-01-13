@@ -1,7 +1,7 @@
 package Presentation;
 
 import Domain.Team;
-import Logic.TeamLogic;
+import Logic.KRPLogic;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -42,7 +42,7 @@ public class CreateTeam {
 		create.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				TeamLogic logic = new TeamLogic();
+				KRPLogic logic = new KRPLogic();
 				Team newTeam = new Team();
 				
 				newTeam.setHoldnavn(navn.getText());
