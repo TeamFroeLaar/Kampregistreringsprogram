@@ -1,7 +1,9 @@
 
 package Presentation;
 
+import Domain.Event;
 import Domain.Match;
+import Logic.KRPLogic;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,11 +31,10 @@ public class EditMatch {
 	private TableView<Match> table;
 	private ObservableList<Match> plist;
 
-	
-	 public EditMatch(Stage stage) {
-	 this.stage = stage;
-	 }
-	 
+	public EditMatch(Stage stage) {
+		this.stage = stage;
+	}
+
 	@SuppressWarnings("unchecked")
 	public void init() {
 		// main grid
@@ -66,29 +67,29 @@ public class EditMatch {
 		hjemmeholdGrid.setGridLinesVisible(true);
 
 		// Box with numbers
-		Rectangle r1 = new Rectangle(75	,75,75,75);
+		Rectangle r1 = new Rectangle(75, 75, 75, 75);
 		r1.setStroke(Color.BLACK);
 		r1.setFill(null);
 		r1.setStrokeWidth(3);
-		
+
 		Rectangle r2 = new Rectangle(75, 75, 75, 75);
 		r2.setStroke(Color.BLACK);
 		r2.setFill(null);
 		r2.setStrokeWidth(3);
-		
+
 		Text textH = new Text("0");
 		Text textU = new Text("0");
-		
+
 		StackPane stackH = new StackPane();
 		stackH.getChildren().addAll(r1, textH);
-		
+
 		StackPane stackU = new StackPane();
 		stackU.getChildren().addAll(r2, textU);
-		
-		//TableView
+
+		// TableView
 		TableView<Match> table = new TableView<>();
 		table.setEditable(true);
-		//table.setItems(data);
+		// table.setItems(data);
 
 		// TableView Rækker
 		TableColumn<Match, String> timestampCol = new TableColumn<Match, String>("Timestamp");
@@ -96,100 +97,156 @@ public class EditMatch {
 
 		TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Hold navn");
 		eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("holdnavn"));
-		
+
 		table.getColumns().addAll(timestampCol, eventCol);
 		grid.add(table, 1, 1);
-	
-		
-		//Buttons til  hjemmeholdGrid		
+
+		// Buttons til hjemmeholdGrid
 		Label hjemmeHold = new Label("Hjemmehold");
 		hjemmeholdGrid.add(hjemmeHold, 0, 0);
+		
 		Button PenaltyHome = new Button("Penalty");
 		hjemmeholdGrid.add(PenaltyHome, 0, 1);
-		PenaltyHome.setOnAction(new EventHandler<ActionEvent>() {	
+		PenaltyHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
+				KRPLogic eventPenaltyHome = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Penalty");		
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);			
 			}
 		});
-		
+
 		Button redCardHome = new Button("Red card");
 		hjemmeholdGrid.add(redCardHome, 0, 2);
-		redCardHome.setOnAction(new EventHandler<ActionEvent>() {	
+		redCardHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
+				KRPLogic eventRedHome = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Red card");		
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);			
 			}
 		});
-		
+
 		Button yellowCardHome = new Button("Yellow card");
 		hjemmeholdGrid.add(yellowCardHome, 0, 3);
-		yellowCardHome.setOnAction(new EventHandler<ActionEvent>() {	
+		yellowCardHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
+				KRPLogic eventYellowHome = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Yellow card");		
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);			
 			}
 		});
-		
+
 		Button goalHome = new Button("Goal");
 		hjemmeholdGrid.add(goalHome, 0, 4);
-		goalHome.setOnAction(new EventHandler<ActionEvent>() {	
+		goalHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				KRPLogic eventGoalHome = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Goal");
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);
 			}
 		});
-		
-		
-		//Buttons til udeholdGrid
+
+		// Buttons til udeholdGrid
 		Label udeHold = new Label("Udehold");
 		udeholdGrid.add(udeHold, 0, 0);
+		
 		Button PenaltyOut = new Button("Penalty");
 		udeholdGrid.add(PenaltyOut, 0, 1);
-		PenaltyOut.setOnAction(new EventHandler<ActionEvent>() {	
+		PenaltyOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
+				KRPLogic eventPenaltyOut = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Penalty");		
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);			
 			}
 		});
-		
+
 		Button redCardOut = new Button("Red card");
 		udeholdGrid.add(redCardOut, 0, 2);
-		redCardOut.setOnAction(new EventHandler<ActionEvent>() {	
+		redCardOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
+				KRPLogic eventRedOut = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Red card");		
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);	
 			}
 		});
-		
+
 		Button yellowCardOut = new Button("Yellow card");
 		udeholdGrid.add(yellowCardOut, 0, 3);
-		yellowCardOut.setOnAction(new EventHandler<ActionEvent>() {	
+		yellowCardOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
+				KRPLogic eventYellowOut = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Yellow card");		
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);	
 			}
 		});
-		
+
 		Button goalOut = new Button("Goal");
 		udeholdGrid.add(goalOut, 0, 4);
-		goalOut.setOnAction(new EventHandler<ActionEvent>() {	
+		goalOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
+				KRPLogic eventGoalOut = new KRPLogic();
+				Event e = new Event();
+				e.setEvent("Goal");		
+				e.setDatotid(datotid);
+				e.setHoldid(hjemmeholdId);
+				e.setKampid(kampid);	
 			}
 		});
-		
-		//Return to ViewMatches
-		Button tilbage = new Button("return");
+
+		// Return to ViewMatches
+		Button tilbage = new Button("Return");
 		grid.add(tilbage, 0, 1);
-		tilbage.setOnAction(new EventHandler<ActionEvent>() {	
+		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent event) 
+			{
 				ViewMatches view = new ViewMatches(stage);
 				view.init();
 			}
 		});
 
-		//Hbox
-				HBox hRedMatch = new HBox();
-				hRedMatch.getChildren().addAll(stackH, stackU);
-				hRedMatch.setSpacing(10);
-				hRedMatch.setAlignment(Pos.CENTER);
-				grid.add(hRedMatch, 1, 0);
-				
+		// Hbox
+		HBox hRedMatch = new HBox();
+		hRedMatch.getChildren().addAll(stackH, stackU);
+		hRedMatch.setSpacing(10);
+		hRedMatch.setAlignment(Pos.CENTER);
+		grid.add(hRedMatch, 1, 0);
+
 		Scene editmatchinfo = new Scene(grid, 500, 800);
 		stage.setScene(editmatchinfo);
 		stage.show();
