@@ -1,27 +1,24 @@
 package Logic;
 
 import java.util.List;
-
-import Data.CreateMatchDB;
-import Data.CreateTeamDB;
+import Data.DBfacade;
 import Data.SelectTeamDB;
 import Domain.Match;
 import Domain.Team;
 
 public class KRPLogic {
+	private DBfacade createTeamInfo = new DBfacade();
 
 	// Create Team
-	private CreateTeamDB createTeamInfo = new CreateTeamDB();
-
 	public void createTeamInfo(Team team) {
-		createTeamInfo.createTeam(team);
+		createTeamInfo.createTeamInfo(team);
 	}
-	
+
 	// Create Match
-	private CreateMatchDB matchInfo = new CreateMatchDB();
+	private DBfacade createMatchInfo = new DBfacade();
 
 	public void createMatch(Match match) {
-		matchInfo.createMatch(match);
+		createMatchInfo.createMatchInfo(match);
 	}
 
 	// Select Team
@@ -30,4 +27,4 @@ public class KRPLogic {
 	public static List<Team> getTeams() {
 		return teamAccessor.selectTeam();
 	}
-} 
+}
