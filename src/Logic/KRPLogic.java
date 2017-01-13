@@ -7,24 +7,22 @@ import Domain.Match;
 import Domain.Team;
 
 public class KRPLogic {
-	private DBfacade createTeamInfo = new DBfacade();
 
 	// Create Team
+	private DBfacade createTeamInfo = new DBfacade();
 	public void createTeamInfo(Team team) {
 		createTeamInfo.createTeamInfo(team);
 	}
 
 	// Create Match
 	private DBfacade createMatchInfo = new DBfacade();
-
 	public void createMatch(Match match) {
 		createMatchInfo.createMatchInfo(match);
 	}
 
 	// Select Team
-	private static SelectTeamDB teamAccessor = new SelectTeamDB();
-
+	private static DBfacade teamAccessor = new DBfacade();
 	public static List<Team> getTeams() {
-		return teamAccessor.selectTeam();
+		return teamAccessor.selectTeamInfo();
 	}
 }
