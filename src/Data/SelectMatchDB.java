@@ -31,10 +31,10 @@ public class SelectMatchDB {
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
 				Match m = new Match();
-				m.setId("ID");
-				m.setHjemmeholdId("HJEMMEHOLDID"); 
-				m.setUdeholdId("UDEHOLDID");
-				m.setDatoTid("DATOTID");
+				m.setId(rs.getString("ID"));
+				m.setHjemmeholdId(rs.getString("HJEMMEHOLDID")); 
+				m.setUdeholdId(rs.getString("UDEHOLDID"));
+				m.setDatoTid(rs.getString("DATOTID"));
 				matchList.add(m);
 			}
 		} catch (SQLException e) {
