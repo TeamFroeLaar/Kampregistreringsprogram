@@ -1,7 +1,9 @@
 package Presentation;
 
 import Domain.Match;
+import Logic.KRPLogic;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -32,62 +34,28 @@ public class ViewMatches {
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
 		
-
-//		TableView<Match> matchesTable = new TableView<>();
-//		matchesTable.setEditable(true);
-//		
-//		matchesTable = FXCollections.observableArrayList(data.listLogins());
-//		
-//		matchesTable.setItems(data);
-//
-//		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
-//		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
-//
-//		TableColumn<Match, String> homeTeamName = new TableColumn<Match, String>("Home");
-//		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
-//
-//		TableColumn<Match, String> awayTeamName = new TableColumn<Match, String>("Away");
-//		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
-//
-//		TableColumn<Match, String> dateTime = new TableColumn<Match, String>("Date/Time");
-//		dateTime.setCellValueFactory(new PropertyValueFactory<Match, String>("TIMESTAMP"));
-//
-//		matchesTable.getColumns().addAll(matchID, homeTeamName, dateTime);
-//		grid.add(matchesTable, 1, 1);
-
-		// TableView
-		// TableView<MatchID> table = new TableView<>();
-		// table.setEditable(true);
-		// table.setItems(data);
-
-		// TableView Rækker
-		// TableColumn<MatchID, String> stillingCol = new TableColumn<MatchID,
-		// String>("tablenavn");
-		// stillingCol.setCellValueFactory(new PropertyValueFactory<MatchID,
-		// String>("dbnavn"));
-		//
-		// TableColumn<MatchID, String> holdnavnCol = new TableColumn<MatchID,
-		// String>("tablenavn");
-		// holdnavnCol.setCellValueFactory(new PropertyValueFactory<MatchID,
-		// String>("dbnavn"));
-		//
-		// TableColumn<MatchID, String> maalCol = new TableColumn<MatchID,
-		// String>("tablenavn");
-		// maalCol.setCellValueFactory(new PropertyValueFactory<MatchID,
-		// String>("dbnavn"));
-		//
-		// TableColumn<MatchID, String> udvisningsCol = new TableColumn<MatchID,
-		// String>("tablenavn");
-		// udvisningsCol.setCellValueFactory(new PropertyValueFactory<MatchID,
-		// String>("dbnavn"));
-		//
-		// TableColumn<MatchID, String> pointCol = new TableColumn<MatchID,
-		// String>("tablenavn");
-		// pointCol.setCellValueFactory(new PropertyValueFactory<MatchID,
-		// String>("dbnavn"));
-		//
-		// table.getColums().addAll()
-
+		TableView<Match> matchesTable = new TableView<>();
+		matchesTable.setEditable(true);
+		ObservableList<Match> matchOverview;
+		matchOverview = FXCollections.observableArrayList(KRPLogic.getMatch());
+	
+		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
+		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
+		
+		TableColumn<Match, String> homeTeamName = new TableColumn<Match, String>("Home");
+		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
+		
+		TableColumn<Match, String> awayTeamName = new TableColumn<Match, String>("Away");
+		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
+		
+		TableColumn<Match, String> dateTime = new TableColumn<Match, String>("Date/Time");
+		dateTime.setCellValueFactory(new PropertyValueFactory<Match, String>("TIMESTAMP"));
+		
+		matchesTable.setItems(matchOverview);
+		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName, dateTime);
+		grid.add(matchesTable, 1, 1);
+		
+		
 		// Buttons
 		Button tilbage = new Button("Return");
 		grid.add(tilbage, 0, 5);
