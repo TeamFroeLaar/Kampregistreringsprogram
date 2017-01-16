@@ -143,7 +143,7 @@ public class ViewMatch {
 		});
 		
 		Button export = new Button ("Export");
-		grid.add(export, 0, 1);
+		grid.add(export, 0, 2);
 		export.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
