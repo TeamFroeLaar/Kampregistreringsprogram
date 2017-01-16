@@ -29,7 +29,6 @@ public class ViewMatches {
 
 	@SuppressWarnings("unchecked")
 	public void init() {
-		System.out.println("ViewMatches init");
 		stage.setTitle("View matches");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
