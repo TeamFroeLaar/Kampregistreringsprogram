@@ -1,5 +1,7 @@
 package Presentation;
 
+import java.sql.Timestamp;
+
 import Domain.Match;
 import Logic.KRPLogic;
 import javafx.collections.FXCollections;
@@ -19,6 +21,7 @@ import javafx.stage.Stage;
 public class ViewMatches {
 	private Stage stage;
 	private GridPane grid;
+
 	public ViewMatches(Stage stage) {
 		this.stage = stage;
 
@@ -32,33 +35,37 @@ public class ViewMatches {
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
-		
-		// TableView
-		TableView<Match> matchesTable = new TableView<>();
+		stage.setMinHeight(500);
+		stage.setMinWidth(500);
+
+		// TableView matches
+		TableView<Match> matchesTable = new TableView<Match>();
 		matchesTable.setEditable(true);
-		ObservableList<Match> matchOverview;
-		matchOverview = FXCollections.observableArrayList(KRPLogic.getMatch());
-	
+		ObservableList<Match> data;
+		data = FXCollections.observableArrayList(KRPLogic.getMatch());
+		
 		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
-		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("ID"));
-		
-		TableColumn<Match, String> homeTeamName = new TableColumn<Match, String>("Home");
-		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
-		
-		TableColumn<Match, String> awayTeamName = new TableColumn<Match, String>("Away");
-		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, String>("ID"));
-		
-		TableColumn<Match, String> dateTime = new TableColumn<Match, String>("Date/Time");
-		dateTime.setCellValueFactory(new PropertyValueFactory<Match, String>("TIMESTAMP"));
-		
-		matchesTable.setItems(matchOverview);
+		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("id"));
+
+		TableColumn<Match, Integer> homeTeamName = new TableColumn<Match, Integer>("Home");
+		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("hjemmeholdId"));
+
+		TableColumn<Match, Integer> awayTeamName = new TableColumn<Match, Integer>("Away");
+		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("udeholdId"));
+
+		TableColumn<Match, Timestamp> dateTime = new TableColumn<Match, Timestamp>("Date/Time");
+		dateTime.setCellValueFactory(new PropertyValueFactory<Match, Timestamp>("datoTid"));
+
+		matchesTable.setItems(data);
 		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName, dateTime);
-		grid.add(matchesTable, 1, 1);
+		grid.add(matchesTable, 1, 0);
 		
-		
+		System.out.println(data);
+
 		// Buttons
 		Button tilbage = new Button("Return");
-		grid.add(tilbage, 0, 5);
+		grid.add(tilbage, 0, 2);
+		tilbage.setPrefSize(100, 50);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -66,18 +73,20 @@ public class ViewMatches {
 				view.start(stage);
 			}
 		});
-		Button sekamp = new Button("View match");
-		grid.add(sekamp, 0, 4);
-		sekamp.setOnAction(new EventHandler<ActionEvent>() {
+		Button viewThisMatch = new Button("View match");
+		grid.add(viewThisMatch, 1, 2);
+		viewThisMatch.setPrefSize(100, 50);
+		viewThisMatch.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				ViewMatch view = new ViewMatch(stage);
 				view.init();
 			}
 		});
-		Button redkamp = new Button("Edit match");
-		grid.add(redkamp, 1, 4);
-		redkamp.setOnAction(new EventHandler<ActionEvent>() {
+		Button editMatch = new Button("Edit match");
+		grid.add(editMatch, 2, 2);
+		editMatch.setPrefSize(100, 50);
+		editMatch.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				EditMatch view = new EditMatch(stage);

@@ -30,7 +30,7 @@ public class ViewMatch {
 	private GridPane homeTeamGrid;
 	private GridPane awayTeamGrid;
 	private List<Match> data;
-	List<Match> listeMatchs;
+	List<Match> matchList;
 	
 	public ViewMatch (Stage stage) {
 		this.stage = stage;
