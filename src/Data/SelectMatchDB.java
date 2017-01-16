@@ -9,13 +9,12 @@ import java.util.List;
 import Domain.Match;
 
 public class SelectMatchDB {
-	List<Match> matchList = new ArrayList<>();
 
 	public List<Match> selectMatch() {
-
+		List<Match> matchList = new ArrayList<>();
 		try (DataAccess access = new DataAccess()) {
 			try {
-				selectMatch(access);
+				selectMatch(access, matchList);
 				access.commit();
 			} catch (Exception e) {
 				access.rollback();
@@ -25,7 +24,7 @@ public class SelectMatchDB {
 		return matchList;
 	}
 
-	public void selectMatch(DataAccess access) {
+	public void selectMatch(DataAccess access, List<Match> matchList) {
 		try (PreparedStatement statement = access.getConnection()
 				.prepareStatement("SELECT ID, HJEMMEHOLDID, UDEHOLDID, DATOTID FROM KAMPE");) {
 			ResultSet rs = statement.executeQuery();

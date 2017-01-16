@@ -29,6 +29,7 @@ public class ViewMatches {
 
 	@SuppressWarnings("unchecked")
 	public void init() {
+		System.out.println("ViewMatches init");
 		stage.setTitle("View matches");
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
@@ -42,6 +43,7 @@ public class ViewMatches {
 		TableView<Match> matchesTable = new TableView<Match>();
 		matchesTable.setEditable(true);
 		ObservableList<Match> data;
+		
 		data = FXCollections.observableArrayList(KRPLogic.getMatch());
 		
 		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
@@ -55,11 +57,22 @@ public class ViewMatches {
 
 		TableColumn<Match, Timestamp> dateTime = new TableColumn<Match, Timestamp>("Date/Time");
 		dateTime.setCellValueFactory(new PropertyValueFactory<Match, Timestamp>("datoTid"));
-
+		
 		matchesTable.setItems(data);
 		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName, dateTime);
 		grid.add(matchesTable, 1, 0);
-
+		
+		Button clear = new Button("Clear");	
+		grid.add(clear, 0, 3);
+		clear.setPrefSize(100, 50);
+		clear.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				data.clear();
+				matchesTable.setItems(data);
+			}
+		});
+		
 		// Buttons
 		Button tilbage = new Button("Return");
 		grid.add(tilbage, 0, 2);
