@@ -33,7 +33,7 @@ public class ViewMatches {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
-		
+		// TableView
 		TableView<Match> matchesTable = new TableView<>();
 		matchesTable.setEditable(true);
 		ObservableList<Match> matchOverview;
