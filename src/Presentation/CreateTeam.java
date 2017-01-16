@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CreateTeam {
@@ -24,7 +25,7 @@ public class CreateTeam {
 	public void init() {
 		stage.setTitle("Create a team");
 		grid = new GridPane();
-		grid.setGridLinesVisible(true);
+		grid.setGridLinesVisible(false);
 		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
 		grid.setVgap(10);
@@ -44,9 +45,16 @@ public class CreateTeam {
 			public void handle(ActionEvent event) {
 				KRPLogic logic = new KRPLogic();
 				Team newTeam = new Team();
-				
 				newTeam.setHoldnavn(navn.getText());
-				logic.createTeamInfo(newTeam);
+
+				if (navn.getText().trim().isEmpty()) {
+					Label fejl = new Label("Insert a name");
+					fejl.setTextFill(Color.web("#fc1919"));
+					grid.add(fejl, 1, 2);
+				} else {
+					logic.createTeamInfo(newTeam);
+				}
+
 			}
 		});
 
