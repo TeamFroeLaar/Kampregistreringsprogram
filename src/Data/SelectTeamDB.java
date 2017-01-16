@@ -8,12 +8,12 @@ import java.util.List;
 import Domain.Team;
 
 public class SelectTeamDB {
-	List<Team> list = new ArrayList<>();
 
 	public List<Team> selectTeam() {
+		List<Team> list = new ArrayList<>();
 		try (DataAccess access = new DataAccess()) {
 			try {
-				selectTeam(access);
+				selectTeam(access, list);
 				access.commit();
 			} catch (Exception e) {
 				access.rollback();
@@ -23,7 +23,7 @@ public class SelectTeamDB {
 		return list;
 	}
 
-	private void selectTeam(DataAccess access) {
+	private void selectTeam(DataAccess access, List<Team> list) {
 		try (PreparedStatement statement = access.getConnection().prepareStatement("SELECT ID, HOLDNAVN FROM HOLD");) {
 
 			ResultSet rs = statement.executeQuery();
