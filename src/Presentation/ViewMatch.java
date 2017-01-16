@@ -3,7 +3,6 @@ package Presentation;
 import java.util.List;
 
 import Domain.Match;
-import Domain.Team;
 import Logic.KRPLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
