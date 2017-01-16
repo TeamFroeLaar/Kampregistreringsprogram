@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import com.i
 
 public class ViewLeague {
 	private Stage stage;
@@ -58,6 +59,15 @@ public class ViewLeague {
 			public void handle(ActionEvent event) {
 				Main view = new Main();
 				view.start(stage);
+			}
+		});
+		
+		Button export = new Button("Export");
+		grid.add(export, 0, 4);
+		export.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				
 			}
 		});
 		
