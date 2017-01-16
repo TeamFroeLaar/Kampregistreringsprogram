@@ -27,7 +27,6 @@ public class CreateMatch {
 
 	public CreateMatch(Stage stage) {
 		this.stage = stage;
-
 	}
 
 	public void init() {

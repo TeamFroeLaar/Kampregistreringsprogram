@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import Domain.Event;
 import Domain.Match;
+import Domain.Team;
 import Logic.KRPLogic;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -120,8 +121,8 @@ public class EditMatch {
 				Match m = new Match();
 				Event e = new Event();
 				e.setEvent("Penalty");		
-				e.setDatotid(TidspunktIKampen);
-				e.setHoldid(hjemmeHold.getId());
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(m.getHjemmeholdId());
 				e.setKampid(m.getId());
 				
 				logic.createEvent(e);
@@ -139,7 +140,7 @@ public class EditMatch {
 				Event e = new Event();
 				e.setEvent("Red card");		
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(hjemmeHold.getId());
+				e.setHoldid(m.getHjemmeholdId());
 				e.setKampid(m.getId());		
 				
 				logic.createEvent(e);
@@ -157,7 +158,7 @@ public class EditMatch {
 				Event e = new Event();
 				e.setEvent("Yellow card");		
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(hjemmeHold.getId());
+				e.setHoldid(m.getHjemmeholdId());
 				e.setKampid(m.getId());		
 				
 				logic.createEvent(e);
@@ -174,7 +175,7 @@ public class EditMatch {
 				Match m = new Match();
 				e.setEvent("Goal");
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(hjemmeHold.getId());
+				e.setHoldid(m.getHjemmeholdId());
 				e.setKampid(m.getId());
 				
 				logic.createEvent(e);
@@ -196,7 +197,7 @@ public class EditMatch {
 				Match m = new Match();
 				e.setEvent("Penalty");		
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(udeHold.getId());
+				e.setHoldid(m.getUdeholdId());
 				e.setKampid(m.getId());		
 				
 				logic.createEvent(e);
@@ -214,7 +215,7 @@ public class EditMatch {
 				Match m = new Match();
 				e.setEvent("Red card");		
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(udeHold.getId());
+				e.setHoldid(m.getUdeholdId());
 				e.setKampid(m.getId());	
 				
 				logic.createEvent(e);
@@ -232,7 +233,7 @@ public class EditMatch {
 				Match m = new Match();
 				e.setEvent("Yellow card");	
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(udeHold.getId());
+				e.setHoldid(m.getUdeholdId());
 				e.setKampid(m.getId());	
 				
 				logic.createEvent(e);
@@ -250,7 +251,7 @@ public class EditMatch {
 				Match m = new Match();
 				e.setEvent("Goal");		
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(udeHold.getId());
+				e.setHoldid(m.getUdeholdId());
 				e.setKampid(m.getId());	
 				
 				logic.createEvent(e);
