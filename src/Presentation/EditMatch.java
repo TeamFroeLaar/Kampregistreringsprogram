@@ -116,12 +116,15 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic eventPenaltyHome = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
+				Match m = new Match();
 				Event e = new Event();
 				e.setEvent("Penalty");		
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);			
+				e.setDatotid(TidspunktIKampen);
+				e.setHoldid(hjemmeHold.getId());
+				e.setKampid(m.getId());
+				
+				logic.createEvent(e);
 			}
 		});
  
@@ -131,12 +134,15 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic eventRedHome = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
+				Match m = new Match();
 				Event e = new Event();
 				e.setEvent("Red card");		
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);			
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(hjemmeHold.getId());
+				e.setKampid(m.getId());		
+				
+				logic.createEvent(e);
 			}
 		});
 
@@ -146,12 +152,15 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic eventYellowHome = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
+				Match m = new Match();
 				Event e = new Event();
 				e.setEvent("Yellow card");		
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);			
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(hjemmeHold.getId());
+				e.setKampid(m.getId());		
+				
+				logic.createEvent(e);
 			}
 		});
 
@@ -160,12 +169,15 @@ public class EditMatch {
 		goalHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				KRPLogic eventGoalHome = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
 				Event e = new Event();
+				Match m = new Match();
 				e.setEvent("Goal");
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(hjemmeHold.getId());
+				e.setKampid(m.getId());
+				
+				logic.createEvent(e);
 			}
 		});
 
@@ -179,12 +191,15 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic eventPenaltyOut = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
 				Event e = new Event();
+				Match m = new Match();
 				e.setEvent("Penalty");		
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);			
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(udeHold.getId());
+				e.setKampid(m.getId());		
+				
+				logic.createEvent(e);
 			}
 		});
 
@@ -194,12 +209,15 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic eventRedOut = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
 				Event e = new Event();
+				Match m = new Match();
 				e.setEvent("Red card");		
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);	
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(udeHold.getId());
+				e.setKampid(m.getId());	
+				
+				logic.createEvent(e);
 			}
 		});
 
@@ -209,12 +227,15 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic eventYellowOut = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
 				Event e = new Event();
-				e.setEvent("Yellow card");		
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);	
+				Match m = new Match();
+				e.setEvent("Yellow card");	
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(udeHold.getId());
+				e.setKampid(m.getId());	
+				
+				logic.createEvent(e);
 			}
 		});
 
@@ -224,12 +245,15 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic eventGoalOut = new KRPLogic();
+				KRPLogic logic = new KRPLogic();
 				Event e = new Event();
+				Match m = new Match();
 				e.setEvent("Goal");		
-				e.setDatotid(datotid);
-				e.setHoldid(hjemmeholdId);
-				e.setKampid(kampid);	
+				e.setDatotid(m.getDatoTid());
+				e.setHoldid(udeHold.getId());
+				e.setKampid(m.getId());	
+				
+				logic.createEvent(e);
 			}
 		});
 
