@@ -2,6 +2,11 @@ package Domain;
 
 public class Match 
 {
+	@Override
+	public String toString() {
+		return "Match [id=" + id + ", hjemmeholdId=" + hjemmeholdId + ", udeholdId=" + udeholdId + ", datoTid="
+				+ datoTid + "]";
+	}
 	private String id;
 	private String hjemmeholdId;
 	private String udeholdId;
