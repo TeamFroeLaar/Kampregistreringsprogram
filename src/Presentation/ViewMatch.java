@@ -142,6 +142,15 @@ public class ViewMatch {
 			}
 		});
 		
+		Button export = new Button ("Export");
+		grid.add(export, 0, 1);
+		export.setOnAction(new EventHandler<ActionEvent>() {	
+			@Override
+			public void handle(ActionEvent event) {
+				
+			}
+		});
+		
 		HBox hViewMatch = new HBox();
 		hViewMatch.getChildren().addAll(stackHomeTeam, stackAwayTeam);
 		hViewMatch.setSpacing(10);
