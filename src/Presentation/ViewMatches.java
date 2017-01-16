@@ -59,8 +59,6 @@ public class ViewMatches {
 		matchesTable.setItems(data);
 		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName, dateTime);
 		grid.add(matchesTable, 1, 0);
-		
-		System.out.println(data);
 
 		// Buttons
 		Button tilbage = new Button("Return");
