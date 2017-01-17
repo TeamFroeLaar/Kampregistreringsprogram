@@ -35,7 +35,4 @@ public class Match
 	public String toString() {
 		return "Match [hjemmeholdId=" + hjemmeholdId + ", udeholdId=" + udeholdId + ", datoTid=" + datoTid + "]";
 	}
-
-	
-
 }
