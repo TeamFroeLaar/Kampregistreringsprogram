@@ -116,7 +116,7 @@ public class ViewMatches {
 					udehold.setId(rowData.getUdeholdId());
 					
 					EditMatch view = new EditMatch(stage);
-					view.init(hjemmehold, udehold);		
+					view.init(hjemmehold, udehold, rowData);		
 				}
 			});
 			return row;

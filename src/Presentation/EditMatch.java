@@ -45,7 +45,8 @@ public class EditMatch {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void init(Team hjemmehold, Team udehold) {
+	public void init(Team hjemmehold, Team udehold, Match rowData) {
+		Match matchData = rowData;
 	
 		// main grid
 		stage.setTitle("edit match");
@@ -171,8 +172,8 @@ public class EditMatch {
 			public void handle(ActionEvent event) {
 				e.setEvent("Goal");
 				e.setDatotid(m.getDatoTid());
-				e.setHoldid(m.getHjemmeholdId());
-				e.setKampid(m.getId());
+				e.setHoldid(hjemmehold.getId());
+				e.setKampid(matchData.getId());
 				
 				logic.createEvent(e);
 			}
