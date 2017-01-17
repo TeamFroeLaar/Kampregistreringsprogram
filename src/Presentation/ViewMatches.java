@@ -3,6 +3,7 @@ package Presentation;
 import java.sql.Timestamp;
 
 import Domain.Match;
+import Domain.Team;
 import Logic.KRPLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
@@ -35,33 +37,34 @@ public class ViewMatches {
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
-		stage.setMinHeight(500);
-		stage.setMinWidth(500);
+		stage.setMinHeight(600);
+		stage.setMinWidth(650);
 
 		// TableView matches
 		TableView<Match> matchesTable = new TableView<Match>();
 		matchesTable.setEditable(true);
 		ObservableList<Match> data;
-		
+
 		data = FXCollections.observableArrayList(KRPLogic.getMatch());
-		
+
 		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
 		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("id"));
 
 		TableColumn<Match, Integer> homeTeamName = new TableColumn<Match, Integer>("Home");
-		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("hjemmeholdId"));
+		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("hjemmeholdNavn"));
 
 		TableColumn<Match, Integer> awayTeamName = new TableColumn<Match, Integer>("Away");
-		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("udeholdId"));
+		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("udeholdNavn"));
 
 		TableColumn<Match, Timestamp> dateTime = new TableColumn<Match, Timestamp>("Date/Time");
 		dateTime.setCellValueFactory(new PropertyValueFactory<Match, Timestamp>("datoTid"));
-		
+
 		matchesTable.setItems(data);
 		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName, dateTime);
+		matchesTable.setMinSize(500, 400);
 		grid.add(matchesTable, 1, 0);
-		
-		Button clear = new Button("Clear");	
+
+		Button clear = new Button("Clear");
 		grid.add(clear, 0, 3);
 		clear.setPrefSize(100, 50);
 		clear.setOnAction(new EventHandler<ActionEvent>() {
@@ -71,7 +74,7 @@ public class ViewMatches {
 				matchesTable.setItems(data);
 			}
 		});
-		
+
 		// Buttons
 		Button tilbage = new Button("Return");
 		grid.add(tilbage, 0, 2);
@@ -96,13 +99,29 @@ public class ViewMatches {
 		Button editMatch = new Button("Edit match");
 		grid.add(editMatch, 2, 2);
 		editMatch.setPrefSize(100, 50);
-		editMatch.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				EditMatch view = new EditMatch(stage);
-				view.init();
-			}
+
+		matchesTable.setRowFactory(newSelection -> {
+			TableRow<Match> row = new TableRow<>();
+			editMatch.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					Match rowData = matchesTable.getSelectionModel().getSelectedItem();
+
+					Team hjemmehold = new Team();
+					hjemmehold.setHoldnavn(rowData.getHjemmeholdNavn());
+					hjemmehold.setId(rowData.getHjemmeholdId());
+					
+					Team udehold = new Team();
+					udehold.setHoldnavn(rowData.getUdeholdNavn());
+					udehold.setId(rowData.getUdeholdId());
+					
+					EditMatch view = new EditMatch(stage);
+					view.init(hjemmehold, udehold);		
+				}
+			});
+			return row;
 		});
+
 		Scene viewMatch = new Scene(grid, 400, 375);
 		stage.setScene(viewMatch);
 		stage.show();

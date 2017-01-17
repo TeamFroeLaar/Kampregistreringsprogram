@@ -6,6 +6,8 @@ public class Match
 	private String hjemmeholdId;
 	private String udeholdId;
 	private String datoTid;
+	private String hjemmeholdNavn;
+	private String udeholdNavn;
 
 	public String getId() {
 		return id;
@@ -31,8 +33,23 @@ public class Match
 	public void setDatoTid(String datoTid) {
 		this.datoTid = datoTid;
 	}
+	public String getHjemmeholdNavn() {
+		return hjemmeholdNavn;
+	}
+	public void setHjemmeholdNavn(String hjemmeholdNavn) {
+		this.hjemmeholdNavn = hjemmeholdNavn;
+	}
+	public String getUdeholdNavn() {
+		return udeholdNavn;
+	}
+	public void setUdeholdNavn(String udeholdNavn) {
+		this.udeholdNavn = udeholdNavn;
+	}
 	@Override
 	public String toString() {
-		return "Match [hjemmeholdId=" + hjemmeholdId + ", udeholdId=" + udeholdId + ", datoTid=" + datoTid + "]";
+		return "Match [id=" + id + ", hjemmeholdId=" + hjemmeholdId + ", udeholdId=" + udeholdId + ", datoTid="
+				+ datoTid + ", hjemmeholdNavn=" + hjemmeholdNavn + ", udeholdNavn=" + udeholdNavn + "]";
 	}
+
+	
 }

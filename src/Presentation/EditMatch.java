@@ -1,8 +1,6 @@
 
 package Presentation;
 
-import java.time.LocalDateTime;
-
 import Domain.Event;
 import Domain.Match;
 import Domain.Team;
@@ -27,6 +25,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class EditMatch {
+	Team rowDataHjemme;
+	Team rowDataUde;
 	private Stage stage;
 	private GridPane grid;
 	private GridPane hjemmeholdGrid;
@@ -34,12 +34,19 @@ public class EditMatch {
 	private TableView<Match> table;
 	private ObservableList<Match> plist;
 
+	KRPLogic logic = new KRPLogic();
+	Match m = new Match();
+	Event e = new Event();
+	Team t = new Team();
+	
 	public EditMatch(Stage stage) {
+		
 		this.stage = stage;
 	}
 
 	@SuppressWarnings("unchecked")
-	public void init() {
+	public void init(Team hjemmehold, Team udehold) {
+	
 		// main grid
 		stage.setTitle("edit match");
 		grid = new GridPane();
@@ -101,15 +108,16 @@ public class EditMatch {
 		TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Events");
 		eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("event"));
 		
-		TableColumn<Match, String> holdCol = new TableColumn<Match, String>("Hold");
-		holdCol.setCellValueFactory(new PropertyValueFactory<Match, String>("hold"));
+		TableColumn<Match, String> holdCol = new TableColumn<Match, String>("Team");
+		holdCol.setCellValueFactory(new PropertyValueFactory<Match, String>("team"));
 
-		table.getColumns().addAll(timestampCol, eventCol);
+		table.getColumns().addAll(timestampCol, eventCol, holdCol);
 		grid.add(table, 1, 1);
 
 		// Buttons til hjemmeholdGrid
-		Label hjemmeHold = new Label("Hjemmehold");
-		hjemmeholdGrid.add(hjemmeHold, 0, 0);
+		
+		Label hjemmeHoldLabel = new Label("Hjemmehold: " + hjemmehold.getHoldnavn());
+		hjemmeholdGrid.add(hjemmeHoldLabel, 0, 0);
 		
 		Button PenaltyHome = new Button("Penalty");
 		hjemmeholdGrid.add(PenaltyHome, 0, 1);
@@ -117,9 +125,6 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic logic = new KRPLogic();
-				Match m = new Match();
-				Event e = new Event();
 				e.setEvent("Penalty");		
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getHjemmeholdId());
@@ -135,9 +140,6 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic logic = new KRPLogic();
-				Match m = new Match();
-				Event e = new Event();
 				e.setEvent("Red card");		
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getHjemmeholdId());
@@ -153,9 +155,6 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic logic = new KRPLogic();
-				Match m = new Match();
-				Event e = new Event();
 				e.setEvent("Yellow card");		
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getHjemmeholdId());
@@ -170,9 +169,6 @@ public class EditMatch {
 		goalHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				KRPLogic logic = new KRPLogic();
-				Event e = new Event();
-				Match m = new Match();
 				e.setEvent("Goal");
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getHjemmeholdId());
@@ -183,7 +179,8 @@ public class EditMatch {
 		});
 
 		// Buttons til udeholdGrid
-		Label udeHold = new Label("Udehold");
+		
+		Label udeHold = new Label("udehold: " + udehold.getHoldnavn());
 		udeholdGrid.add(udeHold, 0, 0);
 		
 		Button PenaltyOut = new Button("Penalty");
@@ -192,9 +189,6 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic logic = new KRPLogic();
-				Event e = new Event();
-				Match m = new Match();
 				e.setEvent("Penalty");		
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getUdeholdId());
@@ -210,9 +204,6 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic logic = new KRPLogic();
-				Event e = new Event();
-				Match m = new Match();
 				e.setEvent("Red card");		
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getUdeholdId());
@@ -228,9 +219,6 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic logic = new KRPLogic();
-				Event e = new Event();
-				Match m = new Match();
 				e.setEvent("Yellow card");	
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getUdeholdId());
@@ -246,9 +234,6 @@ public class EditMatch {
 			@Override
 			public void handle(ActionEvent event) 
 			{
-				KRPLogic logic = new KRPLogic();
-				Event e = new Event();
-				Match m = new Match();
 				e.setEvent("Goal");		
 				e.setDatotid(m.getDatoTid());
 				e.setHoldid(m.getUdeholdId());
