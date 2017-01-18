@@ -8,6 +8,7 @@ public class Match
 	private String datoTid;
 	private String hjemmeholdNavn;
 	private String udeholdNavn;
+	
 
 	public String getId() {
 		return id;

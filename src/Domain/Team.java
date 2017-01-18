@@ -4,6 +4,8 @@ public class Team {
 	private String id;
 	private String holdnavn;
 
+	
+
 	public String getId() {
 		return id;
 	} 
