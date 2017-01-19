@@ -34,6 +34,7 @@ public class KRPLogic {
 	// Select Team
 	private static DBfacade teamAccessor = new DBfacade();
 	public static List<Team> getTeams() {
+		return teamAccessor.selectTeamInfo();
 }
 	
 	// Select Match
@@ -44,15 +45,15 @@ public class KRPLogic {
 	}
 	
 	// Create League
-	private DBfacade createLeagueInfo = new DBfacade();
-	public void createLeague(League league) 
-	{
-		createLeagueInfo.createLeagueInfo(league);
-	}
-	// Select League
-	private static DBfacade leagueAccessor = new DBfacade();
-	public static List<League> getLeague()
-	{
-		return leagueAccessor.selectLeagueInfo();
-	}
+//	private DBfacade createLeagueInfo = new DBfacade();
+//	public void createLeague(League league) 
+//	{
+//		createLeagueInfo.createLeagueInfo(league);
+//	}
+//	// Select League
+//	private static DBfacade leagueAccessor = new DBfacade();
+//	public static List<League> getLeague()
+//	{
+//		return leagueAccessor.selectLeagueInfo();
+//	}
 }

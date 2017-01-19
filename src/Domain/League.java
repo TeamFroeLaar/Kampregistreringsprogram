@@ -7,6 +7,7 @@ public class League {
 	private String win;
 	private String loss;
 	private String point;
+	
 	public String getHoldnavn() {
 		return holdnavn;
 	}

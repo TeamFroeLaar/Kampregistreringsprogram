@@ -44,16 +44,16 @@ public class DBfacade {
 	}
 	
 	// Create League
-	private DBfacade createLeagueInfo = new DBfacade();
-	public void createLeague(League league) 
-	{
-		createLeagueInfo.createLeagueInfo(league);
-	}
-	// Select League
-	private static DBfacade leagueAccessor = new DBfacade();
-	public static List<League> getLeague()
-	{
-		return leagueAccessor.selectLeagueInfo();
-	}
+//	private DBfacade createLeagueInfo = new DBfacade();
+//	public void createLeague(League league) 
+//	{
+//		createLeagueInfo.createLeagueInfo(league);
+//	}
+//	// Select League
+//	private static DBfacade leagueAccessor = new DBfacade();
+//	public static List<League> getLeague()
+//	{
+//		return leagueAccessor.selectLeagueInfo();
+//	}
 
 }
