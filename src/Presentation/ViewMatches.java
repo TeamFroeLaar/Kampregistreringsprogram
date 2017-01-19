@@ -2,6 +2,7 @@ package Presentation;
 
 import java.sql.Timestamp;
 
+import Domain.Event;
 import Domain.Match;
 import Domain.Team;
 import Logic.KRPLogic;
@@ -114,6 +115,13 @@ public class ViewMatches {
 					Team udehold = new Team();
 					udehold.setHoldnavn(rowData.getUdeholdNavn());
 					udehold.setId(rowData.getUdeholdId());
+					
+					Event kampEvents = new Event();
+					kampEvents.getEvent();
+					kampEvents.getHoldid();
+					kampEvents.getId();
+					kampEvents.getKampid();
+					kampEvents.getTid();
 					
 					EditMatch view = new EditMatch(stage);
 					view.init(hjemmehold, udehold, rowData);		

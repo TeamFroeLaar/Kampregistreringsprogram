@@ -47,7 +47,7 @@ public class KRPLogic {
 	
 	// Select Event
 	private static DBfacade eventAccessor = new DBfacade();
-	public List<Event> getEvent(Event event) {
+	public static List<Event> getEvent(Event event) {
 		return eventAccessor.selectEventInfo(event);
 	}
 	

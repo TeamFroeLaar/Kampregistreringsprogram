@@ -1,6 +1,8 @@
 
 package Presentation;
 
+import java.util.List;
+
 import Domain.Event;
 import Domain.Match;
 import Domain.Team;
@@ -9,6 +11,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,8 +41,9 @@ public class EditMatch {
 	private GridPane hjemmeholdGrid;
 	private GridPane udeholdGrid;
 	private GridPane gridWatch;
-	private TableView<Match> table;
-	private ObservableList<Match> plist;
+	private TableView<Event> table;
+	private ObservableList<Event> data;
+	List<Event> eventList;
 	
 	//Intialiseringer for ur
 	private Timeline timeline;
@@ -60,16 +64,24 @@ public class EditMatch {
 		this.stage = stage;
 	}
 
-	@SuppressWarnings("unchecked")
-	public void init(Team hjemmehold, Team udehold, Match rowData) {
-		Match matchData = rowData;
+
+	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) {
+		//Match rowdata
+		Match matchData = rowDataMatch;
 		matchData.setDatoTid(matchData.getDatoTid());
 		matchData.setHjemmeholdId(matchData.getHjemmeholdId());
 		matchData.setHjemmeholdNavn(matchData.getHjemmeholdNavn());
 		matchData.setId(matchData.getId());
 		matchData.setUdeholdId(matchData.getUdeholdId());
 		matchData.setUdeholdNavn(matchData.getUdeholdNavn());
-			
+		
+		//Event rowdata
+		KRPLogic logic = new KRPLogic();
+		Event event = new Event();
+		event.setKampid(rowDataMatch.getId());
+		eventList = KRPLogic.getEvent(event);
+		data = FXCollections.observableArrayList(eventList);
+
 		// main grid
 		stage.setTitle("edit match");
 		grid = new GridPane();
@@ -209,21 +221,21 @@ public class EditMatch {
 		stackU.getChildren().addAll(r2, textU);
 
 		// TableView
-		TableView<Match> table = new TableView<>();
+		table = new TableView<>();
 		table.setEditable(true);
-//		table.setItems(data);
+		table.setItems(data);
 
 		// TableView Rækker
-		TableColumn<Match, String> timestampCol = new TableColumn<Match, String>("Timestamp");
-		timestampCol.setCellValueFactory(new PropertyValueFactory<Match, String>("timestamp"));
+		TableColumn<Event, String> tidCol = new TableColumn<Event, String>("tid");
+		tidCol.setCellValueFactory(new PropertyValueFactory<Event, String>("tid"));
 
-		TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Events");
-		eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("event"));
+		TableColumn<Event, String> eventCol = new TableColumn<Event, String>("Events");
+		eventCol.setCellValueFactory(new PropertyValueFactory<Event, String>("event"));
 		
-		TableColumn<Match, String> holdCol = new TableColumn<Match, String>("Team");
-		holdCol.setCellValueFactory(new PropertyValueFactory<Match, String>("team"));
+		TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Team");
+		holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("team"));
 
-		table.getColumns().addAll(timestampCol, eventCol, holdCol);
+		table.getColumns().addAll(tidCol, eventCol, holdCol);
 		grid.add(table, 1, 2);
 
 		// Buttons til hjemmeholdGrid
