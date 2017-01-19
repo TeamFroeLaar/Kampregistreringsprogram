@@ -42,6 +42,13 @@ public class DBfacade {
 		createEventInfo.createEvent(event);
 	}
 	
+	// Select Event
+	private SelectEventDB selectEventInfo = new SelectEventDB();
+	
+	public List<Event> selectEventInfo(Event event) {
+		return selectEventInfo.selectEvent(event);
+	}
+	
 	// Create League
 //	private DBfacade createLeagueInfo = new DBfacade();
 //	public void createLeague(League league) 

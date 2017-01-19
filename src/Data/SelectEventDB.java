@@ -1,0 +1,50 @@
+package Data;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import Domain.Event;
+import Domain.Team;
+
+public class SelectEventDB {
+
+	public List<Event> selectEvent(Event event) {
+		List<Event> list = new ArrayList<>();
+		try (DataAccess access = new DataAccess()) {
+			try {
+				selectEvent(access, list, event);
+				access.commit();
+			} catch (Exception e) {
+				access.rollback();
+				throw e;
+			}
+		}
+		return list;
+	}
+
+	private void selectEvent(DataAccess access, List<Event> list, Event event) {
+		try (PreparedStatement statement = access.getConnection().prepareStatement(
+				"SELECT ID, EVENT, HOLDID, KAMPID, TID FROM EVENT WHERE HOLDID LIKE ? AND EVENT.KAMPID LIKE ? VALUES (?, ?)");) {
+
+			statement.setString(1, event.getHoldid());
+			statement.setString(2, event.getKampid());
+			
+			ResultSet rs = statement.executeQuery();
+
+			while (rs.next()) {
+				Event e = new Event();
+				e.setId(rs.getString("id"));
+				e.setEvent(rs.getString("event"));
+				e.setHoldid(rs.getString("holdid"));
+				e.setKampid(rs.getString("kampid"));
+				e.setTid(rs.getString("tid"));
+				
+				list.add(e);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
