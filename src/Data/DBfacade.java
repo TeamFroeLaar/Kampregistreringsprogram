@@ -34,32 +34,32 @@ public class DBfacade {
 	public List<Team> selectTeamInfo() {
 		return selectTeamInfo.selectTeam();
 	}
-	
+
 	// Create Event
 	private CreateEventDB createEventInfo = new CreateEventDB();
-	
+
 	public void createEventInfo(Event event) {
 		createEventInfo.createEvent(event);
 	}
-	
+
 	// Select Event
 	private SelectEventDB selectEventInfo = new SelectEventDB();
-	
+
 	public List<Event> selectEventInfo(Event event) {
 		return selectEventInfo.selectEvent(event);
 	}
-	
+
 	// Create League
-//	private DBfacade createLeagueInfo = new DBfacade();
-//	public void createLeague(League league) 
-//	{
-//		createLeagueInfo.createLeagueInfo(league);
-//	}
-//	// Select League
-//	private static DBfacade leagueAccessor = new DBfacade();
-//	public static List<League> getLeague()
-//	{
-//		return leagueAccessor.selectLeagueInfo();
-//	}
+	// private DBfacade createLeagueInfo = new DBfacade();
+	// public void createLeague(League league)
+	// {
+	// createLeagueInfo.createLeagueInfo(league);
+	// }
+	// // Select League
+	// private static DBfacade leagueAccessor = new DBfacade();
+	// public static List<League> getLeague()
+	// {
+	// return leagueAccessor.selectLeagueInfo();
+	// }
 
 }

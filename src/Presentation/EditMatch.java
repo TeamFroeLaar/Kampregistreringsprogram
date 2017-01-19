@@ -234,7 +234,7 @@ public class EditMatch {
 		
 		TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Team");
 		holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("team"));
-
+ 
 		table.getColumns().addAll(tidCol, eventCol, holdCol);
 		grid.add(table, 1, 2);
 

@@ -13,54 +13,56 @@ public class KRPLogic {
 
 	// Create Team
 	private DBfacade createTeamInfo = new DBfacade();
-	public void createTeamInfo(Team team) 
-	{
+
+	public void createTeamInfo(Team team) {
 		createTeamInfo.createTeamInfo(team);
 	}
 
 	// Create Match
 	private DBfacade createMatchInfo = new DBfacade();
-	public void createMatch(Match match) 
-	{
+
+	public void createMatch(Match match) {
 		createMatchInfo.createMatchInfo(match);
 	}
-	
-	//Create Event
+
+	// Create Event
 	private DBfacade createEventInfo = new DBfacade();
-	public void createEvent(Event event) 
-	{
+
+	public void createEvent(Event event) {
 		createEventInfo.createEventInfo(event);
 	}
 
 	// Select Team
 	private static DBfacade teamAccessor = new DBfacade();
+
 	public static List<Team> getTeams() {
 		return teamAccessor.selectTeamInfo();
-}
-	
+	}
+
 	// Select Match
 	private static DBfacade matchAccessor = new DBfacade();
-	public static List<Match> getMatch()
-	{
+
+	public static List<Match> getMatch() {
 		return matchAccessor.selectMatchInfo();
 	}
-	
+
 	// Select Event
 	private static DBfacade eventAccessor = new DBfacade();
+
 	public static List<Event> getEvent(Event event) {
 		return eventAccessor.selectEventInfo(event);
 	}
-	
+
 	// Create League
-//	private DBfacade createLeagueInfo = new DBfacade();
-//	public void createLeague(League league) 
-//	{
-//		createLeagueInfo.createLeagueInfo(league);
-//	}
-//	// Select League
-//	private static DBfacade leagueAccessor = new DBfacade();
-//	public static List<League> getLeague()
-//	{
-//		return leagueAccessor.selectLeagueInfo();
-//	}
+	// private DBfacade createLeagueInfo = new DBfacade();
+	// public void createLeague(League league)
+	// {
+	// createLeagueInfo.createLeagueInfo(league);
+	// }
+	// // Select League
+	// private static DBfacade leagueAccessor = new DBfacade();
+	// public static List<League> getLeague()
+	// {
+	// return leagueAccessor.selectLeagueInfo();
+	// }
 }
