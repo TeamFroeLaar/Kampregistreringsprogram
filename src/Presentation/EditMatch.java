@@ -63,7 +63,7 @@ public class EditMatch {
 		
 		this.stage = stage;
 	}
-
+ 
 
 	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) {
 		//Match rowdata
