@@ -69,7 +69,7 @@ public class Main extends Application {
 			}
 		});
 		
-		//Launcher screne
+		//Launcher scene
 		Scene scene = new Scene(grid, 400, 375);
 		StackPane root = new StackPane();
 		root.setId("pane");

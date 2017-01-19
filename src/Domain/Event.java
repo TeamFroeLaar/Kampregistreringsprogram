@@ -6,7 +6,7 @@ public class Event
 	private String event;
 	private String holdid;
 	private String kampid;
-	private String datotid;
+	private String tid;
 	
 
 	public String getId() {
@@ -33,10 +33,11 @@ public class Event
 	public void setKampid(String kampid) {
 		this.kampid = kampid;
 	}
-	public String getDatotid() {
-		return datotid;
+	public String getTid() {
+		return tid;
 	}
-	public void setDatotid(String datotid) {
-		this.datotid = datotid;
+	public void setTid(String tid) {
+		this.tid = tid;
 	}
+
 }

@@ -20,11 +20,13 @@ public class CreateEventDB {
 
 	private void createEvent(DataAccess access, Event event) {
 		try (PreparedStatement statement = access.getConnection()
-				.prepareStatement("INSERT INTO EVENT(EVENT, HOLDID, KAMPEID, DATOTID VALUES (?, ?, ?, ?");) {
+				.prepareStatement("INSERT INTO EVENT(EVENT, HOLDID, KAMPID, TID) VALUES (?, ?, ?, ?)");) {
 			statement.setString(1, event.getEvent());
 			statement.setString(2, event.getHoldid());
 			statement.setString(3, event.getKampid());
-			statement.setString(4, event.getDatotid());
+			statement.setString(4, event.getTid());
+			int antal = statement.executeUpdate();
+			System.out.println("Antal rækker berørt : " + antal);
 		} catch (SQLException e) {
 			throw new RuntimeException("Fejl ved oprettelse", e);
 
