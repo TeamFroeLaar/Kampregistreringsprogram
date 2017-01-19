@@ -3,7 +3,6 @@ package Data;
 import java.util.List;
 
 import Domain.Event;
-import Domain.League;
 import Domain.Match;
 import Domain.Team;
 
