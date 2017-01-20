@@ -48,12 +48,12 @@ public class ExportOptionsView {
 		grid.setGridLinesVisible(false);
 
 		// DropDown export
-		ObservableList<String> exportOptions = FXCollections.observableArrayList("TXT", "CSV", "PDF");
+		ObservableList<String> exportOptions = FXCollections.observableArrayList("CSV", "PDF");
 
 		final ComboBox<String> cmbExportStrings = new ComboBox<String>(exportOptions);
 		HBox exportOptionsField = new HBox();
 		exportOptionsField.getChildren().add(cmbExportStrings);
-		cmbExportStrings.setValue("TXT");
+		cmbExportStrings.setValue("CSV");
 		grid.add(exportOptionsField, 1, 0);
 		exportOptionsField.setAlignment(Pos.CENTER);
 		
@@ -79,7 +79,7 @@ public class ExportOptionsView {
 			}
 		});
 
-		Scene viewExportOptions = new Scene(grid, 400, 375);
+		Scene viewExportOptions = new Scene(grid, 400, 300);
 		stage.setScene(viewExportOptions);
 		stage.show();
 
