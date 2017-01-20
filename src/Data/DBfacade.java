@@ -15,10 +15,10 @@ public class DBfacade {
 	}
 
 	// Select Match
-	private SelectMatchDB selectMatchInfo = new SelectMatchDB();
+	private SelectMatchesDB selectMatchInfo = new SelectMatchesDB();
 
 	public List<Match> selectMatchInfo() {
-		return selectMatchInfo.selectMatch();
+		return selectMatchInfo.selectMatches();
 	}
 
 	// Create Team
