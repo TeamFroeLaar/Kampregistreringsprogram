@@ -395,6 +395,7 @@ public class EditMatch {
 
 		Scene editmatchinfo = new Scene(grid, 500, 800);
 		stage.setScene(editmatchinfo);
+		editmatchinfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.show();
 	}
 

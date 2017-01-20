@@ -19,6 +19,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class ViewMatches {
@@ -65,20 +66,10 @@ public class ViewMatches {
 		matchesTable.setMinSize(500, 400);
 		grid.add(matchesTable, 1, 0);
 
-		Button clear = new Button("Clear");
-		grid.add(clear, 0, 3);
-		clear.setPrefSize(100, 50);
-		clear.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				data.clear();
-				matchesTable.setItems(data);
-			}
-		});
 
 		// Buttons
 		Button tilbage = new Button("Return");
-		grid.add(tilbage, 0, 2);
+//		grid.add(tilbage, 0, 1);
 		tilbage.setPrefSize(100, 50);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -88,7 +79,7 @@ public class ViewMatches {
 			}
 		});
 		Button viewThisMatch = new Button("View match");
-		grid.add(viewThisMatch, 1, 2);
+//		grid.add(viewThisMatch, 1, 2);
 		viewThisMatch.setPrefSize(100, 50);
 		viewThisMatch.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -98,7 +89,7 @@ public class ViewMatches {
 			}
 		});
 		Button editMatch = new Button("Edit match");
-		grid.add(editMatch, 2, 2);
+//		grid.add(editMatch, 1, 3);
 		editMatch.setPrefSize(100, 50);
 
 		matchesTable.setRowFactory(newSelection -> {
@@ -129,9 +120,16 @@ public class ViewMatches {
 			});
 			return row;
 		});
+		// Hbox
+		HBox knapper = new HBox();
+		knapper.getChildren().addAll(tilbage, editMatch, viewThisMatch);
+		knapper.setSpacing(10);
+		knapper.setAlignment(Pos.CENTER);
+		grid.add(knapper, 1, 1);
 
 		Scene viewMatch = new Scene(grid, 400, 375);
 		stage.setScene(viewMatch);
+		viewMatch.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.show();
 	}
 }

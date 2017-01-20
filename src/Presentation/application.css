@@ -4,7 +4,7 @@
 	-fx-background-radius: 5.0,5.0,4.0;
 	-fx-padding: 10.0 26.0 10.0 26.0;
 	-fx-text-fill: #242d35;
-	-fx-pref-width: 150.0;
+	-fx-pref-width: 100.0;
 	-fx-font-size: 14.0px
 	}
 	*/
@@ -18,6 +18,6 @@
     -fx-font-size: 14px;
     -fx-button-type: RAISED;
     -fx-background-color: rgb(77,102,204);
-    -fx-pref-width: 200;
+    -fx-pref-width: 150;
     -fx-text-fill: WHITE;
 }

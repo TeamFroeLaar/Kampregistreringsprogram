@@ -158,6 +158,7 @@ public class ViewMatch {
 		
 		Scene viewMatchInfo = new Scene(grid, 500, 800);
 		stage.setScene(viewMatchInfo);
+		viewMatchInfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.show();
 	
 	
