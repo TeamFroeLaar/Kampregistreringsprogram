@@ -7,6 +7,7 @@ public class Event
 	private String holdid;
 	private String kampid;
 	private String tid;
+	private String holdnavn;
 	
 
 	public String getId() {
@@ -38,6 +39,12 @@ public class Event
 	}
 	public void setTid(String tid) {
 		this.tid = tid;
+	}
+	public String getHoldnavn() {
+		return holdnavn;
+	}
+	public void setHoldnavn(String holdnavn) {
+		this.holdnavn = holdnavn;
 	}
 
 }
