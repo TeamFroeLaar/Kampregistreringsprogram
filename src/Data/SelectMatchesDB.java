@@ -8,13 +8,13 @@ import java.util.List;
 
 import Domain.Match;
 
-public class SelectMatchDB {
+public class SelectMatchesDB {
 
-	public List<Match> selectMatch() {
+	public List<Match> selectMatches() {
 		List<Match> matchList = new ArrayList<>();
 		try (DataAccess access = new DataAccess()) {
 			try {
-				selectMatch(access, matchList);
+				selectMatches(access, matchList);
 				access.commit();
 			} catch (Exception e) {
 				access.rollback();
@@ -24,7 +24,7 @@ public class SelectMatchDB {
 		return matchList;
 	}
 
-	public void selectMatch(DataAccess access, List<Match> matchList) {
+	public void selectMatches(DataAccess access, List<Match> matchList) {
 		try (PreparedStatement statement = access.getConnection()
 				.prepareStatement("SELECT KAMPE.ID, KAMPE.HJEMMEHOLDID, KAMPE.UDEHOLDID, KAMPE.DATOTID, H1.ID AS HHID, H1.HOLDNAVN AS HHN, H2.ID AS HHID, H2.HOLDNAVN AS UHN FROM KAMPE, HOLD AS H1, HOLD AS H2 WHERE KAMPE.HJEMMEHOLDID = H1.ID AND KAMPE.UDEHOLDID = H2.ID");) {
 			ResultSet rs = statement.executeQuery();
