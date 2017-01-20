@@ -11,11 +11,11 @@ import Domain.Match;
 
 
 public class ExportCSV {
-	public void exportCSV (Match match) throws IOException {
+	public void exportCSV () throws IOException {
 		Match m = new Match();
 		Event eventMatch = new Event();
 		try {
-			FileWriter writer = new FileWriter(new File("C:\\MatchReport","test.csv"));
+			FileWriter writer = new FileWriter(new File("C:\\MatchReport","MatchReport.csv"));
 			writer.append(m.getId());
 			writer.append(m.getHjemmeholdNavn());
 			writer.append(m.getUdeholdNavn());
