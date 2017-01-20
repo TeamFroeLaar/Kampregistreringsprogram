@@ -224,7 +224,7 @@ public class EditMatch {
 		table = new TableView<>();
 		table.setEditable(true);
 		table.setItems(data);
-
+		
 		// TableView Rækker
 		TableColumn<Event, String> tidCol = new TableColumn<Event, String>("tid");
 		tidCol.setCellValueFactory(new PropertyValueFactory<Event, String>("tid"));
@@ -250,7 +250,7 @@ public class EditMatch {
 			{
 				e.setEvent("Penalty");		
 				e.setTid(timeTxt.getText());
-				e.setHoldid(matchData.getHjemmeholdId());
+				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());
 				
 				logic.createEvent(e);
@@ -265,7 +265,7 @@ public class EditMatch {
 			{
 				e.setEvent("Red card");		
 				e.setTid(timeTxt.getText());
-				e.setHoldid(matchData.getHjemmeholdId());
+				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());				
 				
 				logic.createEvent(e);
@@ -280,7 +280,7 @@ public class EditMatch {
 			{
 				e.setEvent("Yellow card");		
 				e.setTid(timeTxt.getText());
-				e.setHoldid(matchData.getHjemmeholdId());
+				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());		
 				
 				logic.createEvent(e);
@@ -314,7 +314,7 @@ public class EditMatch {
 			{
 				e.setEvent("Penalty");		
 				e.setTid(timeTxt.getText());
-				e.setHoldid(matchData.getUdeholdId());
+				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());		
 				
 				logic.createEvent(e);
@@ -329,7 +329,7 @@ public class EditMatch {
 			{
 				e.setEvent("Red card");		
 				e.setTid(timeTxt.getText());
-				e.setHoldid(matchData.getUdeholdId());
+				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());	
 				
 				logic.createEvent(e);
@@ -344,7 +344,7 @@ public class EditMatch {
 			{
 				e.setEvent("Yellow card");	
 				e.setTid(timeTxt.getText());
-				e.setHoldid(matchData.getUdeholdId());
+				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());	
 				
 				logic.createEvent(e);
@@ -359,7 +359,7 @@ public class EditMatch {
 			{
 				e.setEvent("Goal");		
 				e.setTid(timeTxt.getText());
-				e.setHoldid(matchData.getUdeholdId());
+				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());	
 				
 				logic.createEvent(e);
