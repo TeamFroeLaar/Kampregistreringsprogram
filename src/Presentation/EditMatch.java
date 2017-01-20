@@ -3,6 +3,8 @@ package Presentation;
 
 import java.util.List;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.TopLevelAttribute;
+
 import Domain.Event;
 import Domain.Match;
 import Domain.Team;
@@ -111,9 +113,9 @@ public class EditMatch {
 		grid.add(gridWatch, 1, 0);
 
 		// gridlines
-		grid.setGridLinesVisible(true);
-		udeholdGrid.setGridLinesVisible(true);
-		hjemmeholdGrid.setGridLinesVisible(true);
+		grid.setGridLinesVisible(false);
+		udeholdGrid.setGridLinesVisible(false);
+		hjemmeholdGrid.setGridLinesVisible(false);
 
 		// TextField for saving time
 		TextField timeTxt = new TextField();
@@ -188,12 +190,14 @@ public class EditMatch {
 
 		// Hbox for timerButtons
 		HBox timerButtonsBox = new HBox();
+		timerButtonsBox.setAlignment(Pos.TOP_CENTER);
 		timerButtonsBox.getChildren().addAll(startButton, pauseButton, updateTxt);
 		timerButtonsBox.setSpacing(10);
 		gridWatch.add(timerButtonsBox, 0, 1);
 
 		// Hbox for timeLabels
 		HBox timeLabelsBox = new HBox();
+		timeLabelsBox.setAlignment(Pos.TOP_CENTER);
 		timeLabelsBox.getChildren().addAll(timerLabelmin, timerLabelsec);
 		timeLabelsBox.setSpacing(10);
 		gridWatch.add(timeLabelsBox, 0, 0);
@@ -232,12 +236,13 @@ public class EditMatch {
 
 		TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Team");
 		holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("holdid"));
-
+		table.setMinSize(450, 500);
 		table.getColumns().addAll(tidCol, eventCol, holdCol);
-		grid.add(table, 1, 2);
+//		grid.add(table, 1, 2);
 
 		// Buttons til hjemmeholdGrid
 		Label hjemmeHoldLabel = new Label("Hjemmehold: " + hjemmehold.getHoldnavn());
+		hjemmeHoldLabel.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		hjemmeholdGrid.add(hjemmeHoldLabel, 0, 0);
 
 		Button PenaltyHome = new Button("Penalty");
@@ -374,7 +379,7 @@ public class EditMatch {
 
 		// Return to ViewMatches
 		Button tilbage = new Button("Return");
-		grid.add(tilbage, 0, 2);
+		grid.add(tilbage, 1, 2);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -383,17 +388,22 @@ public class EditMatch {
 			}
 		});
 
-		// Hbox
-//		HBox hRedMatch = new HBox();
-//		hRedMatch.getChildren().addAll(stackH, stackU);
-//		hRedMatch.setSpacing(10);
-//		hRedMatch.setAlignment(Pos.CENTER);
-//		grid.add(hRedMatch, 1, 1);
+		//HBox for tableview
+		HBox tableviewNreturn = new HBox();
+		tableviewNreturn.getChildren().addAll(table);
+		tableviewNreturn.setSpacing(10);
+		tableviewNreturn.setAlignment(Pos.CENTER);
+		grid.add(tableviewNreturn, 1, 1);
+		
+//		HBox hViewMatch = new HBox();
+//		hViewMatch.getChildren().addAll(stackHomeTeam, stackAwayTeam);
+//		hViewMatch.setSpacing(10);
+//		grid.add(hViewMatch, 1, 0);
 		
 		grid.add(stackH, 0, 0);
 		grid.add(stackU, 2, 0);
 
-		Scene editmatchinfo = new Scene(grid, 500, 800);
+		Scene editmatchinfo = new Scene(grid, 800, 1200);
 		stage.setScene(editmatchinfo);
 		editmatchinfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.show();

@@ -73,8 +73,8 @@ public class Main extends Application {
 		Scene scene = new Scene(grid, 400, 375);
 		StackPane root = new StackPane();
 		root.setId("pane");
-		scene.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
+		scene.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.show();
 
 	}
