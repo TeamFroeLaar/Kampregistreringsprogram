@@ -76,7 +76,7 @@ public class ExportOptionsView {
 			public void handle(ActionEvent event) {
 				ViewMatch view = new ViewMatch(stage);
 				view.init();
-			}
+			} 
 		});
 
 		Scene viewExportOptions = new Scene(grid, 400, 300);
