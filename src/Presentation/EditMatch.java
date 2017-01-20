@@ -75,7 +75,6 @@ public class EditMatch {
 		matchData.setUdeholdNavn(matchData.getUdeholdNavn());
 
 		// Event rowdata
-		KRPLogic logic = new KRPLogic();
 		Event event = new Event();
 		event.setKampid(rowDataMatch.getId());
 		eventList = KRPLogic.getEvent(event);
@@ -122,7 +121,7 @@ public class EditMatch {
 
 		// UpdateButton
 		Button updateTxt = new Button();
-		updateTxt.setText("update");
+		updateTxt.setText("UpDaTe");
 		updateTxt.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -168,7 +167,7 @@ public class EditMatch {
 
 		// pauseTimer button
 		Button pauseButton = new Button();
-		pauseButton.setText("pause");
+		pauseButton.setText("Pause");
 		pauseButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -251,7 +250,7 @@ public class EditMatch {
 				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
+				insertTime(timeTxt);
 
 				refreshTable(rowDataMatch);
 			}
@@ -267,8 +266,8 @@ public class EditMatch {
 				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
-				
+				insertTime(timeTxt);
+
 				refreshTable(rowDataMatch);
 			}
 		});
@@ -283,8 +282,8 @@ public class EditMatch {
 				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
-				
+				insertTime(timeTxt);
+
 				refreshTable(rowDataMatch);
 			}
 		});
@@ -299,14 +298,13 @@ public class EditMatch {
 				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
-				
+				insertTime(timeTxt);
+
 				refreshTable(rowDataMatch);
 			}
 		});
 
 		// Buttons til udeholdGrid
-
 		Label udeHold = new Label("udehold: " + udehold.getHoldnavn());
 		udeholdGrid.add(udeHold, 0, 0);
 
@@ -320,8 +318,8 @@ public class EditMatch {
 				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
-				
+				insertTime(timeTxt);
+
 				refreshTable(rowDataMatch);
 			}
 		});
@@ -336,8 +334,8 @@ public class EditMatch {
 				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
-				
+				insertTime(timeTxt);
+
 				refreshTable(rowDataMatch);
 			}
 		});
@@ -352,8 +350,8 @@ public class EditMatch {
 				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
-				
+				insertTime(timeTxt);
+
 				refreshTable(rowDataMatch);
 			}
 		});
@@ -368,8 +366,8 @@ public class EditMatch {
 				e.setHoldid(udehold.getId());
 				e.setKampid(matchData.getId());
 
-				logic.createEvent(e);
-				
+				insertTime(timeTxt);
+
 				refreshTable(rowDataMatch);
 			}
 		});
@@ -386,11 +384,14 @@ public class EditMatch {
 		});
 
 		// Hbox
-		HBox hRedMatch = new HBox();
-		hRedMatch.getChildren().addAll(stackH, stackU);
-		hRedMatch.setSpacing(10);
-		hRedMatch.setAlignment(Pos.CENTER);
-		grid.add(hRedMatch, 1, 1);
+//		HBox hRedMatch = new HBox();
+//		hRedMatch.getChildren().addAll(stackH, stackU);
+//		hRedMatch.setSpacing(10);
+//		hRedMatch.setAlignment(Pos.CENTER);
+//		grid.add(hRedMatch, 1, 1);
+		
+		grid.add(stackH, 0, 0);
+		grid.add(stackU, 2, 0);
 
 		Scene editmatchinfo = new Scene(grid, 500, 800);
 		stage.setScene(editmatchinfo);
@@ -414,5 +415,15 @@ public class EditMatch {
 		eventList = KRPLogic.getEvent(event);
 		data = FXCollections.observableArrayList(eventList);
 		table.setItems(data);
+	}
+
+	public void insertTime(TextField timeTxt) {
+		if (timeTxt.getText().equals("")) {
+			Label insertTimeLab = new Label("*Insert time or press update");
+			insertTimeLab.setTextFill(Color.FIREBRICK);
+			grid.add(insertTimeLab, 2, 0);
+		} else {
+			logic.createEvent(e);
+		}
 	}
 }
