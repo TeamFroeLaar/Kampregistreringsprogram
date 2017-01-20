@@ -11,18 +11,17 @@ import Domain.Match;
 
 
 public class ExportCSV {
-	public void exportCSV () throws IOException {
-		Match match = new Match();
+	public void exportCSV (Match match) throws IOException {
+		Match m = new Match();
 		Event eventMatch = new Event();
 		try {
 			FileWriter writer = new FileWriter(new File("C:\\MatchReport","test.csv"));
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append(match.getId());
-			stringBuilder.append(match.getHjemmeholdNavn());
-			stringBuilder.append(match.getUdeholdNavn());
-			stringBuilder.append(eventMatch.getEvent());
-			stringBuilder.append(match.getDatoTid());
-			writer.write(stringBuilder.toString());
+			writer.append(m.getId());
+			writer.append(m.getHjemmeholdNavn());
+			writer.append(m.getUdeholdNavn());
+			writer.append(eventMatch.getEvent());
+			writer.append(m.getDatoTid());
+			writer.write(writer.toString());
 			writer.close();
 		} catch (EOFException e) {
 			throw e;
