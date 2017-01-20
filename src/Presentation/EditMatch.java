@@ -155,7 +155,7 @@ public class EditMatch {
 						durIntSec = durInt - (durIntMin * 60);
 
 						// Vis durIntMin og durIntSec
-
+ 
 						timeSeconds.set(durIntSec);
 						timeMinutes.set(durIntMin);
 					}
