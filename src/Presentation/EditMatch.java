@@ -3,9 +3,6 @@ package Presentation;
 
 import java.util.List;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.TopLevelAttribute;
-
-import Data.SelectNumberGoalsDB;
 import Domain.Event;
 import Domain.Match;
 import Domain.Team;
