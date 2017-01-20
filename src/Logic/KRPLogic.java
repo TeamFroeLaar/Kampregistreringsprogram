@@ -52,6 +52,13 @@ public class KRPLogic {
 	public static List<Event> getEvent(Event event) {
 		return eventAccessor.selectEventInfo(event);
 	}
+	
+	//Select number goals
+	private static DBfacade goalAccessor = new DBfacade();
+	
+	public int selectNumberGoalsInfo(String id1, String id2) {
+		return goalAccessor.selectNumberGoalsInfo(id1, id2);
+	}
 
 	// Create League
 	// private DBfacade createLeagueInfo = new DBfacade();

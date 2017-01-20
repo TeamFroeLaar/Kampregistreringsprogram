@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.TopLevelAttribute;
 
+import Data.SelectNumberGoalsDB;
 import Domain.Event;
 import Domain.Match;
 import Domain.Team;
@@ -60,6 +61,7 @@ public class EditMatch {
 	KRPLogic logic = new KRPLogic();
 	Event e = new Event();
 	Team t = new Team();
+	Match m = new Match();
 
 	public EditMatch(Stage stage) {
 
@@ -213,8 +215,16 @@ public class EditMatch {
 		r2.setFill(null);
 		r2.setStrokeWidth(3);
 
-		Text textH = new Text("0");
-		Text textU = new Text("0");
+		KRPLogic k = new KRPLogic();
+		
+		int hjemmeholdgoal = k.selectNumberGoalsInfo(hjemmehold.getId(), matchData.getId());
+		String hhgStr = "" + hjemmeholdgoal;
+		
+		int udeholdgoal = k.selectNumberGoalsInfo(udehold.getId(), matchData.getId());
+		String uhgStr = "" + udeholdgoal;
+		
+		Text textH = new Text(hhgStr);
+		Text textU = new Text(uhgStr);
 
 		StackPane stackH = new StackPane();
 		stackH.getChildren().addAll(r1, textH);

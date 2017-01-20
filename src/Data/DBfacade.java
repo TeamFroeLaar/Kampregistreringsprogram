@@ -49,6 +49,13 @@ public class DBfacade {
 		return selectEventInfo.selectEvent(event);
 	}
 
+	// Select Goals
+	private SelectNumberGoalsDB selectNumberGoalsInfo = new SelectNumberGoalsDB();
+
+	public int selectNumberGoalsInfo(String id1, String id2) {
+		return selectNumberGoalsInfo.selectNumberGoals(id1, id2);
+	}
+
 	// Create League
 	// private DBfacade createLeagueInfo = new DBfacade();
 	// public void createLeague(League league)
@@ -61,5 +68,5 @@ public class DBfacade {
 	// {
 	// return leagueAccessor.selectLeagueInfo();
 	// }
-
 }
+
