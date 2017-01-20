@@ -146,7 +146,8 @@ public class ViewMatch {
 		export.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				
+				ExportOptionsView exportOptionsView = new ExportOptionsView(stage);
+				exportOptionsView.init();
 			}
 		});
 		
