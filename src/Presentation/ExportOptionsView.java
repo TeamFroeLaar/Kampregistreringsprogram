@@ -1,5 +1,7 @@
 package Presentation;
 
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -63,7 +65,13 @@ public class ExportOptionsView {
 		export.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				// ----------------------- to be done ------------------------------------
+				ExportCSV exportCSV = new ExportCSV();
+				try {
+					exportCSV.exportCSV();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
  
