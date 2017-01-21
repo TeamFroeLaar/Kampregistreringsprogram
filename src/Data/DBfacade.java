@@ -84,6 +84,13 @@ public class DBfacade {
 		return selectNumberPenaltiesInfo.selectNumberPenalties(id1, id2);
 	}
 	
+	// Delete Event
+	private DeleteEventDB deleteEventInfo = new DeleteEventDB();
+	
+	public void deleteEventInfo(Event event) {
+		deleteEventInfo.deleteEvent(event);
+	}
+	
 	
 	// Create League
 	// private DBfacade createLeagueInfo = new DBfacade();

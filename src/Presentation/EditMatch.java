@@ -393,9 +393,8 @@ public class EditMatch {
 			}
 		});
 
-		// Return to ViewMatches
+		// Ekstra Buttons
 		Button tilbage = new Button("Return");
-		grid.add(tilbage, 1, 2);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -403,6 +402,31 @@ public class EditMatch {
 				view.init();
 			}
 		});
+		
+		Button sletEvent = new Button("Slet event");
+		sletEvent.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				KRPLogic logic = new KRPLogic();
+				
+				Event rowData = table.getSelectionModel().getSelectedItem();
+				Event sletEvent = new Event();
+				sletEvent.setId(rowData.getId());
+				
+				logic.deleteEvent(sletEvent);
+				
+				refreshTable(rowDataMatch);
+				refreshData(hjemmehold, udehold, matchData);
+				
+				//sætter målscores nye værdier
+				textH.setText(hhgStr);
+				textU.setText(uhgStr);
+			}
+		});
+		
+		HBox ekstraBtn = new HBox();
+		ekstraBtn.getChildren().addAll(sletEvent, tilbage);
+		grid.add(ekstraBtn, 1, 2);
 
 		// HBox for tableview
 		HBox tableviewNreturn = new HBox();

@@ -86,6 +86,13 @@ private static DBfacade yellowCardAccessor = new DBfacade();
 		return penaltiesAccessor.selectNumberPenaltiesInfo(id1, id2);
 	}
 
+	// Delete Event
+	private DBfacade deleteEventInfo = new DBfacade();
+
+	public void deleteEvent(Event event) {
+		deleteEventInfo.deleteEventInfo(event);
+	}
+	
 	// Create League
 	// private DBfacade createLeagueInfo = new DBfacade();
 	// public void createLeague(League league)
