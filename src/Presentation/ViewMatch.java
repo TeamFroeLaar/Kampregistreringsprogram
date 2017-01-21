@@ -179,7 +179,7 @@ public class ViewMatch {
 				setData(hjemmehold, udehold, matchData);
 				
 				//sætter alle texters nye værdier
-				scoreHjem.setText(hhgStr);;
+				scoreHjem.setText(hhgStr);
 				scoreUd.setText(uhgStr);
 				penaltyHjem.setText("Penalty: " + hhpStr);
 				redcardHjem.setText("Red card: " + hhrcStr);
@@ -238,8 +238,6 @@ public class ViewMatch {
 		hhrcStr = "" + hjemmeholdRedcard;
 		uhrcStr = "" + udeholdRedcard;
 		hhycStr = "" + hjemmeholdYellowcard;
-		uhycStr = "" + udeholdYellowcard;
-		
+		uhycStr = "" + udeholdYellowcard;	
 	}
-
 }

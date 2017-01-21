@@ -29,7 +29,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -44,6 +43,10 @@ public class EditMatch {
 	private TableView<Event> table;
 	private ObservableList<Event> data;
 	List<Event> eventList;
+	int hjemmeholdgoal;
+	int udeholdgoal;
+	String hhgStr;
+	String uhgStr;
 
 	// Intialiseringer for ur
 	private Timeline timeline;
@@ -65,7 +68,6 @@ public class EditMatch {
 		this.stage = stage;
 	}
 
-	
 	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) {
 		// Match rowdata
 		Match matchData = rowDataMatch;
@@ -157,7 +159,7 @@ public class EditMatch {
 						durIntSec = durInt - (durIntMin * 60);
 
 						// Vis durIntMin og durIntSec
- 
+
 						timeSeconds.set(durIntSec);
 						timeMinutes.set(durIntMin);
 					}
@@ -213,16 +215,10 @@ public class EditMatch {
 		r2.setFill(null);
 		r2.setStrokeWidth(3);
 
-		KRPLogic k = new KRPLogic();
+		refreshData(hjemmehold, udehold, matchData);
 		
-		int hjemmeholdgoal = k.selectNumberGoalsInfo(hjemmehold.getId(), matchData.getId());
-		String hhgStr = "" + hjemmeholdgoal;
-		
-		int udeholdgoal = k.selectNumberGoalsInfo(udehold.getId(), matchData.getId());
-		String uhgStr = "" + udeholdgoal;
-		
-		Text textH = new Text(hhgStr);
-		Text textU = new Text(uhgStr);
+		Label textH = new Label(hhgStr);
+		Label textU = new Label(uhgStr);
 
 		StackPane stackH = new StackPane();
 		stackH.getChildren().addAll(r1, textH);
@@ -248,7 +244,7 @@ public class EditMatch {
 		holdCol.setMinWidth(100);
 		table.setMinSize(450, 500);
 		table.getColumns().addAll(tidCol, eventCol, holdCol);
-//		grid.add(table, 1, 2);
+		// grid.add(table, 1, 2);
 
 		// Buttons til hjemmeholdGrid
 		Label hjemmeHoldLabel = new Label("Hjemmehold: " + hjemmehold.getHoldnavn());
@@ -316,6 +312,11 @@ public class EditMatch {
 				insertTime(timeTxt);
 
 				refreshTable(rowDataMatch);
+				refreshData(hjemmehold, udehold, matchData);
+				
+				//sætter målscores nye værdier
+				textH.setText(hhgStr);
+				textU.setText(uhgStr);
 			}
 		});
 
@@ -384,6 +385,11 @@ public class EditMatch {
 				insertTime(timeTxt);
 
 				refreshTable(rowDataMatch);
+				refreshData(hjemmehold, udehold, matchData);
+				
+				//sætter målscores nye værdier
+				textH.setText(hhgStr);
+				textU.setText(uhgStr);
 			}
 		});
 
@@ -398,18 +404,18 @@ public class EditMatch {
 			}
 		});
 
-		//HBox for tableview
+		// HBox for tableview
 		HBox tableviewNreturn = new HBox();
 		tableviewNreturn.getChildren().addAll(table);
 		tableviewNreturn.setSpacing(10);
 		tableviewNreturn.setAlignment(Pos.CENTER);
 		grid.add(tableviewNreturn, 1, 1);
-		
-//		HBox hViewMatch = new HBox();
-//		hViewMatch.getChildren().addAll(stackHomeTeam, stackAwayTeam);
-//		hViewMatch.setSpacing(10);
-//		grid.add(hViewMatch, 1, 0);
-		
+
+		// HBox hViewMatch = new HBox();
+		// hViewMatch.getChildren().addAll(stackHomeTeam, stackAwayTeam);
+		// hViewMatch.setSpacing(10);
+		// grid.add(hViewMatch, 1, 0);
+
 		grid.add(stackH, 0, 0);
 		grid.add(stackU, 2, 0);
 
@@ -417,7 +423,7 @@ public class EditMatch {
 		stage.setScene(editmatchinfo);
 		stage.sizeToScene();
 		editmatchinfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
-		
+
 		stage.show();
 	}
 
@@ -430,6 +436,7 @@ public class EditMatch {
 	}
 
 	public void refreshTable(Match rowDataMatch) {
+		
 		eventList.clear();
 
 		Event event = new Event();
@@ -438,6 +445,19 @@ public class EditMatch {
 		eventList = KRPLogic.getEvent(event);
 		data = FXCollections.observableArrayList(eventList);
 		table.setItems(data);
+
+
+	}
+
+	public void refreshData(Team hjemmehold, Team udehold, Match rowDataMatch){
+		Match matchData = rowDataMatch;
+		KRPLogic k = new KRPLogic();
+
+		hjemmeholdgoal = k.selectNumberGoalsInfo(hjemmehold.getId(), matchData.getId());
+		hhgStr = "" + hjemmeholdgoal;
+
+		udeholdgoal = k.selectNumberGoalsInfo(udehold.getId(), matchData.getId());
+		uhgStr = "" + udeholdgoal;
 	}
 
 	public void insertTime(TextField timeTxt) {
