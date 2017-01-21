@@ -73,7 +73,7 @@ public class ViewMatches {
 
 		// Buttons
 		Button tilbage = new Button("Return");
-		tilbage.setPrefSize(100, 50);
+		tilbage.setPrefSize(250, 50);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -82,7 +82,7 @@ public class ViewMatches {
 			}
 		});
 		Button viewThisMatch = new Button("View match");
-		viewThisMatch.setPrefSize(100, 50);
+		viewThisMatch.setPrefSize(250, 50);
 		viewThisMatch.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -108,7 +108,7 @@ public class ViewMatches {
 			}
 		});
 		Button editMatch = new Button("Edit match");
-		editMatch.setPrefSize(100, 50);
+		editMatch.setPrefSize(250, 50);
 
 		matchesTable.setRowFactory(newSelection -> {
 			TableRow<Match> row = new TableRow<>();

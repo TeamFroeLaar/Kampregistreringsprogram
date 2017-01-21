@@ -30,8 +30,8 @@ public class Main extends Application {
 
 		//Buttons
 		Button createMatch = new Button("New match");
+		createMatch.setPrefSize(250, 25);
 		grid.add(createMatch, 0, 0);
-		
 		createMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
@@ -40,6 +40,7 @@ public class Main extends Application {
 			}
 		});
 		Button createTeam = new Button("New team");
+		createTeam.setPrefSize(250, 25);
 		grid.add(createTeam, 0, 1);
 		createTeam.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
@@ -49,9 +50,10 @@ public class Main extends Application {
 			}
 		});
 
-		Button ViewMatch = new Button("View match");
-		grid.add(ViewMatch, 0, 2);
-		ViewMatch.setOnAction(new EventHandler<ActionEvent>() {			
+		Button viewMatch = new Button("View match");
+		viewMatch.setPrefSize(250, 25);
+		grid.add(viewMatch, 0, 2);
+		viewMatch.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
 				ViewMatches view = new ViewMatches(stage);
@@ -60,6 +62,7 @@ public class Main extends Application {
 		});
 		
 		Button showLiga = new Button("View league");
+		showLiga.setPrefSize(250, 25);
 		grid.add(showLiga, 0, 3);
 		showLiga.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override

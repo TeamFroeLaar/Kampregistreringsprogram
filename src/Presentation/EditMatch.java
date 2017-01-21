@@ -1,6 +1,7 @@
 
 package Presentation;
 
+import java.awt.Font;
 import java.util.List;
 
 import Domain.Event;
@@ -241,17 +242,18 @@ public class EditMatch {
 
 		TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Holdnavn");
 		holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("holdnavn"));
-		holdCol.setMinWidth(100);
+		holdCol.setMinWidth(250);
 		table.setMinSize(450, 500);
 		table.getColumns().addAll(tidCol, eventCol, holdCol);
 		// grid.add(table, 1, 2);
 
 		// Buttons til hjemmeholdGrid
-		Label hjemmeHoldLabel = new Label("Hjemmehold: " + hjemmehold.getHoldnavn());
+		Label hjemmeHoldLabel = new Label("Hjemmehold: \n" + hjemmehold.getHoldnavn());
 		hjemmeHoldLabel.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		hjemmeholdGrid.add(hjemmeHoldLabel, 0, 0);
 
 		Button PenaltyHome = new Button("Penalty");
+		PenaltyHome.setPrefSize(150, 25);
 		hjemmeholdGrid.add(PenaltyHome, 0, 1);
 		PenaltyHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -268,6 +270,7 @@ public class EditMatch {
 		});
 
 		Button redCardHome = new Button("Red card");
+		redCardHome.setPrefSize(150, 25);
 		hjemmeholdGrid.add(redCardHome, 0, 2);
 		redCardHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -284,6 +287,7 @@ public class EditMatch {
 		});
 
 		Button yellowCardHome = new Button("Yellow card");
+		yellowCardHome.setPrefSize(150, 25);
 		hjemmeholdGrid.add(yellowCardHome, 0, 3);
 		yellowCardHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -300,6 +304,7 @@ public class EditMatch {
 		});
 
 		Button goalHome = new Button("Goal");
+		goalHome.setPrefSize(150, 25);
 		hjemmeholdGrid.add(goalHome, 0, 4);
 		goalHome.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -321,10 +326,11 @@ public class EditMatch {
 		});
 
 		// Buttons til udeholdGrid
-		Label udeHoldLabel = new Label("Udehold: " + udehold.getHoldnavn());
+		Label udeHoldLabel = new Label("Udehold: \n" + udehold.getHoldnavn());
 		udeholdGrid.add(udeHoldLabel, 0, 0);
 
 		Button PenaltyOut = new Button("Penalty");
+		PenaltyOut.setPrefSize(150, 25);
 		udeholdGrid.add(PenaltyOut, 0, 1);
 		PenaltyOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -341,6 +347,7 @@ public class EditMatch {
 		});
 
 		Button redCardOut = new Button("Red card");
+		redCardOut.setPrefSize(150, 25);
 		udeholdGrid.add(redCardOut, 0, 2);
 		redCardOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -357,6 +364,7 @@ public class EditMatch {
 		});
 
 		Button yellowCardOut = new Button("Yellow card");
+		yellowCardOut.setPrefSize(150, 25);
 		udeholdGrid.add(yellowCardOut, 0, 3);
 		yellowCardOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -373,6 +381,7 @@ public class EditMatch {
 		});
 
 		Button goalOut = new Button("Goal");
+		goalOut.setPrefSize(150, 25);
 		udeholdGrid.add(goalOut, 0, 4);
 		goalOut.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -395,6 +404,7 @@ public class EditMatch {
 
 		// Ekstra Buttons
 		Button tilbage = new Button("Return");
+		tilbage.setPrefSize(150, 25);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -404,6 +414,7 @@ public class EditMatch {
 		});
 		
 		Button sletEvent = new Button("Slet event");
+		sletEvent.setPrefSize(150, 25);
 		sletEvent.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
