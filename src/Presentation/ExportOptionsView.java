@@ -99,6 +99,7 @@ public class ExportOptionsView {
 
 		Scene viewExportOptions = new Scene(grid, 400, 300);
 		stage.setScene(viewExportOptions);
+		viewExportOptions.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.show();
 
 	}
