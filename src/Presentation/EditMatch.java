@@ -245,7 +245,7 @@ public class EditMatch {
 
 		TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Holdnavn");
 		holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("holdnavn"));
-		holdCol.setMinWidth(80);
+		holdCol.setMinWidth(100);
 		table.setMinSize(450, 500);
 		table.getColumns().addAll(tidCol, eventCol, holdCol);
 //		grid.add(table, 1, 2);
@@ -320,7 +320,7 @@ public class EditMatch {
 		});
 
 		// Buttons til udeholdGrid
-		Label udeHoldLabel = new Label("udehold: " + udehold.getHoldnavn());
+		Label udeHoldLabel = new Label("Udehold: " + udehold.getHoldnavn());
 		udeholdGrid.add(udeHoldLabel, 0, 0);
 
 		Button PenaltyOut = new Button("Penalty");
