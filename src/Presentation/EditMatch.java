@@ -65,6 +65,7 @@ public class EditMatch {
 		this.stage = stage;
 	}
 
+	
 	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) {
 		// Match rowdata
 		Match matchData = rowDataMatch;
@@ -240,9 +241,11 @@ public class EditMatch {
 
 		TableColumn<Event, String> eventCol = new TableColumn<Event, String>("Events");
 		eventCol.setCellValueFactory(new PropertyValueFactory<Event, String>("event"));
+		eventCol.setMinWidth(120);
 
-		TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Team");
-		holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("holdid"));
+		TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Holdnavn");
+		holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("holdnavn"));
+		holdCol.setMinWidth(80);
 		table.setMinSize(450, 500);
 		table.getColumns().addAll(tidCol, eventCol, holdCol);
 //		grid.add(table, 1, 2);

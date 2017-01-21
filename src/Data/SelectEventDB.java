@@ -26,7 +26,7 @@ public class SelectEventDB {
 
 	private void selectEvent(DataAccess access, List<Event> list, Event event) {
 		try (PreparedStatement statement = access.getConnection().prepareStatement(
-				"SELECT ID, EVENT, HOLDID, KAMPID, TID FROM EVENT WHERE EVENT.KAMPID LIKE ?");) {
+				"SELECT EVENT.ID, EVENT.EVENT, EVENT.HOLDID, EVENT.KAMPID, EVENT.TID, HOLD.HOLDNAVN FROM EVENT, HOLD WHERE EVENT.KAMPID LIKE ? AND EVENT.HOLDID = HOLD.ID");) {
 
 			statement.setString(1, event.getKampid());
 			
@@ -39,6 +39,7 @@ public class SelectEventDB {
 				e.setHoldid(rs.getString("holdid"));
 				e.setKampid(rs.getString("kampid"));
 				e.setTid(rs.getString("tid"));
+				e.setHoldnavn(rs.getString("holdnavn"));
 				
 				list.add(e);
 			}
