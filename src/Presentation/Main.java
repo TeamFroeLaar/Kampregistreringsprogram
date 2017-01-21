@@ -70,11 +70,12 @@ public class Main extends Application {
 		});
 		
 		//Launcher scene
-		Scene scene = new Scene(grid, 400, 375);
+		Scene scene = new Scene(grid, 200, 230);
 		StackPane root = new StackPane();
 		root.setId("pane");
 		stage.setScene(scene);
 		scene.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
+		stage.sizeToScene();
 		stage.show();
 
 	}
