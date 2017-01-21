@@ -3,12 +3,10 @@ package Logic;
 import java.util.List;
 
 import Data.DBfacade;
-import Data.SelectEventDB;
+import Domain.Event;
 import Domain.Match;
 import Domain.Team;
-import Domain.Event;
-import Domain.League;
-
+	
 public class KRPLogic {
 
 	// Create Team
@@ -39,11 +37,18 @@ public class KRPLogic {
 		return teamAccessor.selectTeamInfo();
 	}
 
-	// Select Match
+	// Select Matches
 	private static DBfacade matchAccessor = new DBfacade();
 
 	public static List<Match> getMatch() {
 		return matchAccessor.selectMatchInfo();
+	}
+	
+	// Select Match
+	private static DBfacade dbFacade = new DBfacade();
+	
+	public static Match selectMatch(String id) {
+		return dbFacade.selectMatch(id);
 	}
 
 	// Select Event

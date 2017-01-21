@@ -84,7 +84,7 @@ public class ViewMatches {
 		viewThisMatch.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				ViewMatch view = new ViewMatch(stage);
+				ViewMatch view = new ViewMatch(stage, matchesTable.getSelectionModel().getSelectedItem().getId());
 				view.init();
 			}
 		});

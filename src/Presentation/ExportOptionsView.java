@@ -2,6 +2,7 @@ package Presentation;
 
 import java.io.IOException;
 
+import Domain.Event;
 import Domain.Match;
 import Logic.KRPLogic;
 import javafx.collections.FXCollections;
@@ -23,9 +24,11 @@ public class ExportOptionsView {
 
 	private Stage stage;
 	private GridPane grid;
+	private String matchID;
 
-	public ExportOptionsView(Stage stage) {
+	public ExportOptionsView(Stage stage, String matchID) {
 		this.stage = stage;
+		this.matchID = matchID;
 	}
 
 	public void init() {
@@ -66,12 +69,14 @@ public class ExportOptionsView {
 		grid.add(export, 2, 0);
 		export.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
-			public void handle(ActionEvent event) {
+			public void handle(ActionEvent actionEvent) {
 				ExportCSV exportCSV = new ExportCSV();
+				Match match = KRPLogic.selectMatch(matchID);
+				Event event = new Event();
+				event.setKampid(match.getId());
 				try {
-					exportCSV.exportCSV();
+					exportCSV.exportCSV(match, KRPLogic.getEvent(event));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -84,7 +89,7 @@ public class ExportOptionsView {
 		goBack.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				ViewMatch view = new ViewMatch(stage);
+				ViewMatch view = new ViewMatch(stage, matchID);
 				view.init();
 			} 
 		});

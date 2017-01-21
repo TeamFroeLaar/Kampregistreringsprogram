@@ -28,11 +28,14 @@ public class ViewMatch {
 	private GridPane grid;
 	private GridPane homeTeamGrid;
 	private GridPane awayTeamGrid;
+	private String matchID;
 	private List<Match> data;
 	List<Match> matchList;
 	
-	public ViewMatch (Stage stage) {
+	
+	public ViewMatch (Stage stage, String matchID) {
 		this.stage = stage;
+		this.matchID = matchID;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -146,7 +149,7 @@ public class ViewMatch {
 		export.setOnAction(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				ExportOptionsView exportOptionsView = new ExportOptionsView(stage);
+				ExportOptionsView exportOptionsView = new ExportOptionsView(stage, matchID);
 				exportOptionsView.init();
 			}
 		});

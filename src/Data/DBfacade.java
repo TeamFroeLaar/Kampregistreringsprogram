@@ -14,12 +14,19 @@ public class DBfacade {
 		createMatchInfo.createMatch(match);
 	}
 
-	// Select Match
+	// Select Matches
 	private SelectMatchesDB selectMatchInfo = new SelectMatchesDB();
 
 	public List<Match> selectMatchInfo() {
 		return selectMatchInfo.selectMatches();
 	}
+	
+	// Select Match
+	private SelectMatchDB selectMatchDB = new SelectMatchDB();
+
+	public Match selectMatch(String id) {
+		return selectMatchDB.selectMatch(id);
+		}
 
 	// Create Team
 	private CreateTeamDB createTeamInfo = new CreateTeamDB();
