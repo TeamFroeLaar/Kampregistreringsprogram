@@ -37,7 +37,7 @@ public class CreateMatch {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
-		grid.setGridLinesVisible(true);
+		grid.setGridLinesVisible(false);
 
 		// Labels
 		Label hjemmebane = new Label("Hjemme Bane");
