@@ -442,9 +442,7 @@ public class EditMatch {
 
 	public void insertTime(TextField timeTxt) {
 		if (timeTxt.getText().equals("")) {
-			Label insertTimeLab = new Label("*Insert time or press update");
-			insertTimeLab.setTextFill(Color.FIREBRICK);
-			grid.add(insertTimeLab, 2, 0);
+			timeTxt.setPromptText("*Insert time or press update");
 		} else {
 			logic.createEvent(e);
 		}

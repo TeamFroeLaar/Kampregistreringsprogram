@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class CreateMatch {
@@ -41,36 +42,44 @@ public class CreateMatch {
 
 		// Labels
 		Label hjemmebane = new Label("Hjemme Bane");
-		grid.add(hjemmebane, 0, 1);
+//		grid.add(hjemmebane, 0, 1);
 		Label udebane = new Label("Ude Bane");
-		grid.add(udebane, 1, 1);
+//		grid.add(udebane, 1, 1);
 
 		// DropDown (hjemmebane)
 		data = KRPLogic.getTeams();
 		ObservableList<Team> hjemmeoptions = FXCollections.observableArrayList(data);
 
 		final ComboBox<Team> hHoldoptions = new ComboBox<Team>(hjemmeoptions);
-		HBox holdfelt = new HBox();
+		VBox hholdfelt = new VBox();
+		hholdfelt.setSpacing(10);
 
-		holdfelt.getChildren().add(hHoldoptions);
-		grid.add(holdfelt, 0, 2);
+		hholdfelt.getChildren().addAll(hjemmebane, hHoldoptions);
+//		grid.add(holdfelt, 0, 2);
 
 		// DropDown (udebane)
 		ObservableList<Team> udeoptions = FXCollections.observableArrayList(data);
 
 		final ComboBox<Team> uHoldoptions = new ComboBox<Team>(udeoptions);
-		HBox uholdfelt = new HBox();
+		VBox uholdfelt = new VBox();
+		uholdfelt.setSpacing(10);
 
-		uholdfelt.getChildren().add(uHoldoptions);
-		grid.add(uholdfelt, 1, 2);
-
+		uholdfelt.getChildren().addAll(udebane, uHoldoptions);
+//		grid.add(uholdfelt, 1, 2);
+		HBox hboxOptons = new HBox();
+		hboxOptons.setSpacing(10);
+		hboxOptons.getChildren().addAll(hholdfelt, uholdfelt);
+		grid.add(hboxOptons, 0, 0);
+		
+		
 		// TextField (erstattes med Calender)
 		TextField dateTime = new TextField();
-		grid.add(dateTime, 0, 3);
+		dateTime.setPromptText("YYYY-MM-DD hh:mm:ss");
+		grid.add(dateTime, 0, 2);
 		
 		// Buttons
 		Button opret = new Button("opret");
-		grid.add(opret, 0, 4);
+//		grid.add(opret, 0, 4);
 		opret.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -85,7 +94,7 @@ public class CreateMatch {
 		});
 		
 		Button tilbage = new Button("return");
-		grid.add(tilbage, 1, 4);
+//		grid.add(tilbage, 1, 4);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -94,6 +103,12 @@ public class CreateMatch {
 			}
 		});
 
+		HBox test = new HBox();
+		test.setSpacing(10);
+		test.getChildren().addAll(opret, tilbage);
+		
+		grid.add(test, 0, 3);
+		
 		Scene creatematch = new Scene(grid, 400, 375);
 		stage.setScene(creatematch);
 		creatematch.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());

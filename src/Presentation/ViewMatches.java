@@ -73,7 +73,6 @@ public class ViewMatches {
 
 		// Buttons
 		Button tilbage = new Button("Return");
-//		grid.add(tilbage, 0, 1);
 		tilbage.setPrefSize(100, 50);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -83,12 +82,10 @@ public class ViewMatches {
 			}
 		});
 		Button viewThisMatch = new Button("View match");
-//		grid.add(viewThisMatch, 1, 2);
 		viewThisMatch.setPrefSize(100, 50);
 		viewThisMatch.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-//				ViewMatch view = new ViewMatch(stage, matchesTable.getSelectionModel().getSelectedItem().getId());
 				Match rowData = matchesTable.getSelectionModel().getSelectedItem();
 
 				Team hjemmehold = new Team();
@@ -111,7 +108,6 @@ public class ViewMatches {
 			}
 		});
 		Button editMatch = new Button("Edit match");
-//		grid.add(editMatch, 1, 3);
 		editMatch.setPrefSize(100, 50);
 
 		matchesTable.setRowFactory(newSelection -> {

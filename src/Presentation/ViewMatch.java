@@ -33,6 +33,24 @@ public class ViewMatch {
 	private ObservableList<Event> data;
 	List<Event> eventList;
 	private TableView<Event> table;
+	int hjemmeholdgoal;
+	int udeholdgoal;
+	int hjemmeholdpenalty;
+	int udeholdpenalty;
+	int hjemmeholdRedcard;
+	int udeholdRedcard;
+	int hjemmeholdYellowcard;
+	int udeholdYellowcard;
+	
+	String hhgStr;
+	String uhgStr;
+	String hhpStr;
+	String uhpStr;
+	String hhrcStr;
+	String uhrcStr;
+	String hhycStr;
+	String uhycStr;
+	
 
 	public ViewMatch(Stage stage) {
 		this.stage = stage;
@@ -66,32 +84,8 @@ public class ViewMatch {
 		rectangleRight.setStroke(Color.BLACK);
 		rectangleRight.setFill(null);
 		rectangleRight.setStrokeWidth(3);
-
-		// scores --------------------------------------------------- TO BE
-		// CHANGED
-		// Number of different Events
-
-		KRPLogic k = new KRPLogic();
-
-		// get numbers from db
-		int hjemmeholdgoal = k.selectNumberGoalsInfo(hjemmehold.getId(), matchData.getId());
-		int udeholdgoal = k.selectNumberGoalsInfo(udehold.getId(), matchData.getId());
-		int hjemmeholdpenalty = k.selectNumberPenaltiesInfo(udehold.getId(), matchData.getId());
-		int udeholdpenalty = k.selectNumberPenaltiesInfo(udehold.getId(), matchData.getId());
-		int hjemmholdRedcard = k.selectNumberRedCardInfo(hjemmehold.getId(), matchData.getId());
-		int udeholdRedcard = k.selectNumberRedCardInfo(udehold.getId(), matchData.getId());
-		int hjemmeholdYellowcard = k.selectNumberYellowCardInfo(hjemmehold.getId(), matchData.getId());
-		int udeholdYellowcard = k.selectNumberYellowCardInfo(udehold.getId(), matchData.getId());
-
-		// convert int to string
-		String hhgStr = "" + hjemmeholdgoal;
-		String uhgStr = "" + udeholdgoal;
-		String hhpStr = "" + hjemmeholdpenalty;
-		String uhpStr = "" + udeholdpenalty;
-		String hhrcStr = "" + hjemmholdRedcard;
-		String uhrcStr = "" + udeholdRedcard;
-		String hhycStr = "" + hjemmeholdYellowcard;
-		String uhycStr = "" + udeholdYellowcard;
+		
+		setData(hjemmehold, udehold, matchData);
 
 		// mål scores
 		Label scoreHjem = new Label(hhgStr);
@@ -103,7 +97,6 @@ public class ViewMatch {
 		Label redcardHjem = new Label("Red card: " + hhrcStr);
 		Label yellowcardHjem = new Label("Yellow card: " + hhycStr);
 		hjemmeholdVbox.getChildren().addAll(penaltyHjem, redcardHjem, yellowcardHjem);
-		// grid.add(hjemmeholdVbox, 0, 1);
 
 		// Vbox til udehold
 		VBox udeholdVbox = new VBox();
@@ -111,7 +104,6 @@ public class ViewMatch {
 		Label redcardUde = new Label("Red card: " + uhrcStr);
 		Label yellowcardUde = new Label("Yellow card: " + uhycStr);
 		udeholdVbox.getChildren().addAll(penaltyUde, redcardUde, yellowcardUde);
-		// grid.add(udeholdVbox, 2, 1);
 
 		// adds rectangles and scores to stackpane
 		StackPane stackHomeTeam = new StackPane();
@@ -168,8 +160,36 @@ public class ViewMatch {
 				exportOptionsView.init();
 			}
 		});
+		
+		Button refresh = new Button("Refresh");
+		refresh.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				eventList.clear();
 
-		btnHBox.getChildren().addAll(tilbage, export);
+				Event e = new Event();
+				e.setKampid(rowDataMatch.getId());
+
+				eventList = KRPLogic.getEvent(e);
+				data = FXCollections.observableArrayList(eventList);
+				table.setItems(data);
+				
+				setData(hjemmehold, udehold, matchData);
+				
+				//sætter alle texters nye værdier
+				scoreHjem.setText(hhgStr);;
+				scoreUd.setText(uhgStr);
+				penaltyHjem.setText("Penalty: " + hhpStr);
+				redcardHjem.setText("Red card: " + hhrcStr);
+				yellowcardHjem.setText("Yellow card: " + hhycStr);
+				penaltyUde.setText("Penalty: " + uhpStr);
+				redcardUde.setText("Red card: " + uhrcStr);
+				yellowcardUde.setText("Yellow card: " + uhycStr);
+			}
+		});
+		
+
+		btnHBox.getChildren().addAll(tilbage, export, refresh);
 
 		GridPane gridHomeTeam = new GridPane();
 		gridHomeTeam.add(stackHomeTeam, 0, 0);
@@ -194,6 +214,30 @@ public class ViewMatch {
 		stage.sizeToScene();
 		stage.show();
 
+	}
+	
+	public void setData(Team hjemmehold, Team udehold, Match rowDataMatch) {
+		Match matchData = rowDataMatch;
+		KRPLogic k = new KRPLogic();
+		
+		hjemmeholdgoal = k.selectNumberGoalsInfo(hjemmehold.getId(), matchData.getId());
+		udeholdgoal = k.selectNumberGoalsInfo(udehold.getId(), matchData.getId());
+		hjemmeholdpenalty = k.selectNumberPenaltiesInfo(udehold.getId(), matchData.getId());
+		udeholdpenalty = k.selectNumberPenaltiesInfo(udehold.getId(), matchData.getId());
+		hjemmeholdRedcard = k.selectNumberRedCardInfo(hjemmehold.getId(), matchData.getId());
+		udeholdRedcard = k.selectNumberRedCardInfo(udehold.getId(), matchData.getId());
+		hjemmeholdYellowcard = k.selectNumberYellowCardInfo(hjemmehold.getId(), matchData.getId());
+		udeholdYellowcard = k.selectNumberYellowCardInfo(udehold.getId(), matchData.getId());
+		
+		hhgStr = "" + hjemmeholdgoal;
+		uhgStr = "" + udeholdgoal;
+		hhpStr = "" + hjemmeholdpenalty;
+		uhpStr = "" + udeholdpenalty;
+		hhrcStr = "" + hjemmeholdRedcard;
+		uhrcStr = "" + udeholdRedcard;
+		hhycStr = "" + hjemmeholdYellowcard;
+		uhycStr = "" + udeholdYellowcard;
+		
 	}
 
 }
