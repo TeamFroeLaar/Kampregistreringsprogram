@@ -62,7 +62,29 @@ public class DBfacade {
 	public int selectNumberGoalsInfo(String id1, String id2) {
 		return selectNumberGoalsInfo.selectNumberGoals(id1, id2);
 	}
-
+	
+	// Select Redcard
+	private SelectNumberRedCardDB selectNumberRedcardInfo = new SelectNumberRedCardDB();
+	
+	public int selectNumberRedcardInfo(String id1, String id2) {
+		return selectNumberRedcardInfo.selectNumberRedcards(id1, id2);
+	}
+	
+	// Select Yellowcard
+	private SelectNumberYellowCardDB selectNumberYellowcardInfo = new SelectNumberYellowCardDB();
+	
+	public int selectNumberYellowcardInfo(String id1, String id2) {
+		return selectNumberYellowcardInfo.selectNumberYellowcards(id1, id2);
+	}
+	
+	// Select Penalties
+	private SelectNumberPenaltiesDB selectNumberPenaltiesInfo = new SelectNumberPenaltiesDB();
+	
+	public int selectNumberPenaltiesInfo(String id1, String id2) {
+		return selectNumberPenaltiesInfo.selectNumberPenalties(id1, id2);
+	}
+	
+	
 	// Create League
 	// private DBfacade createLeagueInfo = new DBfacade();
 	// public void createLeague(League league)
