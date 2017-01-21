@@ -64,6 +64,27 @@ public class KRPLogic {
 	public int selectNumberGoalsInfo(String id1, String id2) {
 		return goalAccessor.selectNumberGoalsInfo(id1, id2);
 	}
+	
+	//Select number redcards
+	private static DBfacade redCardAccessor = new DBfacade();
+	
+	public int selectNumberRedCardInfo(String id1, String id2) {
+		return redCardAccessor.selectNumberRedcardInfo(id1, id2);
+	}
+	
+	//Select number yellowcards
+private static DBfacade yellowCardAccessor = new DBfacade();
+	
+	public int selectNumberYellowCardInfo(String id1, String id2) {
+		return yellowCardAccessor.selectNumberYellowcardInfo(id1, id2);
+	}
+	
+	//Select number penalties
+	private static DBfacade penaltiesAccessor = new DBfacade();
+	
+	public int selectNumberPenaltiesInfo(String id1, String id2) {
+		return penaltiesAccessor.selectNumberPenaltiesInfo(id1, id2);
+	}
 
 	// Create League
 	// private DBfacade createLeagueInfo = new DBfacade();
