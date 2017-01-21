@@ -60,7 +60,7 @@ public class ViewMatch {
 	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) {
 		stage.setTitle("View match");
 		grid = new GridPane();
-		grid.setAlignment(Pos.TOP_LEFT);
+		grid.setAlignment(Pos.TOP_CENTER);
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
@@ -93,17 +93,19 @@ public class ViewMatch {
 
 		// Vbox til hjemmehold
 		VBox hjemmeholdVbox = new VBox();
+		Label hjemmeHoldLabel = new Label("Hjemmehold: " + hjemmehold.getHoldnavn());
 		Label penaltyHjem = new Label("Penalty: " + hhpStr);
 		Label redcardHjem = new Label("Red card: " + hhrcStr);
 		Label yellowcardHjem = new Label("Yellow card: " + hhycStr);
-		hjemmeholdVbox.getChildren().addAll(penaltyHjem, redcardHjem, yellowcardHjem);
+		hjemmeholdVbox.getChildren().addAll(hjemmeHoldLabel, penaltyHjem, redcardHjem, yellowcardHjem);
 
 		// Vbox til udehold
 		VBox udeholdVbox = new VBox();
+		Label udeHoldLabel = new Label("udehold: " + udehold.getHoldnavn());
 		Label penaltyUde = new Label("Penalty: " + uhpStr);
 		Label redcardUde = new Label("Red card: " + uhrcStr);
 		Label yellowcardUde = new Label("Yellow card: " + uhycStr);
-		udeholdVbox.getChildren().addAll(penaltyUde, redcardUde, yellowcardUde);
+		udeholdVbox.getChildren().addAll(udeHoldLabel, penaltyUde, redcardUde, yellowcardUde);
 
 		// adds rectangles and scores to stackpane
 		StackPane stackHomeTeam = new StackPane();
@@ -204,11 +206,11 @@ public class ViewMatch {
 		grid.add(gridAwayTeam, 2, 0);
 
 		// gridlines
-		grid.setGridLinesVisible(true);
-		gridHomeTeam.setGridLinesVisible(true);
-		gridAwayTeam.setGridLinesVisible(true);
+		grid.setGridLinesVisible(false);
+		gridHomeTeam.setGridLinesVisible(false);
+		gridAwayTeam.setGridLinesVisible(false);
 
-		Scene viewMatchInfo = new Scene(grid, 750, 600);
+		Scene viewMatchInfo = new Scene(grid, 900, 600);
 		stage.setScene(viewMatchInfo);
 		viewMatchInfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.sizeToScene();

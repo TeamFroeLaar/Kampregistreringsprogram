@@ -320,8 +320,8 @@ public class EditMatch {
 		});
 
 		// Buttons til udeholdGrid
-		Label udeHold = new Label("udehold: " + udehold.getHoldnavn());
-		udeholdGrid.add(udeHold, 0, 0);
+		Label udeHoldLabel = new Label("udehold: " + udehold.getHoldnavn());
+		udeholdGrid.add(udeHoldLabel, 0, 0);
 
 		Button PenaltyOut = new Button("Penalty");
 		udeholdGrid.add(PenaltyOut, 0, 1);

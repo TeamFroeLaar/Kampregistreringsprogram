@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import Domain.Event;
 import Domain.Match;
+import Domain.Team;
 import Logic.KRPLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -92,7 +93,7 @@ public class ExportOptionsView {
 		goBack.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				ViewMatch view = new ViewMatch(stage, matchID);
+				ViewMatches view = new ViewMatches(stage);
 				view.init();
 			}
 		});
