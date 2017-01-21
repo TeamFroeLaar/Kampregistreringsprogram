@@ -24,14 +24,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ViewMatch {
 	private Stage stage;
 	private GridPane grid;
-	private GridPane homeTeamGrid;
-	private GridPane awayTeamGrid;
 	private String matchID;
 	private ObservableList<Event> data;
 	List<Event> eventList;
@@ -45,7 +42,7 @@ public class ViewMatch {
 	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) {
 		stage.setTitle("View match");
 		grid = new GridPane();
-		grid.setAlignment(Pos.TOP_CENTER);
+		grid.setAlignment(Pos.TOP_LEFT);
 		grid.setHgap(10);
 		grid.setVgap(10);
 		grid.setPadding(new Insets(25, 25, 25, 25));
@@ -58,34 +55,14 @@ public class ViewMatch {
 		matchData.setId(matchData.getId());
 		matchData.setUdeholdId(matchData.getUdeholdId());
 		matchData.setUdeholdNavn(matchData.getUdeholdNavn());
- 
-		// home and away team grids
-		homeTeamGrid = new GridPane();
-		homeTeamGrid.setAlignment(Pos.TOP_CENTER);
-		homeTeamGrid.setHgap(10);
-		homeTeamGrid.setVgap(10);
-		homeTeamGrid.setPadding(new Insets(25, 25, 25, 25));
-		grid.add(homeTeamGrid, 0, 0);
-
-		awayTeamGrid = new GridPane();
-		awayTeamGrid.setAlignment(Pos.TOP_CENTER);
-		awayTeamGrid.setHgap(10);
-		awayTeamGrid.setVgap(10);
-		awayTeamGrid.setPadding(new Insets(25, 25, 25, 25));
-		grid.add(awayTeamGrid, 2, 0);
-
-		// gridlines
-		grid.setGridLinesVisible(true);
-		homeTeamGrid.setGridLinesVisible(true);
-		awayTeamGrid.setGridLinesVisible(true);
 
 		// boxes with scores
-		Rectangle rectangleLeft = new Rectangle(75, 75, 75, 75);
+		Rectangle rectangleLeft = new Rectangle(90, 90, 90, 90);
 		rectangleLeft.setStroke(Color.BLACK);
 		rectangleLeft.setFill(null);
 		rectangleLeft.setStrokeWidth(3);
 
-		Rectangle rectangleRight = new Rectangle(75, 75, 75, 75);
+		Rectangle rectangleRight = new Rectangle(90, 90, 90, 90);
 		rectangleRight.setStroke(Color.BLACK);
 		rectangleRight.setFill(null);
 		rectangleRight.setStrokeWidth(3);
@@ -95,7 +72,6 @@ public class ViewMatch {
 		// Number of different Events
 
 		KRPLogic k = new KRPLogic();
-		
 
 		// get numbers from db
 		int hjemmeholdgoal = k.selectNumberGoalsInfo(hjemmehold.getId(), matchData.getId());
@@ -106,7 +82,7 @@ public class ViewMatch {
 		int udeholdRedcard = k.selectNumberRedCardInfo(udehold.getId(), matchData.getId());
 		int hjemmeholdYellowcard = k.selectNumberYellowCardInfo(hjemmehold.getId(), matchData.getId());
 		int udeholdYellowcard = k.selectNumberYellowCardInfo(udehold.getId(), matchData.getId());
-		
+
 		// convert int to string
 		String hhgStr = "" + hjemmeholdgoal;
 		String uhgStr = "" + udeholdgoal;
@@ -116,31 +92,30 @@ public class ViewMatch {
 		String uhrcStr = "" + udeholdRedcard;
 		String hhycStr = "" + hjemmeholdYellowcard;
 		String uhycStr = "" + udeholdYellowcard;
-		
-		//mål scores
-		Text scoreHjem = new Text(hhgStr);
-		Text scoreUd = new Text(uhgStr);
-		
-		//Vbox til hjemmehold
+
+		// mål scores
+		Label scoreHjem = new Label(hhgStr);
+		Label scoreUd = new Label(uhgStr);
+
+		// Vbox til hjemmehold
 		VBox hjemmeholdVbox = new VBox();
-		Text penaltyHjem = new Text("Penalty: " + hhpStr);
-		Text redcardHjem = new Text("Red card: " + hhrcStr);
-		Text yellowcardHjem = new Text("Yellow card: " + hhycStr);
+		Label penaltyHjem = new Label("Penalty: " + hhpStr);
+		Label redcardHjem = new Label("Red card: " + hhrcStr);
+		Label yellowcardHjem = new Label("Yellow card: " + hhycStr);
 		hjemmeholdVbox.getChildren().addAll(penaltyHjem, redcardHjem, yellowcardHjem);
-		grid.add(hjemmeholdVbox, 0, 1);
-		
-		//Vbox til udehold
+		// grid.add(hjemmeholdVbox, 0, 1);
+
+		// Vbox til udehold
 		VBox udeholdVbox = new VBox();
-		Text penaltyUde = new Text("Penalty: " + uhpStr);
-		Text redcardUde = new Text("Red card: " + uhrcStr);
-		Text yellowcardUde = new Text("Yellow card: " + uhycStr);
-		udeholdVbox.getChildren().addAll(penaltyUde,  redcardUde, yellowcardUde);
-		grid.add(udeholdVbox, 2, 1);
-		
+		Label penaltyUde = new Label("Penalty: " + uhpStr);
+		Label redcardUde = new Label("Red card: " + uhrcStr);
+		Label yellowcardUde = new Label("Yellow card: " + uhycStr);
+		udeholdVbox.getChildren().addAll(penaltyUde, redcardUde, yellowcardUde);
+		// grid.add(udeholdVbox, 2, 1);
+
 		// adds rectangles and scores to stackpane
 		StackPane stackHomeTeam = new StackPane();
 		stackHomeTeam.getChildren().addAll(rectangleLeft, scoreHjem);
-
 		StackPane stackAwayTeam = new StackPane();
 		stackAwayTeam.getChildren().addAll(rectangleRight, scoreUd);
 
@@ -169,10 +144,14 @@ public class ViewMatch {
 		table.setMinSize(450, 500);
 
 		table.getColumns().addAll(tidCol, eventCol, holdCol);
-		grid.add(table, 1, 1);
+		grid.add(table, 1, 0);
+
+		// buttons HBox
+		HBox btnHBox = new HBox();
+		btnHBox.setSpacing(10);
+		grid.add(btnHBox, 1, 1);
 
 		Button tilbage = new Button("Return");
-		grid.add(tilbage, 0, 1);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -182,7 +161,6 @@ public class ViewMatch {
 		});
 
 		Button export = new Button("Export");
-		grid.add(export, 0, 2);
 		export.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -191,12 +169,26 @@ public class ViewMatch {
 			}
 		});
 
-		HBox hViewMatch = new HBox();
-		hViewMatch.getChildren().addAll(stackHomeTeam, stackAwayTeam);
-		hViewMatch.setSpacing(10);
-		grid.add(hViewMatch, 1, 0);
+		btnHBox.getChildren().addAll(tilbage, export);
 
-		Scene viewMatchInfo = new Scene(grid, 500, 800);
+		GridPane gridHomeTeam = new GridPane();
+		gridHomeTeam.add(stackHomeTeam, 0, 0);
+		gridHomeTeam.add(hjemmeholdVbox, 0, 1);
+		gridHomeTeam.setAlignment(Pos.TOP_LEFT);
+		grid.add(gridHomeTeam, 0, 0);
+
+		GridPane gridAwayTeam = new GridPane();
+		gridAwayTeam.add(stackAwayTeam, 0, 0);
+		gridAwayTeam.add(udeholdVbox, 0, 1);
+		gridAwayTeam.setAlignment(Pos.TOP_LEFT);
+		grid.add(gridAwayTeam, 2, 0);
+
+		// gridlines
+		grid.setGridLinesVisible(true);
+		gridHomeTeam.setGridLinesVisible(true);
+		gridAwayTeam.setGridLinesVisible(true);
+
+		Scene viewMatchInfo = new Scene(grid, 750, 600);
 		stage.setScene(viewMatchInfo);
 		viewMatchInfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		stage.sizeToScene();

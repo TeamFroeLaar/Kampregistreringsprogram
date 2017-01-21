@@ -203,12 +203,12 @@ public class EditMatch {
 		gridWatch.add(timeLabelsBox, 0, 0);
 
 		// Box with goal-numbers
-		Rectangle r1 = new Rectangle(75, 75, 75, 75);
+		Rectangle r1 = new Rectangle(90, 90, 90, 90);
 		r1.setStroke(Color.BLACK);
 		r1.setFill(null);
 		r1.setStrokeWidth(3);
 
-		Rectangle r2 = new Rectangle(75, 75, 75, 75);
+		Rectangle r2 = new Rectangle(90, 90, 90, 90);
 		r2.setStroke(Color.BLACK);
 		r2.setFill(null);
 		r2.setStrokeWidth(3);
