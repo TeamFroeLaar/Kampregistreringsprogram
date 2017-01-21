@@ -2,7 +2,9 @@ package Presentation;
 
 import java.util.List;
 
+import Domain.Event;
 import Domain.Match;
+import Domain.Team;
 import Logic.KRPLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,17 +31,17 @@ public class ViewMatch {
 	private GridPane homeTeamGrid;
 	private GridPane awayTeamGrid;
 	private String matchID;
-	private List<Match> data;
-	List<Match> matchList;
+	private ObservableList<Event> data;
+	List<Event> eventList;
+	private TableView<Event> table;
 	
 	
-	public ViewMatch (Stage stage, String matchID) {
+	public ViewMatch (Stage stage) {
 		this.stage = stage;
-		this.matchID = matchID;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void init() 
+	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) 
 	{
 		stage.setTitle("View match");
 		grid = new GridPane();
@@ -64,9 +66,9 @@ public class ViewMatch {
 				grid.add(awayTeamGrid, 2, 0);
 				
 				// gridlines
-				grid.setGridLinesVisible(false);
-				homeTeamGrid.setGridLinesVisible(false);
-				awayTeamGrid.setGridLinesVisible(false);
+				grid.setGridLinesVisible(true);
+				homeTeamGrid.setGridLinesVisible(true);
+				awayTeamGrid.setGridLinesVisible(true);
 				
 				// boxes with scores
 				Rectangle rectangleLeft = new Rectangle(75,75,75,75);
@@ -110,29 +112,43 @@ public class ViewMatch {
 				Text awayRedCard = new Text("Red cards:");
 				awayTeamGrid.add(awayRedCard, 2, 3);
 				
+				// Match rowdata
+				Match matchData = rowDataMatch;
+				matchData.setDatoTid(matchData.getDatoTid());
+				matchData.setHjemmeholdId(matchData.getHjemmeholdId());
+				matchData.setHjemmeholdNavn(matchData.getHjemmeholdNavn());
+				matchData.setId(matchData.getId());
+				matchData.setUdeholdId(matchData.getUdeholdId());
+				matchData.setUdeholdNavn(matchData.getUdeholdNavn());
+				
+				// Event rowdata
+				Event event = new Event();
+				event.setKampid(rowDataMatch.getId());
+				eventList = KRPLogic.getEvent(event);
+				data = FXCollections.observableArrayList(eventList);
+				
 				// TableView
-				TableView<Match> matchTable = new TableView<>();
-				matchTable.setEditable(true);
-								
-				TableColumn<Match, String> teamName = new TableColumn<Match, String>("Team");
-				teamName.setCellValueFactory(new PropertyValueFactory<Match, String>("team"));
+				table = new TableView<>();
+				table.setEditable(true);
+				table.setItems(data);
+			
+				// TableView Rækker
+				TableColumn<Event, String> tidCol = new TableColumn<Event, String>("tid");
+				tidCol.setCellValueFactory(new PropertyValueFactory<Event, String>("tid"));
+
+				TableColumn<Event, String> eventCol = new TableColumn<Event, String>("Events");
+				eventCol.setCellValueFactory(new PropertyValueFactory<Event, String>("event"));
+				eventCol.setMinWidth(120);
+
+				TableColumn<Event, String> holdCol = new TableColumn<Event, String>("Holdnavn");
+				holdCol.setCellValueFactory(new PropertyValueFactory<Event, String>("holdnavn"));
+				holdCol.setMinWidth(150);
+				table.setMinSize(450, 500);
 				
-				TableColumn<Match, String> eventCol = new TableColumn<Match, String>("Event");
-				eventCol.setCellValueFactory(new PropertyValueFactory<Match, String>("event"));
+				table.getColumns().addAll(tidCol, eventCol, holdCol);
+				grid.add(table, 1, 1);
 				
-				TableColumn<Match, String> timestampCol = new TableColumn<Match, String>("Timestamp");
-				timestampCol.setCellValueFactory(new PropertyValueFactory<Match, String>("timestamp"));
-				
-				matchTable.getColumns().addAll(teamName, eventCol, timestampCol);
-				grid.add(matchTable, 1, 1);
-				
-				data = KRPLogic.getMatch();
-				ObservableList<Match> MatchList = FXCollections.observableArrayList(data);
-				
-				matchTable.setItems(MatchList); 
-						
-				
-				
+
 				
 		Button tilbage = new Button("Return");
 		grid.add(tilbage, 0, 1);

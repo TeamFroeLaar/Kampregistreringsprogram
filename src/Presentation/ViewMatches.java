@@ -51,16 +51,20 @@ public class ViewMatches {
 
 		TableColumn<Match, Integer> matchID = new TableColumn<Match, Integer>("MatchID");
 		matchID.setCellValueFactory(new PropertyValueFactory<Match, Integer>("id"));
-
+		matchID.setMinWidth(150);
+		
 		TableColumn<Match, Integer> homeTeamName = new TableColumn<Match, Integer>("Home");
 		homeTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("hjemmeholdNavn"));
-
+		homeTeamName.setMinWidth(150);
+		
 		TableColumn<Match, Integer> awayTeamName = new TableColumn<Match, Integer>("Away");
 		awayTeamName.setCellValueFactory(new PropertyValueFactory<Match, Integer>("udeholdNavn"));
-
+		awayTeamName.setMinWidth(150);
+		
 		TableColumn<Match, Timestamp> dateTime = new TableColumn<Match, Timestamp>("Date/Time");
 		dateTime.setCellValueFactory(new PropertyValueFactory<Match, Timestamp>("datoTid"));
-
+		dateTime.setMinWidth(150);
+		
 		matchesTable.setItems(data);
 		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName, dateTime);
 		matchesTable.setMinSize(500, 400);
@@ -84,8 +88,26 @@ public class ViewMatches {
 		viewThisMatch.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				ViewMatch view = new ViewMatch(stage, matchesTable.getSelectionModel().getSelectedItem().getId());
-				view.init();
+//				ViewMatch view = new ViewMatch(stage, matchesTable.getSelectionModel().getSelectedItem().getId());
+				Match rowData = matchesTable.getSelectionModel().getSelectedItem();
+
+				Team hjemmehold = new Team();
+				hjemmehold.setHoldnavn(rowData.getHjemmeholdNavn());
+				hjemmehold.setId(rowData.getHjemmeholdId());
+				
+				Team udehold = new Team();
+				udehold.setHoldnavn(rowData.getUdeholdNavn());
+				udehold.setId(rowData.getUdeholdId());
+				
+				Event kampEvents = new Event();
+				kampEvents.getEvent();
+				kampEvents.getHoldid();
+				kampEvents.getId();
+				kampEvents.getKampid();
+				kampEvents.getTid();
+				
+				ViewMatch view = new ViewMatch(stage);
+				view.init(hjemmehold, udehold, rowData);	
 			}
 		});
 		Button editMatch = new Button("Edit match");
