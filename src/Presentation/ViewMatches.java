@@ -63,8 +63,8 @@ public class ViewMatches {
 		
 		TableColumn<Match, Timestamp> dateTime = new TableColumn<Match, Timestamp>("Date/Time");
 		dateTime.setCellValueFactory(new PropertyValueFactory<Match, Timestamp>("datoTid"));
-		dateTime.setMinWidth(150);
-		
+		dateTime.setMinWidth(130);
+		 
 		matchesTable.setItems(data);
 		matchesTable.getColumns().addAll(matchID, homeTeamName, awayTeamName, dateTime);
 		matchesTable.setMinSize(500, 400);
