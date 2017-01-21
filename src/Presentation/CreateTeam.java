@@ -68,9 +68,10 @@ public class CreateTeam {
 			}
 		});
 
-		Scene createteam = new Scene(grid, 400, 375);
+		Scene createteam = new Scene(grid, 440, 150);
 		stage.setScene(createteam);
-		stage.setFullScreen(true);
+		createteam.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
+		stage.sizeToScene();
 		stage.show();
 	}
 }

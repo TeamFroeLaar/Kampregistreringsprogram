@@ -96,7 +96,8 @@ public class CreateMatch {
 
 		Scene creatematch = new Scene(grid, 400, 375);
 		stage.setScene(creatematch);
-		stage.setFullScreen(true);
+		creatematch.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
+		stage.sizeToScene();
 		stage.show();
 	}
 }

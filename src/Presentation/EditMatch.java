@@ -410,10 +410,11 @@ public class EditMatch {
 		grid.add(stackH, 0, 0);
 		grid.add(stackU, 2, 0);
 
-		Scene editmatchinfo = new Scene(grid, 800, 1200);
+		Scene editmatchinfo = new Scene(grid, 1280, 740);
 		stage.setScene(editmatchinfo);
+		stage.sizeToScene();
 		editmatchinfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
-		stage.setFullScreen(true);
+		
 		stage.show();
 	}
 
