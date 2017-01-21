@@ -183,12 +183,10 @@ public class EditMatch {
 		// Labels to show time
 		// sec
 		timerLabelsec.textProperty().bind(timeSeconds.asString());
-		timerLabelsec.setTextFill(Color.RED);
 		timerLabelsec.setStyle("-fx-font-size: 4em;");
-
+		
 		// min
 		timerLabelmin.textProperty().bind(timeMinutes.asString());
-		timerLabelmin.setTextFill(Color.RED);
 		timerLabelmin.setStyle("-fx-font-size: 4em;");
 
 		// Hbox for timerButtons
