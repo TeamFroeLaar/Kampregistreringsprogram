@@ -91,6 +91,7 @@ public class ViewLeague {
 		
 		Scene viewleague = new Scene(grid, 1200, 800);
 		stage.setScene(viewleague);
+		stage.setFullScreen(true);
 		stage.show();
 	}
 }

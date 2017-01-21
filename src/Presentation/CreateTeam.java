@@ -70,6 +70,7 @@ public class CreateTeam {
 
 		Scene createteam = new Scene(grid, 400, 375);
 		stage.setScene(createteam);
+		stage.setFullScreen(true);
 		stage.show();
 	}
 }

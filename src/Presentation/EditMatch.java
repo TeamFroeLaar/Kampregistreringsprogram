@@ -413,6 +413,7 @@ public class EditMatch {
 		Scene editmatchinfo = new Scene(grid, 800, 1200);
 		stage.setScene(editmatchinfo);
 		editmatchinfo.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
+		stage.setFullScreen(true);
 		stage.show();
 	}
 

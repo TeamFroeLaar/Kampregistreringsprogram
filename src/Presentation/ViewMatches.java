@@ -130,6 +130,7 @@ public class ViewMatches {
 		Scene viewMatch = new Scene(grid, 400, 375);
 		stage.setScene(viewMatch);
 		viewMatch.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
+		stage.setFullScreen(true);
 		stage.show();
 	}
 }

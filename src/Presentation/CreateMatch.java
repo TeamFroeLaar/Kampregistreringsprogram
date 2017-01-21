@@ -96,6 +96,7 @@ public class CreateMatch {
 
 		Scene creatematch = new Scene(grid, 400, 375);
 		stage.setScene(creatematch);
+		stage.setFullScreen(true);
 		stage.show();
 	}
 }
