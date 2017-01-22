@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import Domain.Event;
 import Domain.Match;
-import Domain.Team;
 import Logic.KRPLogic;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -82,7 +81,12 @@ public class ExportOptionsView {
 					}
 				}
 				if (cmbExportStrings.getValue() == "PDF") {
-					
+					ExportPDF exportPDF = new ExportPDF(); {
+					Match match = KRPLogic.selectMatch(matchID);
+					Event event = new Event();
+					event.setKampid(match.getId());
+					exportPDF.createPDF(match, KRPLogic.getEvent(event));
+					}
 				}
 			}
 		});

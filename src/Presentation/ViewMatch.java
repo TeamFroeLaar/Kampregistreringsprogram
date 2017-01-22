@@ -29,7 +29,6 @@ import javafx.stage.Stage;
 public class ViewMatch {
 	private Stage stage;
 	private GridPane grid;
-	private String matchID;
 	private ObservableList<Event> data;
 	List<Event> eventList;
 	private TableView<Event> table;
@@ -158,7 +157,7 @@ public class ViewMatch {
 		export.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				ExportOptionsView exportOptionsView = new ExportOptionsView(stage, matchID);
+				ExportOptionsView exportOptionsView = new ExportOptionsView(stage, rowDataMatch.getId());
 				exportOptionsView.init();
 			}
 		});

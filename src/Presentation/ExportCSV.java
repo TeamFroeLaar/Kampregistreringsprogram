@@ -17,11 +17,11 @@ public class ExportCSV {
 			FileWriter writer = new FileWriter(new File("C:\\MatchReport","MatchReport.csv"));
 			writer.append(match.getId() + ",");
 			writer.append(match.getHjemmeholdNavn() + ",");
-			writer.append(match.getUdeholdNavn() + "\n");
+			writer.append(match.getUdeholdNavn() + ",");
 			 for(int i=0; i < events.size(); i++) {
 				 writer.append(events.get(i).getEvent() + ",");
 				 writer.append(events.get(i).getHoldid() + ","); // HOLDNAVN I STEDET HVIS DET VIRKER
-				 writer.append(events.get(i).getTid() + "\n");
+				 writer.append(events.get(i).getTid() + ",");
 	             }
 			writer.append(match.getDatoTid() + ",");
 			writer.write(writer.toString());
