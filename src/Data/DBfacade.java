@@ -92,13 +92,6 @@ public class DBfacade {
 		deleteEventInfo.deleteEvent(event);
 	}
 
-	// Create League
-	private CreateLeagueDB createLeagueInfo = new CreateLeagueDB();
-
-	public void createLeagueInfo(League league) {
-		createLeagueInfo.createLeague(league);
-	}
-
 	// Select League
 	private static SelectLeagueDB SelectLeagueInfo = new SelectLeagueDB();
 
