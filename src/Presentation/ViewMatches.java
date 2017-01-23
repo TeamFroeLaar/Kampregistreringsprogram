@@ -78,7 +78,7 @@ public class ViewMatches {
 			@Override
 			public void handle(ActionEvent event) {
 				Main view = new Main();
-				view.start(stage);				
+				view.start(stage);
 			}
 		});
 		Button viewThisMatch = new Button("View match");
