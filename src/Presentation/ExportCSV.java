@@ -14,7 +14,7 @@ import Domain.Match;
 public class ExportCSV {
 	public void exportCSV (Match match, List<Event> events) throws IOException {
 		try {
-			FileWriter writer = new FileWriter(new File("C:\\MatchReport","MatchReport.csv"));
+			FileWriter writer = new FileWriter(new File("C:\\MatchReport\\Match ID - " + match.getId() +" "+  match.getHjemmeholdNavn() +" - " + match.getUdeholdNavn() +".csv"));
 			writer.append(match.getId() + ",");
 			writer.append(match.getHjemmeholdNavn() + ",");
 			writer.append(match.getUdeholdNavn() + ",");
@@ -35,3 +35,4 @@ public class ExportCSV {
 	
 	}
 }
+//

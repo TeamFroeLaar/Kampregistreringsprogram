@@ -16,7 +16,7 @@ public class ExportPDF {
 	public void createPDF(Match match, List<Event> events) {
 
 		try {
-			PdfWriter writer = new PdfWriter("C:\\MatchReport\\MatchReport.pdf");
+			PdfWriter writer = new PdfWriter("C:\\MatchReport\\Match ID - " + match.getId() +" "+  match.getHjemmeholdNavn() +" - " + match.getUdeholdNavn() +".pdf");
 			PdfDocument pdf = new PdfDocument(writer);
 			Document document = new Document(pdf);
 			
@@ -40,3 +40,4 @@ public class ExportPDF {
 	}
 
 }
+//
