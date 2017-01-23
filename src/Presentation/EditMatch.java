@@ -60,6 +60,7 @@ public class EditMatch {
 	private Duration time = Duration.ZERO, Start = Duration.ZERO;
 	int durIntMin;
 	int durIntSec;
+	int startKnapClickCounter = 0;
 
 	KRPLogic logic = new KRPLogic();
 	Event e = new Event();
@@ -148,6 +149,8 @@ public class EditMatch {
 		startButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
+				if (startKnapClickCounter == 0){
+				startKnapClickCounter++;
 				timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
 					@Override
 					public void handle(ActionEvent t) {
@@ -165,10 +168,12 @@ public class EditMatch {
 
 						timeSeconds.set(durIntSec);
 						timeMinutes.set(durIntMin);
+						
 					}
 				}));
 				timeline.setCycleCount(Timeline.INDEFINITE);
 				timeline.play();
+				}
 			}
 		});
 
@@ -186,7 +191,7 @@ public class EditMatch {
 		// sec
 		timerLabelsec.textProperty().bind(timeSeconds.asString());
 		timerLabelsec.setStyle("-fx-font-size: 4em;");
-		
+
 		// min
 		timerLabelmin.textProperty().bind(timeMinutes.asString());
 		timerLabelmin.setStyle("-fx-font-size: 4em;");
@@ -219,7 +224,7 @@ public class EditMatch {
 		r2.setStrokeWidth(3);
 
 		refreshData(hjemmehold, udehold, matchData);
-		
+
 		Label textH = new Label(hhgStr);
 		Label textU = new Label(uhgStr);
 
@@ -320,8 +325,8 @@ public class EditMatch {
 
 				refreshTable(rowDataMatch);
 				refreshData(hjemmehold, udehold, matchData);
-				
-				//sætter målscores nye værdier
+
+				// sætter målscores nye værdier
 				textH.setText(hhgStr);
 				textU.setText(uhgStr);
 			}
@@ -397,8 +402,8 @@ public class EditMatch {
 
 				refreshTable(rowDataMatch);
 				refreshData(hjemmehold, udehold, matchData);
-				
-				//sætter målscores nye værdier
+
+				// sætter målscores nye værdier
 				textH.setText(hhgStr);
 				textU.setText(uhgStr);
 			}
@@ -414,29 +419,29 @@ public class EditMatch {
 				view.init();
 			}
 		});
-		
+
 		Button sletEvent = new Button("Slet event");
 		sletEvent.setPrefSize(150, 25);
 		sletEvent.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				KRPLogic logic = new KRPLogic();
-				
+
 				Event rowData = table.getSelectionModel().getSelectedItem();
 				Event sletEvent = new Event();
 				sletEvent.setId(rowData.getId());
-				
+
 				logic.deleteEvent(sletEvent);
-				
+
 				refreshTable(rowDataMatch);
 				refreshData(hjemmehold, udehold, matchData);
-				
-				//sætter målscores nye værdier
+
+				// sætter målscores nye værdier
 				textH.setText(hhgStr);
 				textU.setText(uhgStr);
 			}
 		});
-		
+
 		HBox ekstraBtn = new HBox();
 		ekstraBtn.getChildren().addAll(sletEvent, tilbage);
 		grid.add(ekstraBtn, 1, 2);
@@ -473,7 +478,7 @@ public class EditMatch {
 	}
 
 	public void refreshTable(Match rowDataMatch) {
-		
+
 		eventList.clear();
 
 		Event event = new Event();
@@ -483,10 +488,9 @@ public class EditMatch {
 		data = FXCollections.observableArrayList(eventList);
 		table.setItems(data);
 
-
 	}
 
-	public void refreshData(Team hjemmehold, Team udehold, Match rowDataMatch){
+	public void refreshData(Team hjemmehold, Team udehold, Match rowDataMatch) {
 		Match matchData = rowDataMatch;
 		KRPLogic k = new KRPLogic();
 
