@@ -12,8 +12,8 @@ import Domain.Team;
 import Logic.KRPLogic;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -55,8 +55,8 @@ public class EditMatch {
 	private Timeline timeline;
 	private Label timerLabelsec = new Label();
 	private Label timerLabelmin = new Label();
-	private DoubleProperty timeSeconds = new SimpleDoubleProperty();
-	private DoubleProperty timeMinutes = new SimpleDoubleProperty();
+	private IntegerProperty timeSeconds = new SimpleIntegerProperty();
+	private IntegerProperty timeMinutes = new SimpleIntegerProperty();
 	private Duration time = Duration.ZERO, Start = Duration.ZERO;
 	int durIntMin;
 	int durIntSec;
@@ -200,8 +200,10 @@ public class EditMatch {
 
 		// Hbox for timeLabels
 		HBox timeLabelsBox = new HBox();
+		Label kolon = new Label(":");
+		kolon.setStyle("-fx-font-size: 4em;");
 		timeLabelsBox.setAlignment(Pos.TOP_CENTER);
-		timeLabelsBox.getChildren().addAll(timerLabelmin, timerLabelsec);
+		timeLabelsBox.getChildren().addAll(timerLabelmin, kolon, timerLabelsec);
 		timeLabelsBox.setSpacing(10);
 		gridWatch.add(timeLabelsBox, 0, 0);
 
