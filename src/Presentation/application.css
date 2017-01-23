@@ -1,5 +1,6 @@
 .background {
     -fx-background-color: #d3d3d3;
+    -fx-background-fill: #d3d3d3;
 }
 
 .label {
