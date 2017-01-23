@@ -40,7 +40,7 @@ public class ViewLeague {
 		TableView<League> leagueTable = new TableView<>();
 		ObservableList<League> data;
 //		data = FXCollections.observableArrayList(KRPLogic.getLeague());
-
+ 
 		// TableView Rækker
 		TableColumn<League, String> stillingCol = new TableColumn<League, String>("Stilling");
 		stillingCol.setCellValueFactory(new PropertyValueFactory<League, String>("stilling"));
