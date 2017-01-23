@@ -26,7 +26,7 @@ public class SelectMatchesDB {
 
 	public void selectMatches(DataAccess access, List<Match> matchList) {
 		try (PreparedStatement statement = access.getConnection()
-				.prepareStatement("SELECT KAMPE.ID, KAMPE.HJEMMEHOLDID, KAMPE.UDEHOLDID, KAMPE.DATOTID, H1.ID AS HHID, H1.HOLDNAVN AS HHN, H2.ID AS HHID, H2.HOLDNAVN AS UHN FROM KAMPE, HOLD AS H1, HOLD AS H2 WHERE KAMPE.HJEMMEHOLDID = H1.ID AND KAMPE.UDEHOLDID = H2.ID");) {
+				.prepareStatement("SELECT KAMPE.ID, KAMPE.HJEMMEHOLDID, KAMPE.UDEHOLDID, KAMPE.DATOTID, H1.ID AS HHID, H1.HOLDNAVN AS HHN, H2.ID AS UHID, H2.HOLDNAVN AS UHN FROM KAMPE, HOLD AS H1, HOLD AS H2 WHERE KAMPE.HJEMMEHOLDID = H1.ID AND KAMPE.UDEHOLDID = H2.ID");) {
 			ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
 				Match m = new Match();
