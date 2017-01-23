@@ -39,9 +39,9 @@ public class SelectLeagueDB {
 //				l.setStilling(rs.getString(columnIndex));
 				l.setHoldnavn(rs.getString(columnIndex));
 				l.setEvent(rs.getString(columnIndex));
-				l.setWin(rs.getString(columnIndex));
-				l.setLoss(rs.getString(columnIndex));
-				l.setPoint(rs.getString(columnIndex));
+//				l.setWin(rs.getString(columnIndex));
+//				l.setLoss(rs.getString(columnIndex));
+//				l.setPoint(rs.getString(columnIndex));
 				leagueList.add(l);
 			}
 		} catch (SQLException e) {

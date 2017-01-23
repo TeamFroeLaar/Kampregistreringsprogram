@@ -8,6 +8,7 @@ public class Match
 	private String datoTid;
 	private String hjemmeholdNavn;
 	private String udeholdNavn;
+	private String numberGoals;
 	
 
 	public String getId() {
@@ -50,6 +51,12 @@ public class Match
 	public String toString() {
 		return "Match [id=" + id + ", hjemmeholdId=" + hjemmeholdId + ", udeholdId=" + udeholdId + ", datoTid="
 				+ datoTid + ", hjemmeholdNavn=" + hjemmeholdNavn + ", udeholdNavn=" + udeholdNavn + "]";
+	}
+	public String getNumberGoals() {
+		return numberGoals;
+	}
+	public void setNumberGoals(String numberGoals) {
+		this.numberGoals = numberGoals;
 	}
 
 	

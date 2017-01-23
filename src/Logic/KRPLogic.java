@@ -96,7 +96,7 @@ public class KRPLogic {
 
 	// Select League
 	private static DBfacade leagueAccessor = new DBfacade();
-
+	
 	public static List<League> getLeague() {
 		
 		

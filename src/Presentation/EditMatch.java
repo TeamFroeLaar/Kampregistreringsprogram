@@ -4,6 +4,8 @@ package Presentation;
 import java.awt.Font;
 import java.util.List;
 
+import com.sun.javafx.event.EventHandlerManager;
+
 import Domain.Event;
 import Domain.Match;
 import Domain.Team;

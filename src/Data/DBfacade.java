@@ -95,7 +95,7 @@ public class DBfacade {
 	// Select League
 	private static SelectLeagueDB SelectLeagueInfo = new SelectLeagueDB();
 
-	public static List<League> selectLeagueInfo() {
+	public  List<League> selectLeagueInfo() {
 		return SelectLeagueInfo.selectLeague();
 	}
 }
