@@ -103,6 +103,6 @@ public class DBfacade {
 	private static SelectLeagueDB SelectLeagueInfo = new SelectLeagueDB();
 
 	public static List<League> selectLeagueInfo(League league) {
-		return SelectLeagueInfo.selectLeagueInfo(league);
+		return SelectLeagueInfo.selectLeague(league);
 	}
 }
