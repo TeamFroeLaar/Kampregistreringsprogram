@@ -73,7 +73,7 @@ public class KRPLogic {
 	}
 	
 	//Select number yellowcards
-private static DBfacade yellowCardAccessor = new DBfacade();
+	private static DBfacade yellowCardAccessor = new DBfacade();
 	
 	public int selectNumberYellowCardInfo(String id1, String id2) {
 		return yellowCardAccessor.selectNumberYellowcardInfo(id1, id2);
