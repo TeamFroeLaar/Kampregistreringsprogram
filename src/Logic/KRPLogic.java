@@ -4,9 +4,10 @@ import java.util.List;
 
 import Data.DBfacade;
 import Domain.Event;
+import Domain.League;
 import Domain.Match;
 import Domain.Team;
-	
+
 public class KRPLogic {
 
 	// Create Team
@@ -43,10 +44,10 @@ public class KRPLogic {
 	public static List<Match> getMatch() {
 		return matchAccessor.selectMatchInfo();
 	}
-	
+
 	// Select Match
 	private static DBfacade dbFacade = new DBfacade();
-	
+
 	public static Match selectMatch(String id) {
 		return dbFacade.selectMatch(id);
 	}
@@ -57,31 +58,31 @@ public class KRPLogic {
 	public static List<Event> getEvent(Event event) {
 		return eventAccessor.selectEventInfo(event);
 	}
-	
-	//Select number goals
+
+	// Select number goals
 	private static DBfacade goalAccessor = new DBfacade();
-	
+
 	public int selectNumberGoalsInfo(String id1, String id2) {
 		return goalAccessor.selectNumberGoalsInfo(id1, id2);
 	}
-	
-	//Select number redcards
+
+	// Select number redcards
 	private static DBfacade redCardAccessor = new DBfacade();
-	
+
 	public int selectNumberRedCardInfo(String id1, String id2) {
 		return redCardAccessor.selectNumberRedcardInfo(id1, id2);
 	}
-	
-	//Select number yellowcards
+
+	// Select number yellowcards
 	private static DBfacade yellowCardAccessor = new DBfacade();
-	
+
 	public int selectNumberYellowCardInfo(String id1, String id2) {
 		return yellowCardAccessor.selectNumberYellowcardInfo(id1, id2);
 	}
-	
-	//Select number penalties
+
+	// Select number penalties
 	private static DBfacade penaltiesAccessor = new DBfacade();
-	
+
 	public int selectNumberPenaltiesInfo(String id1, String id2) {
 		return penaltiesAccessor.selectNumberPenaltiesInfo(id1, id2);
 	}
@@ -92,17 +93,18 @@ public class KRPLogic {
 	public void deleteEvent(Event event) {
 		deleteEventInfo.deleteEventInfo(event);
 	}
-	
+
 	// Create League
-	// private DBfacade createLeagueInfo = new DBfacade();
-	// public void createLeague(League league)
-	// {
-	// createLeagueInfo.createLeagueInfo(league);
-	// }
-	// // Select League
-	// private static DBfacade leagueAccessor = new DBfacade();
-	// public static List<League> getLeague()
-	// {
-	// return leagueAccessor.selectLeagueInfo();
-	// }
+	private DBfacade createLeagueInfo = new DBfacade();
+
+	public void createLeague(League league) {
+		createLeagueInfo.createLeagueInfo(league);
+	}
+
+	// Select League
+	private static DBfacade leagueAccessor = new DBfacade();
+
+	public static List<League> getLeague(League league) {
+		return leagueAccessor.selectLeagueInfo(league);
+	}
 }

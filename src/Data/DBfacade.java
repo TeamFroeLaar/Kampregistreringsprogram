@@ -3,6 +3,7 @@ package Data;
 import java.util.List;
 
 import Domain.Event;
+import Domain.League;
 import Domain.Match;
 import Domain.Team;
 
@@ -20,13 +21,13 @@ public class DBfacade {
 	public List<Match> selectMatchInfo() {
 		return selectMatchInfo.selectMatches();
 	}
-	
+
 	// Select Match
 	private SelectMatchDB selectMatchDB = new SelectMatchDB();
 
 	public Match selectMatch(String id) {
 		return selectMatchDB.selectMatch(id);
-		}
+	}
 
 	// Create Team
 	private CreateTeamDB createTeamInfo = new CreateTeamDB();
@@ -62,47 +63,46 @@ public class DBfacade {
 	public int selectNumberGoalsInfo(String id1, String id2) {
 		return selectNumberGoalsInfo.selectNumberGoals(id1, id2);
 	}
-	
+
 	// Select Redcard
 	private SelectNumberRedCardDB selectNumberRedcardInfo = new SelectNumberRedCardDB();
-	
+
 	public int selectNumberRedcardInfo(String id1, String id2) {
 		return selectNumberRedcardInfo.selectNumberRedcards(id1, id2);
 	}
-	
+
 	// Select Yellowcard
 	private SelectNumberYellowCardDB selectNumberYellowcardInfo = new SelectNumberYellowCardDB();
-	
+
 	public int selectNumberYellowcardInfo(String id1, String id2) {
 		return selectNumberYellowcardInfo.selectNumberYellowcards(id1, id2);
 	}
-	
+
 	// Select Penalties
 	private SelectNumberPenaltiesDB selectNumberPenaltiesInfo = new SelectNumberPenaltiesDB();
-	
+
 	public int selectNumberPenaltiesInfo(String id1, String id2) {
 		return selectNumberPenaltiesInfo.selectNumberPenalties(id1, id2);
 	}
-	
+
 	// Delete Event
 	private DeleteEventDB deleteEventInfo = new DeleteEventDB();
-	
+
 	public void deleteEventInfo(Event event) {
 		deleteEventInfo.deleteEvent(event);
 	}
-	
-	
-	// Create League
-	// private DBfacade createLeagueInfo = new DBfacade();
-	// public void createLeague(League league)
-	// {
-	// createLeagueInfo.createLeagueInfo(league);
-	// }
-	// // Select League
-	// private static DBfacade leagueAccessor = new DBfacade();
-	// public static List<League> getLeague()
-	// {
-	// return leagueAccessor.selectLeagueInfo();
-	// }
-}
 
+	// Create League
+	private CreateLeagueDB createLeagueInfo = new CreateLeagueDB();
+
+	public void createLeagueInfo(League league) {
+		createLeagueInfo.createLeague(league);
+	}
+
+	// Select League
+	private static SelectLeagueDB SelectLeagueInfo = new SelectLeagueDB();
+
+	public static List<League> selectLeagueInfo(League league) {
+		return SelectLeagueInfo.selectLeagueInfo(league);
+	}
+}
