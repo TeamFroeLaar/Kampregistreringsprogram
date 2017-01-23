@@ -28,12 +28,16 @@ public class SelectLeagueDB {
 	private void selectMatch(DataAccess access, List<League> leagueList) {
 		try (PreparedStatement statement = access.getConnection()
 				.prepareStatement(/*insert SQL*/);) {
-			statement.setString(1);
+			
+//			statement.setString(1);
+			
 			ResultSet rs = statement.executeQuery();
+			
 			while (rs.next()) {
-//				league.setStilling(rs.getString(columnIndex));
 				League l = new League();
-				l.setHoldnavn(rs.getString());
+				
+//				l.setStilling(rs.getString(columnIndex));
+				l.setHoldnavn(rs.getString(columnIndex));
 				l.setEvent(rs.getString(columnIndex));
 				l.setWin(rs.getString(columnIndex));
 				l.setLoss(rs.getString(columnIndex));
@@ -42,8 +46,6 @@ public class SelectLeagueDB {
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException("fejl ved søgning", e);
-		}
-		
+		}	
 	}
-
 }
