@@ -1,9 +1,9 @@
 package Domain;
 
 public class League {
-	private String holdnavn;
 	private String stilling;
-	private String event;
+	private String holdnavn;
+	private String numberGoals;
 	private String win;
 	private String loss;
 	private String point;
@@ -20,11 +20,11 @@ public class League {
 	public void setStilling(String stilling) {
 		this.stilling = stilling;
 	}
-	public String getEvent() {
-		return event;
+	public String getNumberGoals() {
+		return numberGoals;
 	}
-	public void setEvent(String event) {
-		this.event = event;
+	public void setNumberGoals(String event) {
+		this.numberGoals = event;
 	}
 	public String getWin() {
 		return win;
@@ -46,7 +46,7 @@ public class League {
 	}
 	@Override
 	public String toString() {
-		return "League [holdnavn=" + holdnavn + ", stilling=" + stilling + ", event=" + event + ", win=" + win
+		return "League [holdnavn=" + holdnavn + ", stilling=" + stilling + ", event=" + numberGoals + ", win=" + win
 				+ ", loss=" + loss + ", point=" + point + "]";
 	}
 	
