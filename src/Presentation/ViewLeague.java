@@ -39,7 +39,7 @@ public class ViewLeague {
 		// TableView
 		TableView<League> leagueTable = new TableView<>();
 		ObservableList<League> data;
-		data = FXCollections.observableArrayList(KRPLogic.getLeague());
+//		data = FXCollections.observableArrayList(KRPLogic.getLeague());
 
 		// TableView Rækker
 		TableColumn<League, String> stillingCol = new TableColumn<League, String>("Stilling");
@@ -65,7 +65,7 @@ public class ViewLeague {
 
 		leagueTable.setMinSize(800, 600);
 		leagueTable.setEditable(true);
-		leagueTable.setItems(data);
+//		leagueTable.setItems(data);
 		leagueTable.getColumns().addAll(stillingCol,  holdnavnCol, lossCol, pointCol, winCol, lossCol);
 		grid.add(leagueTable, 0, 0);
 		
