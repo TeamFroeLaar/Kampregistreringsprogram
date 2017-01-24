@@ -1,10 +1,7 @@
 
 package Presentation;
 
-import java.awt.Font;
 import java.util.List;
-
-import com.sun.javafx.event.EventHandlerManager;
 
 import Domain.Event;
 import Domain.Match;
@@ -149,30 +146,30 @@ public class EditMatch {
 		startButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				if (startKnapClickCounter == 0){
-				startKnapClickCounter++;
-				timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-					@Override
-					public void handle(ActionEvent t) {
-						Duration duration = ((KeyFrame) t.getSource()).getTime();
-						time = time.add(duration);
-						Start = Start.add(duration);
+				if (startKnapClickCounter == 0) {
+					startKnapClickCounter++;
+					timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+						@Override
+						public void handle(ActionEvent t) {
+							Duration duration = ((KeyFrame) t.getSource()).getTime();
+							time = time.add(duration);
+							Start = Start.add(duration);
 
-						String durStr = String.valueOf(getTime());
-						durStr = durStr.substring(0, durStr.length() - 8);
-						int durInt = Integer.parseInt(durStr);
-						durIntMin = durInt / 60;
-						durIntSec = durInt - (durIntMin * 60);
+							String durStr = String.valueOf(getTime());
+							durStr = durStr.substring(0, durStr.length() - 8);
+							int durInt = Integer.parseInt(durStr);
+							durIntMin = durInt / 60;
+							durIntSec = durInt - (durIntMin * 60);
 
-						// Vis durIntMin og durIntSec
+							// Vis durIntMin og durIntSec
 
-						timeSeconds.set(durIntSec);
-						timeMinutes.set(durIntMin);
-						
-					}
-				}));
-				timeline.setCycleCount(Timeline.INDEFINITE);
-				timeline.play();
+							timeSeconds.set(durIntSec);
+							timeMinutes.set(durIntMin);
+
+						}
+					}));
+					timeline.setCycleCount(Timeline.INDEFINITE);
+					timeline.play();
 				}
 			}
 		});

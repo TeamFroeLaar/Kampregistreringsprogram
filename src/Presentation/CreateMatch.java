@@ -42,9 +42,7 @@ public class CreateMatch {
 
 		// Labels
 		Label hjemmebane = new Label("Hjemme Bane");
-//		grid.add(hjemmebane, 0, 1);
 		Label udebane = new Label("Ude Bane");
-//		grid.add(udebane, 1, 1);
 
 		// DropDown (hjemmebane)
 		data = KRPLogic.getTeams();
@@ -55,7 +53,6 @@ public class CreateMatch {
 		hholdfelt.setSpacing(10);
 
 		hholdfelt.getChildren().addAll(hjemmebane, hHoldoptions);
-//		grid.add(holdfelt, 0, 2);
 
 		// DropDown (udebane)
 		ObservableList<Team> udeoptions = FXCollections.observableArrayList(data);
@@ -65,7 +62,6 @@ public class CreateMatch {
 		uholdfelt.setSpacing(10);
 
 		uholdfelt.getChildren().addAll(udebane, uHoldoptions);
-//		grid.add(uholdfelt, 1, 2);
 		HBox hboxOptons = new HBox();
 		hboxOptons.setSpacing(10);
 		hboxOptons.getChildren().addAll(hholdfelt, uholdfelt);
@@ -79,7 +75,6 @@ public class CreateMatch {
 		
 		// Buttons
 		Button opret = new Button("opret");
-//		grid.add(opret, 0, 4);
 		opret.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -94,7 +89,6 @@ public class CreateMatch {
 		});
 		
 		Button tilbage = new Button("return");
-//		grid.add(tilbage, 1, 4);
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
