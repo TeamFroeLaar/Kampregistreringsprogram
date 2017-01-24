@@ -1,5 +1,6 @@
 package Presentation;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,6 +26,7 @@ import javafx.stage.Stage;
 public class ViewLeague {
 	private Stage stage;
 	private GridPane grid;
+	List<Team> teamList = new ArrayList<Team>();
 
 	public ViewLeague(Stage stage) {
 		this.stage = stage;
@@ -98,7 +100,12 @@ public class ViewLeague {
 		export.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-
+				ExportLeagueTableCSV exportLeagueTableCSV = new ExportLeagueTableCSV();
+				try {
+					exportLeagueTableCSV.exportCSV(teamList);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -119,8 +126,6 @@ public class ViewLeague {
 
 	//Tilføjer data til league table
 	private void addDataToLeagueTable(TableView<Team> leagueTable) {
-		
-		List<Team> teamList = new ArrayList<Team>();
 
 		// Henter kampe
 		List<Match> matchList = KRPLogic.getMatch();
