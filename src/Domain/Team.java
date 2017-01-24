@@ -80,7 +80,7 @@ public class Team {
 	public void setUafgjorte(int uafgjorte) {
 		this.uafgjorte = uafgjorte;
 	}
-
+ 
 	public int getStilling() {
 		return stilling;
 	}

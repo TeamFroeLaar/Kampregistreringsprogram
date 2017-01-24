@@ -185,7 +185,7 @@ public class ViewLeague {
 				
 			}
 			if (team2Goals > team1Goals) {
-				int currentPoints = team2.getPoints();
+				int currentPoints = team2.getPoints(); 
 				team2.setPoints(currentPoints + 2);
 				
 				int currentWinsTeam2 = team2.getVundne();
