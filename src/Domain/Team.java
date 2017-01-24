@@ -3,7 +3,7 @@ package Domain;
 public class Team {
 	private String id;
 	private String holdnavn;
-
+	private int points;
 	
 
 	public String getId() {
@@ -25,5 +25,13 @@ public class Team {
 	@Override
 	public String toString() {
 		return holdnavn;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
 	}
 }
