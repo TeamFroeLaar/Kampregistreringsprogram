@@ -17,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class ViewLeague {
@@ -39,6 +40,7 @@ public class ViewLeague {
 
 		// TableView
 		TableView<Team> leagueTable = new TableView<>();
+		
 		
 		addDataToLeagueTable(leagueTable);
 
@@ -69,8 +71,7 @@ public class ViewLeague {
 		
 
 		// Buttons
-		Button tilbage = new Button("return");
-		grid.add(tilbage, 0, 5);
+		Button tilbage = new Button("Return");
 		tilbage.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -80,18 +81,25 @@ public class ViewLeague {
 		});
 
 		Button export = new Button("Export");
-		grid.add(export, 0, 4);
 		export.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 
 			}
 		});
+		
+		HBox knapper = new HBox();
+		knapper.getChildren().addAll(tilbage, export);
+		knapper.setSpacing(10);
+		knapper.setAlignment(Pos.CENTER_LEFT);
+		grid.add(knapper, 0, 4);
 
 		Scene viewleague = new Scene(grid, 1200, 800);
 		stage.setScene(viewleague);
 		stage.setFullScreen(false);
 		stage.show();
+		
+		viewleague.getStylesheets().add(ViewLeague.class.getResource("application.css").toExternalForm());
 
 	}
 
