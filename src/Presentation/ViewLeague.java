@@ -45,27 +45,33 @@ public class ViewLeague {
 		addDataToLeagueTable(leagueTable);
 
 		TableColumn<Team, String> stillingCol = new TableColumn<Team, String>("Stilling");
-//		stillingCol.getTableView().getItems().size();
+		stillingCol.setMinWidth(150);
 		
 		TableColumn<Team, String> holdnavnCol = new TableColumn<Team, String>("Holdnavn");
 		holdnavnCol.setCellValueFactory(new PropertyValueFactory<Team, String>("holdnavn"));
+		holdnavnCol.setMinWidth(150);
 		
-		TableColumn<Team, String> vundnetCol = new TableColumn<Team, String>("Vundet");
+		TableColumn<Team, String> vundetCol = new TableColumn<Team, String>("Vundet");
+		vundetCol.setMinWidth(150);
 		
 		TableColumn<Team, String> uafgjortCol = new TableColumn<Team, String>("Uafgjorte");
+		uafgjortCol.setMinWidth(150);
 		
 		TableColumn<Team, String> tabteCol = new TableColumn<Team, String>("Tabte");
+		tabteCol.setMinWidth(150);
 		
 		TableColumn<Team, String> maalCol = new TableColumn<Team, String>("Mål");
-
+		maalCol.setMinWidth(150);
+		
 		TableColumn<Team, String> pointCol = new TableColumn<Team, String>("Points");
 		pointCol.setCellValueFactory(new PropertyValueFactory<Team, String>("points"));
+		pointCol.setMinWidth(150);
 		pointCol.setSortType(TableColumn.SortType.DESCENDING);
 
 		leagueTable.setMinSize(800, 600);
 		leagueTable.setEditable(true);
 
-		leagueTable.getColumns().addAll(stillingCol, holdnavnCol, vundnetCol, uafgjortCol, tabteCol, maalCol, pointCol);
+		leagueTable.getColumns().addAll(stillingCol, holdnavnCol, vundetCol, uafgjortCol, tabteCol, maalCol, pointCol);
 		leagueTable.getSortOrder().add(pointCol);
 		grid.add(leagueTable, 0, 0);
 		
