@@ -58,12 +58,13 @@ public class ViewLeague {
 
 		TableColumn<Team, String> pointCol = new TableColumn<Team, String>("Points");
 		pointCol.setCellValueFactory(new PropertyValueFactory<Team, String>("points"));
+		pointCol.setSortType(TableColumn.SortType.DESCENDING);
 
 		leagueTable.setMinSize(800, 600);
 		leagueTable.setEditable(true);
 
 		leagueTable.getColumns().addAll(stillingCol, holdnavnCol, vundnetCol, uafgjortCol, tabteCol, maalCol, pointCol);
-		pointCol.sortableProperty();
+		leagueTable.getSortOrder().add(pointCol);
 		grid.add(leagueTable, 0, 0);
 		
 
