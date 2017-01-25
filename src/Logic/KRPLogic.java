@@ -24,6 +24,13 @@ public class KRPLogic {
 		createMatchInfo.createMatchInfo(match);
 	}
 
+	// Create Match w. ID
+	private DBfacade createMatchWIdInfo = new DBfacade();
+
+	public void createMatchWId(Match match) {
+		createMatchWIdInfo.createMatchWIdInfo(match);
+	}
+
 	// Create Event
 	private DBfacade createEventInfo = new DBfacade();
 
@@ -94,13 +101,10 @@ public class KRPLogic {
 		deleteEventInfo.deleteEventInfo(event);
 	}
 
-	// Select League
-	private static DBfacade leagueAccessor = new DBfacade();
-	
-	public static List<League> getLeague() {
-		
-		
-		
-		return leagueAccessor.selectLeagueInfo();
+	// Delete Match
+	private DBfacade deleteMatchInfo = new DBfacade();
+
+	public void deleteMatch(Match match) {
+		deleteMatchInfo.deleteMatchInfo(match);
 	}
 }

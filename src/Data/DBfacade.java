@@ -49,6 +49,13 @@ public class DBfacade {
 	public void createEventInfo(Event event) {
 		createEventInfo.createEvent(event);
 	}
+	
+	// Create Match w. ID
+	private CreateMatchWIdDB createMatchWIdInfo = new CreateMatchWIdDB();
+	
+	public void createMatchWIdInfo(Match match) {
+		createMatchWIdInfo.CreateMatchWId(match);
+	}
 
 	// Select Event
 	private SelectEventDB selectEventInfo = new SelectEventDB();
@@ -91,11 +98,11 @@ public class DBfacade {
 	public void deleteEventInfo(Event event) {
 		deleteEventInfo.deleteEvent(event);
 	}
-
-	// Select League
-	private static SelectLeagueDB SelectLeagueInfo = new SelectLeagueDB();
-
-	public  List<League> selectLeagueInfo() {
-		return SelectLeagueInfo.selectLeague();
+	
+	// Delete Match
+	private static DeleteMatchDB deleteMatchInfo = new DeleteMatchDB();
+	
+	public void deleteMatchInfo(Match match) {
+		deleteMatchInfo.deleteMatch(match);
 	}
 }

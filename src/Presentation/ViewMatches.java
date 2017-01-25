@@ -81,6 +81,17 @@ public class ViewMatches {
 				view.start(stage);
 			}
 		});
+		
+		Button importbtn = new Button("Import match");
+		importbtn.setPrefSize(250, 50);
+		importbtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				CSVReader view = new CSVReader(stage);
+				view.init();
+			}
+		});
+		
 		Button viewThisMatch = new Button("View match");
 		viewThisMatch.setPrefSize(250, 50);
 		viewThisMatch.setOnAction(new EventHandler<ActionEvent>() {
@@ -107,9 +118,9 @@ public class ViewMatches {
 				view.init(hjemmehold, udehold, rowData);	
 			}
 		});
+		
 		Button editMatch = new Button("Edit match");
 		editMatch.setPrefSize(250, 50);
-
 		matchesTable.setRowFactory(newSelection -> {
 			TableRow<Match> row = new TableRow<>();
 			editMatch.setOnAction(new EventHandler<ActionEvent>() {
@@ -138,9 +149,25 @@ public class ViewMatches {
 			});
 			return row;
 		});
+		
+		Button sletMatch = new Button("Slet match");
+		sletMatch.setPrefSize(250, 50);
+		sletMatch.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				KRPLogic logic = new KRPLogic();
+				Match rowData = matchesTable.getSelectionModel().getSelectedItem();
+				Match sletMatch = new Match();
+				sletMatch.setId(rowData.getId());
+				
+				logic.deleteMatch(sletMatch);
+			}
+		});
+		
+		
 		// Hbox
 		HBox knapper = new HBox();
-		knapper.getChildren().addAll(tilbage, editMatch, viewThisMatch);
+		knapper.getChildren().addAll(tilbage, importbtn, sletMatch, editMatch, viewThisMatch);
 		knapper.setSpacing(10);
 		knapper.setAlignment(Pos.CENTER);
 		grid.add(knapper, 1, 1);

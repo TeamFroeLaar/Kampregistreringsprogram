@@ -2,7 +2,6 @@ package Presentation;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
@@ -40,4 +39,3 @@ public class ExportPDF {
 	}
 
 }
-//

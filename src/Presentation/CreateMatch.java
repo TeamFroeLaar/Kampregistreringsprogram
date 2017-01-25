@@ -84,6 +84,8 @@ public class CreateMatch {
 				newMatch.setUdeholdId(uHoldoptions.getValue().getId());
 				newMatch.setDatoTid(dateTime.getText());
 				
+				System.out.println(newMatch);
+				
 				logic.createMatch(newMatch);
 			}
 		});

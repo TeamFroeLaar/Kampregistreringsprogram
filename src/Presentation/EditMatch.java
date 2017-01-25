@@ -318,6 +318,8 @@ public class EditMatch {
 				e.setHoldid(hjemmehold.getId());
 				e.setKampid(matchData.getId());
 
+				System.out.println(e);
+				
 				insertTime(timeTxt);
 
 				refreshTable(rowDataMatch);

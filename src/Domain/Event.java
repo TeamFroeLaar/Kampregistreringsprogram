@@ -46,5 +46,10 @@ public class Event
 	public void setHoldnavn(String holdnavn) {
 		this.holdnavn = holdnavn;
 	}
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", event=" + event + ", holdid=" + holdid + ", kampid=" + kampid + ", tid=" + tid
+				+ ", holdnavn=" + holdnavn + "]";
+	}
 
 }
