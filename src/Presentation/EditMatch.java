@@ -69,6 +69,7 @@ public class EditMatch {
 		this.stage = stage;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void init(Team hjemmehold, Team udehold, Match rowDataMatch) {
 		// Match rowdata
 		Match matchData = rowDataMatch;

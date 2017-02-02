@@ -4,7 +4,6 @@ import java.util.List;
 
 import Data.DBfacade;
 import Domain.Event;
-import Domain.League;
 import Domain.Match;
 import Domain.Team;
 
