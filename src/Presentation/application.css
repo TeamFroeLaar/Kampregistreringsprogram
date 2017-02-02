@@ -6,7 +6,7 @@
 .label {
     -fx-font-size: 15pt;
     -fx-font-family: "Segoe UI Semibold";
-        -fx-text-fill: grey;
+    -fx-text-fill: grey;
     -fx-opacity: 1;
 }
 
